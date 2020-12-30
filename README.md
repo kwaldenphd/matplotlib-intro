@@ -178,10 +178,6 @@ Knowing how to configure or customize these plot components is not just about ae
 
 # Customizing in `matplotlib`
 
-The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
-
-Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
-
 ## Title and Axis Labels
 
 We can start by adding a plot title, and axis labels to our square root line plot.
@@ -357,6 +353,9 @@ Character | String Representation | Description
 `-.` | `dashdot` | Dash dot; dash-dot line style
 `:` | `dotted` | Colon; dotted line style
 
+For more on customizing line styles:
+- [Linestyles](https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/linestyles.html)
+
 # Marker Style
 
 Character | Description
@@ -384,7 +383,7 @@ Character | Description
 `|` | Vertical line or pipe symbol; vline marker
 `_` | Underscore symbol; hline marker
 
-# Color
+# Colors
 
 Character | Color
 --- | ---
@@ -410,6 +409,69 @@ For more on colors in `matplotlib`:
 - [`matplotlib.colors`](https://matplotlib.org/3.1.1/api/colors_api.html#module-matplotlib.colors)
 - [Color Demo](https://matplotlib.org/3.1.1/gallery/color/color_demo.html)
 
+## Making Style Choices
+
+When building a plot that will have multiple lines or types of markers, line/marker style (along with color) can help distinguish each component.
+
+In a situation where the plot will be presented or printed in black-and-white only, or viewed by an audience that may include individuals with visual impairments, intentional use of line/marker style is essential for accessibility.
+
+When building a plot that will have multiple lines or types of markers, color (along with line/marker style) can help distinguish each component.
+
+But relying only on color to convey meaning in a plot runs the risks of making the visual inaccessible or not meaningful to those with visual impairments.
+
+Axis Maps's [Colorbrewer2.0](https://colorbrewer2.org/) is a useful tool for finding accessible color palletes.
+
+### Colormaps
+
+As described by Kenneth Moreland, "One of the most fundamental features of scientific visualiation is the process of mapping scalar values to colors" (Moreland, "Diverging Color Maps for Scientific Visualization," in *Proceedings of the 5th International Symposium on Visual Computing*, December 2009. http://dx.doi.org/10.1007/978-3-642-10520-3_9)
+
+The color scheme or pallette for a plot is most often referred to as a colormap.
+
+Colormaps generally fall into a few categories.
+
+`matplotlib` includes [a wide range of built-in colormaps](https://matplotlib.org/tutorials/colors/colormaps.html), some of which are shown in the images below.
+
+#### Sequential
+
+FIGURE 3 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_002.png
+
+Sequential colormaps show change in lightness or color saturation incrementally. 
+
+They are generally comprised of a single hue.
+
+#### Diverging
+
+FIGURE 4 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_004.png
+
+Diverging colormaps show change in lightness and possibly saturation for two different colors that meet in the middle at an unsaturated color. 
+
+This type of colormap is most effective when data being plotted has a critical middle value, or deviates around zero.
+
+#### Cyclic
+
+FIGURE 5 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_019.png
+
+Cyclic colormaps show change in lightness for two different colors that meet in the middle and begin or end at an unsaturated color.
+
+This type of colormap is most effective for data values that wrap around at the endpoints (i.e. phase angle, wind direction, time of day).
+
+### Qualitative
+
+FIGURE 6 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_020.png
+
+Qualitative colormaps are miscellaneous colors.
+
+This type of colormap is most effective for information that does not have ordering or relationships.
+
+For more on colormaps in `matplotlib`:
+- [Colormaps](https://matplotlib.org/3.1.1/tutorials/colors/colormaps.html)
+- [Choosing Colormaps in Matplotlib](https://matplotlib.org/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py)
+- [Creating Colormaps in Matplotlib](https://matplotlib.org/3.1.1/tutorials/colors/colormap-manipulation.html)
+
+
+## Putting it all together
+
+So how would we use these arguments when generating a plot?
 
 Line or marker styles and colors can be combined in a single string format.
 
@@ -421,24 +483,61 @@ A few examples:
 - `rp`: red pentagon marker
 - `cD`: cyan diamond marker
 
-You can also specify line style using named stings
+You can also specify line style using named stings.
 
+These arguments are invoked as part of the `.plot()` function (or the equivalent function when generating other kinds of plots).
 
+A few examples for customizing line color and style:
+```Python
+# set line color using named color
+ax.plot(x, y, color='blue')
 
+# set line color using color character
+ax.plot(x, y, color='b')
 
-So how would we use these arguments when generating a plot?
+# set line color using hex
+ax.plot(x, y, color="#0000FF"
 
-These arguments are invoked as part of the `.plot()` function.
+# set line color using RGB
+ax.plot(x, y, color=(0, 0, 255))
 
-A few 
+# set color using tab notation
+ax.plot(x, y, color='tab:blue')
+```
 
+```Python
+# set line style using character
+ax.plot(x, y, linestyle='--')
 
+# set line style using style name
+ax.plot(x, y, linestyle='dashed')
+```
+
+```Python
+# set line style and color using characters
+ax.plot(x, y, 'b--')
+
+# set line style and color separately
+ax.plot(x, y, color='blue', linestyle='--')
+```
+
+```Python
+# set marker style and color using characters
+ax.plot(x, y, 'bo')
+
+# set marker style and color separately
+ax.plot(x, y, color='green', marker='o')
+```
 
 ### Style Sheets
 
+The prospect of having to make choices about font, style, color, and formatting for every component of your plot can be daunting.
+
 `matplotlib` includes a wide range of predefined styles.
 
-FIGURE 2 https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_002.png
+FIGURE 2 https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html
+
+https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_001.png (sequential up through 027)
 
 Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
 
@@ -488,13 +587,188 @@ For those interested in data journalism, most large publications have an interna
 
 When building more complex plots with multiple lines, comparisons, etc. plot legends are essential.
 
-For some types of visualizations, 
+Some key terms for working with `.legend()`:
+- ***legend entry***: exactly one key and one label
+- ***legend key***: colored/patterned marker to the left of each legend label
+- ***legend label***: text which describes the handle represented by the key
+- ***legend handle***: original object used to generate an appropriate entry in the legend
 
-The most straightforward way to build a legend is to use the `label` argument for each piece of the plot.
+We can create a legend in `matplotlib` using `.legend()`.
+
+The basic options for creating a legend:
+```Python
+# calling legend with automatic detection
+legend()
+
+# calling legend from existing plot element labels
+legend(labels)
+
+# calling legend by defining legend elements
+legend(handles, labels)
+```
+
+For some types of visualizations, the default legend in `matplotlib` will be sufficient.
+
+One way to build a legend is to use the `label` argument for each piece of the plot.
+
+Using `.legend()` means the elements to be added to the legend are determined automatically.
+
+No additional arguments are passed to the function.
+
+Labels are set using the `.set_label()` method when creating the original handle.
+
+Elements with an empty string as the label or a label that starts with the undescore character `_` will not be included in the legend.
+
+```Python
+# create handle for first line
+line_1, = ax.plot([LINE DATA], 'b--')
+
+# set label for line_1
+line_1.set_label('Line One')
+
+# create handle for second line
+line_2, = ax.plot([LINE DATA], color='green', linestyle='-.`)
+
+# set label for line_2
+line_2.set_label('Line Two')
+
+# create handle for third line that will NOT be included in the legend
+line_3, = ax.plot([LINE DATA], color=(255, 0, 0), linestyle=':')
+
+# alternate option to give line_3 a label but still not have it included in the legend
+line_3, = ax.plot([LINE DATA], color='#000000', linestyle='-')
+line_3.set_label('_Line Three')
+```
+
+In this example, `ax.legend()` will use the `label` attributes for each line to add it to the legend.
+
+Line three will not be added because its label begins with the underscore character `_`.
+
+We can also pass the list of handles directly to `.legend()`:
+```Python
+# create handle for first line
+line_1, = ax.plot([LINE DATA], 'b--')
+
+# set label for line_1
+line_1.set_label('Line One')
+
+# create handle for second line
+line_2, = ax.plot([LINE DATA], color='green', linestyle='-.`)
+
+# set label for line_2
+line_2.set_label('Line Two')
+
+# create legend
+ax.legend(handles=[line_1, line_2])
+```
+
+In a situation where our handles do not have labels, we can pass both the handles and labels to `.legend()`.
+```Python
+ax.legend([line_1, line_2], ['Line One', 'Line Two'])
+```
+
+In some situations, we might want to create a legend with handles that don't exist in our Figure or Axes.
+
+For example, in a situation where color has meaning, we want a legend that takes color values as handles, rather than values for data associated with a specific color.
+
+We can create a handle just for the legend.
+
+That is, there is no requirement for handles included in the legend to exist in the Figure or Axes.
+
+An example where the color red is a handle for our legend.
+```Python
+red_patch = mpatches.Patch(color='red', label='The red data')
+ax.legend(handles=[red_patch])
+plt.show()
+```
+
+The same is true for line styles or marker symbols.
+
+An example where blue lines with stars are a handle for our legend.
+```Python
+blue_line = mlines.Line2D([], [], color='blue', marker='*', markersize=15, label='Blue stars')
+ax.legend(handles=[blue_line])
+plt.show()
+```
+
+We can also customize where a legend is located for a plot using the `loc` keyword argument.
+
+String arguments for `loc`:
+
+Location String | Location Code
+--- | ---
+`'best'` | 0
+`'upper right'` | 1
+`'upper left'` | 2
+`'lower left'` | 3
+`'lower right'` | 4
+`'right'` | 5
+`'center left'` | 6
+`'center right'` | 7
+`'lower center'` | 8
+`'upper center'` | 9
+`'center'` | 10
+
+To invoke these keyword arguments when calling the `.legend()` function:
+```Python
+ax.legend(loc='best')
+
+ax.legend(handles=[line_1, line_2], loc='upper right')
+
+ax.legend([line_1, line_2], ['Line One', 'Line Two'], loc=2)
+
+ax.legend(handles=[red_patch], loc=7)
+
+ax.legend(handles=[blue_line], loc='upper center')
+```
+
+In situations where we want to customize where the legend is located, we can use `bbox_to_anchor` in conjunction with `loc`.
+
+This argument allows arbitrary placement of the legend.
+
+`bbox` coordinates are interpreted in a coordinate system, which uses the default `Axes` or `Figure` coordinates.
+
+A few examples:
+
+```Python
+# example that puts the legend's upper-right hand corner in the center of the axes
+loc='upper right', bbox_to_anchor=(0.5, 0.5)
+
+# example that puts the legend in the best location in the bottom right quadrant of the axes
+loc='best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)
+
+# example that places legend above plot and expands legend to full given bounding box
+loc='lower left', bbox_to_anchor=(0., 1.02, 1., .102), ncol=2, mode='expand', borderaxespad=0.)
+
+# example that places a legend to the right of a plot
+loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
+```
+
+You'll notice the last two examples include additional parameters.
+
+For more on these parameters and other `.legend()` customization options:
+- [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
+- [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
+
+# Other types of plots
+
+## Subplots
+
+## Scatter plots
+
+## Histograms
+
+## Bar charts
+
+## Pie charts
+
+## Tables
+
+# Saving or exporting plots
 
 
 
-# Types of `matplotlib` figures
+
 
 # `OO` vs. `pyplot`
 
