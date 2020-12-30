@@ -21,6 +21,9 @@ Eric Matthes, Python Crash Course, Chapter 15 "Generating Data"
 
 Ventsislav Yordanov, ["Data Science with Python: Intro to Data Visualization with Matplotlib"](https://towardsdatascience.com/data-science-with-python-intro-to-data-visualization-and-matplotlib-5f799b7c6d82) *Towards Data Science* (21 July 2018)
 
+Jake VanderPlas, [*Python Data Science Handbook: Essential Tools for Working with Data*](https://jakevdp.github.io/PythonDataScienceHandbook/) (O'Reilly, 2016)
+Chapter 4 Visualization with Matplotlib
+
 
 # Getting started with `matplotlib`
 
@@ -496,7 +499,7 @@ ax.plot(x, y, color='blue')
 ax.plot(x, y, color='b')
 
 # set line color using hex
-ax.plot(x, y, color="#0000FF"
+ax.plot(x, y, color="#0000FF")
 
 # set line color using RGB
 ax.plot(x, y, color=(0, 0, 255))
@@ -754,15 +757,312 @@ For more on these parameters and other `.legend()` customization options:
 
 ## Subplots
 
+As mentioned previously, a single `Figure` object can contain multiple `Axes` or plots.
+
+To create a `Figure` with two subplots, we pass number arguments to `plt.subplots()`.
+
+An example that compares dampened and undampened oscillation over time (in seconds).
+
+```Python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# create x axis for first subplot
+x1 = np.linspace(0.0, 5.0)
+
+# create x axis for second subplot
+x2 = np.linspace(0.0, 2.0)
+
+# create y axis for first subplot
+y1 = np.cos(2 * np.pi * x1) * np.exp(-x1)
+
+# create y axis for second subplot
+y2 = np.cos(2 * np.pi * x2)
+
+# create figure with two axes/subplots, stacked vertically on top of each other
+fig, (ax1, ax2) = plt.subplots(2, 1)
+
+# set figure title
+fig.suptitle('A tale of 2 subplots')
+
+# create first subplot 
+ax1.plot(x1, y1, 'o-')
+ax1.set_ylabel('Damped oscillation')
+
+# create  second subplot
+ax2.plot(x2, y2, '.-')
+ax2.set_xlabel('time (s)')
+ax2.set_ylabel('Undamped')
+
+#show plot
+plt.show()
+```
+For more on subplots:
+- [`matplotlib`, Multiple subplots](https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html)
+- [`matplotlib`, Subplots, axes, and figures](https://matplotlib.org/gallery/index.html#subplots-axes-and-figures)
+- [Jake VanderPlas, "Multiple Subplots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.08-multiple-subplots.html)
+
+
 ## Scatter plots
+
+### `.scatter()`
+
+The `.scatter()` function creates basic scatter plot visualizations.
+
+`.scatter()` can take additional optional size, style, and color arguments.
+
+To plot a single ponit using `.scatter()`:
+```Python
+fig, ax = plt.subplots()
+ax.scatter(2, 4)
+
+plt.show()
+```
+
+We can plot a series of points by passing lists of `X` and `Y` values to `.scatter()`:
+```Python
+import matplotlib.pyplot as plt
+
+# set x values
+x_values = [1, 2, 3, 4, 5]
+
+# set y values
+y_values = [1, 4, 9, 16, 25]
+
+# create figure with axes
+fig, ax = plt.subplots()
+
+# create scatter plot
+ax.scatter(x_values, y_values, s=100)
+
+#show plot
+plt.show()
+```
+
+We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+
+We can also combine elements of a scatter plot and line plot to have points connected by a line:
+```Python
+# set x values
+x = nplinspace(0, 10, 30)
+
+# set y values
+y = np.sin(x)
+
+# create figure with axis
+fig, ax = plt.subplots()
+
+# create scatter plot
+ax.scatter(x, y, '-ok')
+
+# show plot
+plt.show()
+```
+
+### `.plt.scatter()`
+
+We can create more highly customized scatter plots using `plt.scatter()`.
+
+```Python
+# set x values
+x = nplinspace(0, 10, 30)
+
+# set y values
+y = np.sin(x)
+
+# create figure with axis
+fig, ax = plt.subplots()
+
+# create scatter plot
+ax.scatter(x, y, marker='o')
+
+# show plot
+plt.show()
+```
+
+`plt.scatter()` allows us to customize each individual point in the scatter plot, through individual customization or mapping to data.
+
+An example random scatter plot with points of different colors and sizes.
+```Python
+# set random state
+rng = np.random.RandomState(0)
+
+# set x values
+x = rng.randn(100)
+
+# set y values
+y = rng.randn(100)
+
+# set colors
+colors = rng.rand(100)
+
+# set size
+sizes = 1000 * rng.rand(100)
+
+# create figure with axes
+fig, ax = plt.subplots()
+
+# create scatter plot
+ax.scatter(x, y, c=colors, s=sizes, alpha=0.3, cmap='viridis')
+
+# show color scale
+ax.colorbar()
+
+# show plot
+plt.show()
+```
+
+Another `plt.scatter()` example using data on flower petal and sepal size.
+```Python
+#import Scikit-Learn
+from sklearn.datasets import load_iris
+
+# load data 
+iris = load_iris()
+
+# create data object
+features = iris.data.T
+
+# create figure with axes
+fig, ax = plt.subplots()
+
+# create scatter plot
+ax.scatter(features[0], features[1], alpha=0.2, s=100*features[3], c=iris.target, cmap='viridis')
+
+# set x axis label
+ax.set_xlabel(iris.feature_names[0])
+
+# set y axis label
+ax.set_ylabel(iris.feature_names[1])
+
+# show plot
+plt.show()
+```
+
+For smaller datasets where a high level of customization is important, `plt.scatter()` will be the better option.
+
+For larger datasets, `plt.plot` will perform more effectively (because the program is not styling each individual point when creating the plot).
+
+For more on scatterplots:
+- [`matplotlib`, "Scatter plot"](https://matplotlib.org/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
+- [`matplotlib`, "Scatter Demo2"](https://matplotlib.org/gallery/lines_bars_and_markers/scatter_demo2.html)
+- [`matplotlib.pyplot.scatter`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.scatter.html)
+- [Jake VanderPlas, "Simple Scatter Plots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.02-simple-scatter-plots.html)
 
 ## Histograms
 
+A histogram is a type of plot that approximates the distribution of numerical data.
+
+The first step in constructing a histogram is to `bin` or `bucket` the range of values.
+
+In other words, we need to divide the entire range of values into a series of intervals.
+
+The second step in constructing a histogram is to count how many values fall into each interval.
+
+In a histogram, the bins are usually consecutive, non-overlapping intervals. 
+
+The bins must be adjacent and are often (but not necessarily) of equal size.
+
+To plot a 1D histogram, we only need a single vector of numbers.
+
+2D histograms require a second vector.
+
+A basic 1D histogram:
+```Python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# set data
+data = np.random.randn(1000)
+
+# create figure and axes
+fig, ax = plt.subplots()
+
+# create histogram with no specified bins
+ax.hist(data)
+
+# show plot
+plt.show()
+```
+
+Another example of a 1D histogram, this time with a `bins` keyword argument:
+```Python
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import colors
+from matplotlib.ticker import PercentFormatter
+
+# Fixing random state for reproducibility
+np.random.seed(19680801)
+
+# set number of points
+N_points = 100000
+
+# set number of bins
+n_bins = 20
+
+# generate normal distribution, centered at x=0 and y=5
+x = np.random.randn(N_points)
+y = .4 * x + np.random.randn(100000) + 5
+
+# create figure and axes
+fig, axs = plt.subplots(1, 2, sharey=True, tight_layout=True)
+
+# set number of bins and generate histograms
+axs[0].hist(x, bins=n_bins)
+axs[1].hist(y, bins=n_bins)
+
+# show plot
+plt.show()
+```
+
+We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+
+We can also customize our histogram by specifying colors, based on `Y` axis values.
+
+```Python
+fig, axs = plt.subplots(1, 2, tight_layout=True)
+
+# N is the count in each bin, bins is the lower-limit of the bin
+N, bins, patches = axs[0].hist(x, bins=n_bins)
+
+# We'll color code by height, but you could use any scalar
+fracs = N / N.max()
+
+# we need to normalize the data to 0..1 for the full range of the colormap
+norm = colors.Normalize(fracs.min(), fracs.max())
+
+# Now, we'll loop through our objects and set the color of each accordingly
+for thisfrac, thispatch in zip(fracs, patches):
+    color = plt.cm.viridis(norm(thisfrac))
+    thispatch.set_facecolor(color)
+
+# We can also normalize our inputs by the total number of counts
+axs[1].hist(x, bins=n_bins, density=True)
+
+# Now we format the y-axis to display percentage
+axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
+```
+
+For more on histograms:
+- [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/gallery/statistics/histogram_features.html)
+- [`matplotlib`, "Histograms"](https://matplotlib.org/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py)
+- [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
+- [Jake VanderPlas, "Histograms, Binnings, and Density" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html)
+
 ## Bar charts
+
+One of the common uses for bar charts is to plot categorial variables.
+
+
 
 ## Pie charts
 
 ## Tables
+
+## Additional Resources
+
+
 
 # Saving or exporting plots
 
