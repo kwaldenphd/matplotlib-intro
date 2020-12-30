@@ -9,4 +9,500 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 # Table of Contents
 
+Wes McKinneyh Chapter 9 "Plotting and Visualization"
+
+matplotlib, ["Usage Guide"](https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py)
+
+matplotlib, ["Tutorials"](https://matplotlib.org/tutorials/index.html)
+
+Eric Matthes, Python Crash Course, Chapter 15 "Generating Data"
+
+`pandas` documentation, ["Getting Started: Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
+
+Ventsislav Yordanov, ["Data Science with Python: Intro to Data Visualization with Matplotlib"](https://towardsdatascience.com/data-science-with-python-intro-to-data-visualization-and-matplotlib-5f799b7c6d82) *Towards Data Science* (21 July 2018)
+
+
+# Getting started with `matplotlib`
+
+For our purposes, a plot is defined as "a graphic representation (such as a chart)" (Merriam Webster).
+
+These graphic representations of data are often called charts, graphs, figures, etc. 
+
+In the context of programming, computer science, and data science, we refer to these as plots.
+
+We can generate plots for data stored in `pandas` using the `matplotlib` package.
+
+`matplotlib` was developed in 2002 as a MATLAB-like plotting interface for Python.
+
+"Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python...Matplotlib produces publication-quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shell, web application servers, and various graphical user interface toolkits" ([Matplotlib documentation, Github](https://github.com/matplotlib/matplotlib))
+
+As described [by the original developer John Hunter](https://matplotlib.org/users/history.html), "Matplotlib is a library for making 2D plots of arrays in Python. Although it has its origins in emulating the MATLAB graphics commands, it is independent of MATLAB, and can be used in a Pythonic, object oriented way. Although Matplotlib is written primarily in pure Python, it makes heavy use of NumPy and other extension code to provide good performance even for large arrays. Matplotlib is designed with the philosophy that you should be able to create simple plots with just a few commands, or just one! If you want to see a histogram of your data, you shouldn't need to instantiate objects, call methods, set properties, and so on; it should just work."
+
+For more on `matplotlib`'s development and history: John Hunter, ["History"](https://matplotlib.org/users/history.html) *Matplotlib* (2008)
+
+To be able to call the `matplotlib` API (application programming interface) within Python, we need to make sure the package is installed and loaded.
+- To install at the command line: `pip install matplotlib`
+- To load in a `.py` script: `import matplotlib.pyplot as plot`
+- To work with `matplotlib` from a Jupyter notebook: `%matplotlib notebook`
+
+The default `matplotlib` plot is a line plot.
+
+```Python
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# import numpy
+import numpy as np
+
+# create dataset of numbers 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+data = np.arrange(10)
+
+# create line plot of data 
+plt.plot(data)
+```
+
+We pass our data to `plt.plot()` and a line plot is generated.
+
+Plots in `matplotlib` reside within a `Figure` object.
+
+These figures contain one or more `Axes`, which are the area where points can be added or specified usign x-y coordinates for 2-D plots.
+
+Once the `Figure` object has been created, we can add start adding elements to the plot.
+
+The easiest way to create a figure is using `pyplot.subplots()`.
+
+NOTE: Because we have loaded the package using `import matplotlib.pyplot as plot`, we can use `plt` as shorthand for `pyplot`.
+
+We can then use `axes.plot()` to create axes and add data.
+
+Another line plot using a list of number values:
+```Python
+# import package
+import matplotlib.pyplot as plot
+
+# create figure with axes
+fig, ax = plt.subplots()
+
+# plot data on axes
+ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
+```
+
+We can see the first list of `1, 2, 3, 4` is shown on the `X` axis.
+
+The second list `1, 4, 2, 3` is shown on the `Y` axis.
+
+NOTE: The `Y` axis values are plotted in the original order--for this type of plot (a line plot), `matplotlib` keeps the list data in its original order.
+
+Let's generate a line plot using a square number sequence
+
+```Python
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares)
+
+# show plot
+plt.show()
+```
+
+In this example, we import `matplotlib` and create two lists, `squares` and `input_values` that hold the data that will be plotted.
+
+NOTE: We need to specify `input_values`, because the default in `matplotlib` will start the axis at `0`.
+
+We then create a new variable `fig` that represents the entire figure or collection of plots.
+
+The variable `ax` represents a single plot in the `fig` figure.
+
+We then pass `squares` to the `plot()` method to create the plot.
+
+And `plt.show()` opens the `matplotlib` viewer to show us the newly-generated plot.
+
+From within the `matplotlib` viewer, we can zoom in and navigate the plot, as well as save images of the plot.
+
+# Anatomy of a `matplotlib` figure
+
+Before we start customizing plots or generating more complex plots, it's useful to know the components of a `matplotlib` figure.
+
+FIGURE 1 https://matplotlib.org/_images/anatomy.png
+
+## `Figure`
+
+`Figure`: A figure object that can include multiple `Axes` or plots; a `Figure` contains at least one `Axes`
+
+```Python
+# create an empty figure with no axes
+fig = plt.figure()
+
+# create a figure with a single axes
+fig, ax = plt.subplots()
+
+# create a figure with a 2x2 grid of axes
+fig, axs = plt.subplots(2, 2)
+```
+
+Having multiple `Axes` in the same `Figure` is useful when creating side-by-side visualizations or a dashboard-style collection of visualizations.
+
+## `Axes`
+
+In `matplotlib` syntax, `Axes` are what we would think of as a single plot, where data is plotted.
+
+A `Figure` can contain many `Axes`, but a given `Axes` object can only be in one `Figure`.
+
+For 2D visualizations, an `Axes` contains two `Axis` objects.
+
+## `Axis`
+
+`matplotlib` works in a Cartesian coordinate system, with an `X` (horizontal) and `Y` (vertical) axis.
+
+In a `matplotlib` plot, the `Axis` objects set graph limits and generate tick marks and labels.
+
+The location of ticks is determined by a `Locator` object.
+
+Tick labels are strings formatted using `Formatter`.
+
+## Everything Else
+
+The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
+
+Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
+
+# Customizing in `matplotlib`
+
+The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
+
+Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
+
+## Title and Axis Labels
+
+We can start by adding a plot title, and axis labels to our square root line plot.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares)
+
+# add title
+ax.set_title("Square Numbers")
+
+# add x axis label
+ax.set_xlabel("Value")
+
+# add y axis label
+ax.set_ylabel("Square of Value") 
+
+# show plot
+plt.show()
+```
+
+We now see a title and axis labels.
+
+This basic title and axis label syntax applies across different types of `matplotlib` plots.
+
+More on that later.
+
+## Font Size and Line Thickness
+
+We can also customize the font size for title and labels, as well as the line thickness.
+
+```Python
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares, linewidth-3)
+
+# add title
+ax.set_title("Square Numbers", fontsize=24)
+
+# add x axis label
+ax.set_xlabel("Value", fontsize=14)
+
+# add y axis label
+ax.set_ylabel("Square of Value", fontsize=14) 
+
+# set tick label size
+ax.tick_params(axis='both', labelsize=14)
+
+# show plot
+plt.show()
+```
+
+The updated plot includes these size and thickness modifications.
+
+## Ticks and Ticklabels
+
+By default, `matplotlib` will use the tick locations as labels.
+
+We can use `.set_xticks()` and `.set_xticklabels()` to set tick values and labels for the `X` axis.
+
+`.set_yticks()` and `.set_yticklabels()` do the same for the `Y` axis.
+
+Tick values work within the data range for each axis.
+
+Let's say we wanted number words as tick labels for our square root plot.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares)
+
+# add title
+ax.set_title("Square Numbers")
+
+# add x axis label
+ax.set_xlabel("Value")
+
+# add y axis label
+ax.set_ylabel("Square of Value") 
+
+# set x axis tick locations
+ax.set_xticks([0, 1, 2, 3, 4, 5])
+
+# set x axis  tick labels
+ax.set_xticklabels(['zero', 'one', 'two', 'three', 'four', 'five'])
+
+# set y axis tick locations
+ax.set_yticks([0, 5, 10, 15, 20, 25, 30])
+
+# set y axis tick labels
+ax.set_yticklabels(['zero', 'five', 'ten', 'fifteen', 'twenty', 'twenty five', 'thirty'])
+
+# show plot
+plt.show()
+```
+
+We could also adjust the font size and rotation for those tick labels by modifying the `.set_ticklabels()` lines.
+```Python
+# set x axis  tick labels
+ax.set_xticklabels(['zero', 'one', 'two', 'three', 'four', 'five'], rotation=30, fontsize='small')
+
+# set y axis tick labels
+ax.set_yticklabels(['zero', 'five', 'ten', 'fifteen', 'twenty', 'twenty five', 'thirty'], fontsize='small')
+```
+
+These modifications set the ticklabel font size as `small` and for the `X` axis tick labels rotate the text by 30 degrees.
+
+We could also adjust the tick label style without adjusting the actual tick labels using `.tick_params()`.
+
+For example, to change the font size for major tick marks on both axis:
+```Python
+# add title
+ax.set_title("Square Numbers")
+
+# add x axis label
+ax.set_xlabel("Value")
+
+# add y axis label
+ax.set_ylabel("Square of Value") 
+
+# set tick label size
+ax.tick_params(axis='both', which='major', labelsize=14)
+```
+
+In this example, the default tick values and labels will be used. 
+
+`.tick_params()` modifies the label size for major tick marks on both the `X` and `Y` axis.
+
+## Colors, Markers, and Line Styles
+
+The `.plot()` function can take additional arguments that specify line style and color.
+
+For plots that have points or markers, these same characters are used to specify point type and color.
+
+# Line Style
+
+Character | String Representation | Description
+--- | --- | ---
+`-` | `solid` | Dash; solid line style
+`--` | `dashed` | Double dash; dashed line style
+`-.` | `dashdot` | Dash dot; dash-dot line style
+`:` | `dotted` | Colon; dotted line style
+
+# Marker Style
+
+Character | Description
+--- | ---
+`.` | Period; point marker
+`,` | Comma; pixel marker
+`o` | Lower-case letter o; circle marker
+`v` | Lower-case letter v; triangle_down marker
+`^` | Vertical caret symbol; triangle_up marker
+`<` | Less-than sign; triangle_left marker
+`>` | Greater-than sign; triangle_right marker
+`1` | Number 1; tri_down marker
+`2` | Number 2; tri_up marker
+`3` | Number 3; tri_left marker
+`4` | Number 4; tri_right marker
+`s` | Lower-case letter s; square marker
+`p` | Lower-case letter p; pentagon marker
+`*` | Asterisk; star marker
+`h` | Lower-case letter h; hexagon1 marker
+`H` | Upper-case letter h, hexagon2 marker
+`+` | Plus sign; plus marker
+`x` | Lower-case letter x; x marker
+`D` | Upper-case letter d; diamond marker
+`d` | Lower-case letter d; thin_diamond marker
+`|` | Vertical line or pipe symbol; vline marker
+`_` | Underscore symbol; hline marker
+
+# Color
+
+Character | Color
+--- | ---
+`b` | blue
+`g` | green
+`r` | red
+`c` | cyan
+`m` | magenta
+`y` | yellow
+`k` | black
+`w` | white
+
+You can also specify colors using full color names (`green`), hex strings (`#008000`), or RGB combinations (`0, 128, 0`).
+
+`matplot` lib supports the following named color pallets:
+- Base colors (character keyword arguments)
+- Tableau (named color from default Tableau 10 pallette; uses `tab:blue` syntax)
+- CSS (named colors from CSS; uses `black`, `dimgray`, `antiquewhite` syntax)
+
+For more on colors in `matplotlib`:
+- [List of named colors](https://matplotlib.org/3.1.1/gallery/color/named_colors.html)
+- [Specifying Colors](https://matplotlib.org/3.1.1/tutorials/colors/colors.html#sphx-glr-tutorials-colors-colors-py)
+- [`matplotlib.colors`](https://matplotlib.org/3.1.1/api/colors_api.html#module-matplotlib.colors)
+- [Color Demo](https://matplotlib.org/3.1.1/gallery/color/color_demo.html)
+
+
+Line or marker styles and colors can be combined in a single string format.
+
+Combining these characters opens up a wide range of customization options.
+
+A few examples:
+- `bo`: blue circle marker
+- `k--`: black dashed line
+- `rp`: red pentagon marker
+- `cD`: cyan diamond marker
+
+You can also specify line style using named stings
+
+
+
+
+So how would we use these arguments when generating a plot?
+
+These arguments are invoked as part of the `.plot()` function.
+
+A few 
+
+
+
+### Style Sheets
+
+`matplotlib` includes a wide range of predefined styles.
+
+FIGURE 2 https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_002.png
+
+Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
+
+To use one of these styles, we can add a single line of code before starting to generate the plot.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# set plot style
+plt.style.use('ggplot')
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares, linewidth-3)
+
+# add title
+ax.set_title("Square Numbers", fontsize=24)
+
+# add x axis label
+ax.set_xlabel("Value", fontsize=14)
+
+# add y axis label
+ax.set_ylabel("Square of Value", fontsize=14) 
+
+# set tick label size
+ax.tick_params(axis='both', labelsize=14)
+
+# show plot
+plt.show()
+```
+
+Consult the `matplotlib` ["Style sheets reference" page](https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html) to learn more.
+
+For those interested in data journalism, most large publications have an internal style guide. And since 2017, the AP Stylebook has included a chapter on data journalism.
+- Daniel Funke, ["The updated 'Bloomberg Way' s tyle guide focuses on best practices for data and multiplatform journalism"](https://www.poynter.org/reporting-editing/2017/the-updated-bloomberg-way-style-guide-focuses-on-best-practices-for-data-and-multiplatform-journalism/) *Poynter* (18 July 2017)
+- Lauren Easton, ["Digging into data journalism"](https://blog.ap.org/industry-insights/digging-into-data-journalism) *Associated Press* (26 July 2017)
+
+## Legends
+
+When building more complex plots with multiple lines, comparisons, etc. plot legends are essential.
+
+For some types of visualizations, 
+
+The most straightforward way to build a legend is to use the `label` argument for each piece of the plot.
+
+
+
+# Types of `matplotlib` figures
+
+# `OO` vs. `pyplot`
+
+
+
+# Using `matplotlib` with `pandas`
+
+
+# Practice Problems
+
 # Lab Notebook Questions
