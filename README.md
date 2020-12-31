@@ -1787,16 +1787,101 @@ For more on text and annotation:
 
 # Saving or exporting plots
 
+Up to this point, all of our examples have ended with the line `plt.show()`.
 
+But there are many situations in which you might want or need to save a plot as a static image file.
 
+We can do this using `plt.savefig()`.
 
+`matplotlib` supports the following image file types:
+- `.png`: portable network graphics; raster-graphics file format that supports lossless data compression
+- `.pdf`: portable document format; proprietary Adobe file format; fixed-layout flat document
+- `.ps`: postscript; page description language developed by Adobe
+- `.eps`: encapsulated postscript; postscript document formatted as a graphics file format
+- `.svg`: scalable vector graphics; vector based image based on XML
+
+The basic syntax for saving a figure as an image file:
+```Python
+# basic syntax
+plt.savefig('file_name.file_type')
+
+# example for a png file
+plt.savefig('png_sample.png')
+
+# example for an svg file
+plt.savefig('svg_sample.svg')
+```
+
+We can customize aspects of the saved image using other arguments in combination with `.savefig()`.
+
+`dpi` can set the resolution to a numeric value.
+```Python
+plt.savefig('svg_sample.svg', dpi=300)
+```
+
+Setting `transparent` to `True` makes the image background transparent for file types that support transparent background.
+```Python
+plt.savefig('svg_sample.svg', transparent=True)
+```
+
+`bbox_inches` will alter the size of the bounding box or whitespace around the output image.
+
+If no bounding box is needed, `bbox_inches='tight'` is ideal.
+
+## Additional resources
+
+For more on customization options when saving a figure as an image:
+- [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
 
 # `OO` vs. `pyplot`
 
+If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
+
+That is because Matplotlib has two interfaces. 
+
+The first is an `object-oriented (OO) interface`. 
+
+When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
+
+The second is based on `MATLAB` and uses a state-based interface. 
+
+This second interface is encapsulated in the `pyplot` module. 
+
+`pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
+
+At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
+
+For example, the following code generates a line plot using `pyplot` syntax:
+```Python
+import matplotlib.pyplot as plt
+plt.plot([1, 2, 3, 4])
+plt.ylabel('some numbers')
+plt.show()
+```
+
+No figure, no axis- what magic!
+
+Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
+
+The `pyplot` interface hs much less flexible than the `OO` interface.
+
+Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
+
+For more on the differences between these two interfaces and how to translate sample code across interfaces:
+- [`matplotlib`, "Pyplot tutorial"](https://matplotlib.org/3.3.3/tutorials/introductory/pyplot.html)
+- [`matplotlib`, "The Lifecycle of a Plot"](https://matplotlib.org/3.3.3/tutorials/introductory/lifecycle.html)
+- Tejas Sanap, ["Pyplot vs Object Oriented Interface"](https://matplotlib.org/matplotblog/posts/pyplot-vs-object-oriented-interface/) *matplotblog* (27 May 2020)
 
 
-# Using `matplotlib` with `pandas`
+# What's Next
 
+In the next tutorial, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
+
+We'll also look at the `seaborn` library for creating graphics.
+
+We will also explore how we can use the `plotly` library for creating interactive data visualizations. 
+
+Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
 
 # Practice Problems
 
