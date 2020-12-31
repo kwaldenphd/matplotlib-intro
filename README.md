@@ -749,6 +749,8 @@ loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
 
 You'll notice the last two examples include additional parameters.
 
+### Additional resources
+
 For more on these parameters and other `.legend()` customization options:
 - [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
 - [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
@@ -797,6 +799,8 @@ ax2.set_ylabel('Undamped')
 #show plot
 plt.show()
 ```
+### Additional resources
+
 For more on subplots:
 - [`matplotlib`, Multiple subplots](https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html)
 - [`matplotlib`, Subplots, axes, and figures](https://matplotlib.org/gallery/index.html#subplots-axes-and-figures)
@@ -943,6 +947,8 @@ For smaller datasets where a high level of customization is important, `plt.scat
 
 For larger datasets, `plt.plot` will perform more effectively (because the program is not styling each individual point when creating the plot).
 
+### Additional resources
+
 For more on scatterplots:
 - [`matplotlib`, "Scatter plot"](https://matplotlib.org/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
 - [`matplotlib`, "Scatter Demo2"](https://matplotlib.org/gallery/lines_bars_and_markers/scatter_demo2.html)
@@ -1018,7 +1024,23 @@ plt.show()
 
 We could use the syntax outlined previously to set labels, titles, tick marks, etc.
 
+The default type of histogram in `matplotlib` is a tranditional `bar`-type histogram.
+
+We can use the `histtype` attribute to draw other kinds of histograms.
+- `barstacked`: bar-type histogram with stacked data
+- `step`: generates an unfilled lineplot
+- `stepfilled`: generates a filled lineplot
+
 We can also customize our histogram by specifying colors, based on `Y` axis values.
+
+An example of a `stepfilled` histogram with no edges and a customized color:
+```Python
+ax.hist(x, bins=n_bins, histtype='stepfilled', color='steelblue', edgecolor='none')
+```
+
+For more keyword arguments and attributes that can be passed to `.hist()`: [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
+
+An example that color codes by height and uses the data range to set the color map.
 
 ```Python
 fig, axs = plt.subplots(1, 2, tight_layout=True)
@@ -1044,6 +1066,8 @@ axs[1].hist(x, bins=n_bins, density=True)
 axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 ```
 
+### Additional resources
+
 For more on histograms:
 - [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/gallery/statistics/histogram_features.html)
 - [`matplotlib`, "Histograms"](https://matplotlib.org/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py)
@@ -1054,15 +1078,712 @@ For more on histograms:
 
 One of the common uses for bar charts is to plot categorial variables.
 
+A bar chart presents categorical data with rectangular bars with heights or lengths porportional to the values they represent.
+
+We can create a basic vertical bar chart usign `.bar()`.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# set dictionary with data categories and amounts
+data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
+
+# get category names from dictionary keys
+names = list(data.keys())
+
+# get category values from dictionary values
+values = list(data.values())
+
+# create figure
+fig, axs = plt.subplots()
+
+# create bar chart
+axs.bar(names, values) 
+
+# show plot
+plt.show()
+```
+
+This kind of categorical data can be plotted different ways, depending on the type of data and purpose or intent for the visualization.
+
+For example, we could plot the fruit data from the previous example as a bar chart, scatter plot, and line plot.
+
+An example of those three types side-by-side:
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# set dictionary with data categories and amounts
+data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
+
+# get category names from dictionary keys
+names = list(data.keys())
+
+# get category values from dictionary values
+values = list(data.values())
+
+# create figure with 3 subplots 
+fig, axs = plt.subplots(1, 3, figsize=(9, 3), sharey=True)
+
+# create bar chart
+axs[0].bar(names, values)
+
+# create scatter plot
+axs[1].scatter(names, values)
+
+# create line plot
+axs[2].plot(names, values)
+
+# figure title
+fig.suptitle('Categorical Plotting')
+
+# show plot
+plt.show()
+```
+
+We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+
+### Horizontal bar chart
+
+We can also create a horizontal bar chart using `.barh()`.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# set dictionary with data categories and amounts
+data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
+
+# get category names from dictionary keys
+names = list(data.keys())
+
+# get category values from dictionary values
+values = list(data.values())
+
+# create figure
+fig, axs = plt.subplots()
+
+# create horizontal bar chart
+axs.barh(values, names) 
+
+# show plot
+plt.show()
+```
+
+You'll notice when we call `.barh()`, the general `x, y` syntax is the same. 
+
+The first variable passed to the function is the `X` axis data, and the second variable passed to the function is the `Y` axis data.
+
+We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+
+For a horizontal bar chart, you may need to invert the `Y` axis labels using `.invert_yaxis()` to read the `Y` axis labels top-to-bottom.
+
+### Stacked bar chart
+
+Just like we can create a stacked histogram, we can also create a stacked bar chart.
+
+This is especially useful when wanting to represent categorical data and multiple levels of abstractions.
+
+An example of data well-suited to a stacked bar chart might be population data in which a bar chart with country-level data might also need to be disaggregated by gender or race.
+
+To create a stacked bar chart, you create two sets of bars for the plot and assign one to the `bottom` parameter.
+
+The `bottom` parameter sets the `Y` axis coordinates of the bottom bars.
+
+Error bars can also be useful to deliniate components of a stacked bar chart.
+
+In `matplotlib` error bars are vertical or horizontal solid lines added to bar tips. 
+
+The error bar values are +/- sizes relative to the data.
+
+The `yerr` parameter is used to set error bars for the `Y` axis.
+
+Putting this all together in an example that shows score data for 5 different groups, disaggregated by test time:
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# set x axis labels
+labels = ['G1', 'G2', 'G3', 'G4', 'G5']
+
+# mean scores for morning test takers, by group
+morning_means = [20, 35, 30, 35, 27]
+
+# mean scores for afternoon test takers, by group
+afternoon_means = [25, 32, 34, 20, 25]
+
+# number of test takers for morning time, by group
+morning_std = [2, 3, 4, 1, 2]
+
+# number of afternoon test takers, by group
+afternoon_std = [3, 5, 2, 3, 3]
+
+# sets bar width
+width = 0.35
+
+# creates figure and axes
+fig, ax = plt.subplots()
+
+# creates first set of bars for morning test scores
+ax.bar(labels, morning_means, width, yerr=morning_std, label='Morning')
+
+# creates second set of bars for afternoon test scores, stacked on morning bars
+ax.bar(labels, afternoon_means, width, yerr=afternoon_std, bottom=morning_means,
+       label='Afternoon')
+
+# sets y axis label
+ax.set_ylabel('Scores')
+
+# set title
+ax.set_title('Scores by test time')
+
+# create legend
+ax.legend()
+
+# show plot
+plt.show()
+```
+
+### Grouped bar chart
+
+Grouped bar charts can also be useful for showing disaggregated data, or data at multiple levels of abstraction.
+
+When creating a grouped bar chart, we have to set label locations for each of the bars.
+
+And the rectangles that are drawn as the bars will need to be half as wide so everything fits on the `X` axis.
+
+We can also add a custom annotation to show the value for each bar in the chart, displaying its height.
+
+To put that all together, modifying the previous stacked bar example to create a grouped bar chart.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# import numpy
+import numpy as np
+
+# set x axis labels
+labels = ['G1', 'G2', 'G3', 'G4', 'G5']
+
+# mean scores for morning test takers, by group
+morning_means = [20, 35, 30, 35, 27]
+
+# mean scores for afternoon test takers, by group
+afternoon_means = [25, 32, 34, 20, 25]
+
+# set label locations
+x = np.arange(len(labels))
+
+# set bar width
+width = 0.35
+
+# create figure and axes
+fig, ax = plt.subplots()
+
+# draw first set of bars/rectangles
+rects1 = ax.bar(x - width/2, morning_means, width, label='Morning')
+
+# draw second set of bars/rectangles
+rects2 = ax.bar(x + width/2, afternoon_means, width, label='Afternoon')
+
+# set y axis label, figure title, tick marks, and tickmark labels
+ax.set_ylabel('Scores')
+ax.set_title('Scores by test time')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+
+# create legend
+ax.legend()
+
+# create named function that adds custom annotation showing rectangle height value above each bar 
+def autolabel(rects):
+    """Attach a text label above each bar in *rects*, displaying its height."""
+    for rect in rects:
+        height = rect.get_height()
+        ax.annotate('{}'.format(height),
+                    xy=(rect.get_x() + rect.get_width() / 2, height),
+                    xytext=(0, 3),  # 3 points vertical offset
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
+# applies autolabel function to each group of bars
+autolabel(rects1)
+autolabel(rects2)
+
+# adjust figure layout
+fig.tight_layout()
+
+# show plot
+plt.show()
+```
+
+### Additional resources
+
+For more on bar charts and plotting categorical data:
+- [`matplotlib`, Plotting categorical variables](https://matplotlib.org/gallery/lines_bars_and_markers/categorical_variables.html#sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py)
+- [`matplotlib`, Horizontal bar chart](https://matplotlib.org/gallery/lines_bars_and_markers/barh.html)
+- [`matplotlib`, Stacked bar chart](https://matplotlib.org/gallery/lines_bars_and_markers/bar_stacked.html)
+- [`matplotlib`, Percentiles as horizontal bar chart](https://matplotlib.org/gallery/statistics/barchart_demo.html)
 
 
 ## Pie charts
 
+A pie chart is a circular graphic, divided into slices to illustrate numerical portion.
+
+The arc length of each slice (and thus its central angle and area) is proportional to the quantity it represents.
+
+Data visualization and information perception research suggests that, while useful in some cases, making visual comparisons within a pie chart or across pie charts is challenging.
+
+This research recommends pie charts be replaced by other types of plots (scatter plots, density plots, bar charts, box plots, etc).
+
+To learn more:
+- Leland Wilkinson, [*The Grammar of Graphics*](https://www.springer.com/gp/book/9780387245447) (Springer, 2005). [Link to electronic access through Hesburgh Libraries](https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph003079467).
+- Edward Tufte, [*The Visual Display of Quantitative Information*](dd) (Graphics Press, 1983). [Link to catalog entry for Hesburgh Library physical copy](https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph000623770).
+- Stephen Few, ["Save the Pies for Dessert"](www.perceptualedge.com/articles/08-21-07.pdf) *Perceptual Edge* (21 August 2007)
+- Steve Fenton, ["Pie Charts are Bad"](https://www.stevefenton.co.uk/2009/04/pie-charts-are-bad/) *personal blog* (17 April 2009)
+- Dipanjan Sarkar, ["A Comprehensive  Guide to the Grammar of Graphics for Effective Visualization of Multi-dimensional Data"](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149) *Towards Data Science* (12 September 2018)
+
+But, as Google's design lead Manuel Lima has noted, humans love pie charts.
+- Manuel Lima, ["Why humans love pie charts: An historical and evolutionary perspective"](https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc) *Noteworthy: The Journal Blog* (23 July 2018)
+
+So we'll cover them.
+
+Sample code for a basic pie chart:
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# set slice labels
+labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+
+# set slice sizes 
+sizes = [15, 30, 45, 10]
+
+# create figure and axes
+fig1, ax1 = plt.subplots()
+
+# create pie chart 
+ax1.pie(sizes, labels=labels)
+
+# set equal aspect ratio to ensure pie is a circle
+ax1.axis('equal')
+
+# show plot
+plt.show()
+```
+
+We can customize this pie chart to auto-label each slice's percentage.
+```Python
+# create pie chart with percent formatting
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%')
+```
+
+The default start angle is `0`, which we can also modify.
+```Python
+# create pie chart with percent formatting and start angle
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+```
+
+We can also add a drop shadow to our pie chart.
+```Python
+# create pie chart with percent formatting, start angle, and drop shadow
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, shadow=True)
+```
+
+We can also "explode" or offset one of the slices.
+```Python
+# import matplotlib
+import matplotlib.pyplot as plt
+
+# set slice labels
+labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+
+# set slice sizes 
+sizes = [15, 30, 45, 10]
+
+# explode or offset only the 2nd slice (i.e. 'Hogs')
+explode = (0, 0.1, 0, 0)
+
+# create figure and axes
+fig1, ax1 = plt.subplots()
+
+# create pie chart with percent formatting, start angle, and drop shadow
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, shadow=True, explode=explode)
+
+# set equal aspect ratio to ensure pie is a circle
+ax1.axis('equal')
+
+# show plot
+plt.show()
+```
+### Additional resources
+
+For more on pie charts:
+- [`matplotlib`, Basic pie chart](https://matplotlib.org/gallery/pie_and_polar_charts/pie_features.html)
+- [`matplotlib.pyplot.pie`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.pie.html)
+- [`matplotlib` Gallery, Pie and polar charts](https://matplotlib.org/gallery/index.html#pie-and-polar-charts)
+
+## Box plots
+
+Used to represent descriptive statistics, a box plot depicts groups of numerical data as quartiles.
+
+Box plots are sometimes called box-and-whisker plots because they can include lines extending from the boxes (*whiskers*) to show variability outside upper and lower quartiles.
+
+Box plots are a standardized way of displaying summary statistics for a dataset.
+
+Statistics represented in a box plot include:
+- ***minimum***: lowest data point (excluding outliers); 0th percentile or Q<sub>0</sub>
+- ***maximum***: highest data point (excluding outliers); 100th percentile or Q<sub>4</sub>
+- ***median***: middle value in the dataset; 50th percentile or Q<sub>2</sub>
+- ***first quartile***: also known as the lower quartile; median of the lower half of the dataset; 25th percentile or Q<sub>1</sub>
+- ***third quartile***: also known as the umper quartile; median of the upper half of the dataset; 75th percentile or Q<sub>3</sub>
+
+In the process of calculating these summary statistics, a sixth value is calculated, the interquartile range.
+
+***Interquartile range*** is the distance between upper and lower quartiles.
+
+To draw a basic box plot using `matplotlib`:
+```Python
+# load needed packages
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
+
+# fix random state for reproducibility
+np.random.seed(19680801)
+
+# create sample data
+spread = np.random.rand(50) * 100
+center = np.ones(25) * 50
+flier_high = np.random.rand(10) * 100 + 100
+flier_low = np.random.rand(10) * -100
+data = np.concatenate((spread, center, flier_high, flier_low))
+
+# create figure and axes
+fig, axs = plt.subplots()
+
+# draw basic boxplot
+axs.boxplot(data)
+axs.set_title('Basic Plot')
+
+# show plot
+plt.show()
+```
+
+We could modify this example to not show the outlier points and map only the quartile summary statistics:
+```Python 
+# load needed packages
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
+
+# fix random state for reproducibility
+np.random.seed(19680801)
+
+# create sample data
+spread = np.random.rand(50) * 100
+center = np.ones(25) * 50
+flier_high = np.random.rand(10) * 100 + 100
+flier_low = np.random.rand(10) * -100
+data = np.concatenate((spread, center, flier_high, flier_low))
+
+# create figure and axes
+fig, axs = plt.subplots()
+
+# draw boxplot that will not show outlier points
+axs.boxplot(data, 0, '')
+axs.set_title('Box Plot Without Outlier Points')
+
+# show plot
+plt.show()
+```
+
+We could also generate a horizontal box plot.
+```Python
+# load needed packages
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
+
+# fix random state for reproducibility
+np.random.seed(19680801)
+
+# create sample data
+spread = np.random.rand(50) * 100
+center = np.ones(25) * 50
+flier_high = np.random.rand(10) * 100 + 100
+flier_low = np.random.rand(10) * -100
+data = np.concatenate((spread, center, flier_high, flier_low))
+
+# create figure and axes
+fig, axs = plt.subplots()
+
+# draw horizontal boxplot
+axs.boxplot(data, 0, 'rs', 0)
+axs.set_title('Horizontal Box Plot')
+
+# show plot
+plt.show()
+```
+
+We can also change the whisker length for our box plot:
+```Python
+# load needed packages
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
+
+# fix random state for reproducibility
+np.random.seed(19680801)
+
+# create sample data
+spread = np.random.rand(50) * 100
+center = np.ones(25) * 50
+flier_high = np.random.rand(10) * 100 + 100
+flier_low = np.random.rand(10) * -100
+data = np.concatenate((spread, center, flier_high, flier_low))
+
+# create figure and axes
+fig, axs = plt.subplots()
+
+# draw boxplot with modified whisker length
+axs.boxplot(data, 0, 'rs', 0, 0.75)
+axs.set_title('Box Plot With Modified Whisker Length')
+
+# show plot
+plt.show()
+```
+
+We can also set a custom fill color for our boxes:
+```Python
+# load needed packages
+import matplotlib.pyplot as plt
+import numpy as np
+
+# create sample data
+np.random.seed(19680801)
+all_data = [np.random.normal(0, std, size=100) for std in range(1, 4)]
+
+# set labels
+labels = ['x1', 'x2', 'x3']
+
+# create figure and axes
+fig, ax = plt.subplots()
+
+# rectangular box plot
+bplot1 = ax.boxplot(all_data,
+                     vert=True,  # vertical box alignment
+                     patch_artist=True,  # fill with color
+                     labels=labels)  # will be used to label x-ticks
+# set plot title
+ax.set_title('Rectangular box plot')
+
+# set fill colors
+colors = ['pink', 'lightblue', 'lightgreen']
+for bplot in (bplot1):
+    for patch, color in zip(bplot['boxes'], colors):
+        patch.set_facecolor(color)
+
+# add horizontal grid lines
+for ax in [ax]:
+    ax.yaxis.grid(True)
+    ax.set_xlabel('Three separate samples')
+    ax.set_ylabel('Observed values')
+
+# show plot
+plt.show()
+```
+
+### Additional resources
+
+For more on box plots:
+- [`matplotlib`, Boxplots](https://matplotlib.org/gallery/statistics/boxplot_demo.html#sphx-glr-gallery-statistics-boxplot-demo-py)
+- [`matplotlib`, Box plots with custom fill colors](https://matplotlib.org/gallery/statistics/boxplot_color.html#sphx-glr-gallery-statistics-boxplot-color-py)
+- [`matplotlib` Gallery, Statistics](https://matplotlib.org/gallery/index.html#statistics)
+- [`matplotlib.pyplot.boxplot`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.boxplot.html)
+
 ## Tables
 
-## Additional Resources
+We can use the `.table()` function to create a stand-alone table or a table that would accompany another type of graphical plot.
 
+In `matplotlib`, the `.table()` function generates a table plot.
 
+This means the table is displaying as a static 2D visualization, just like other `matplotlib` plots.
+
+To create a stacked bar chart and table with disaster data over a 100 year period:
+```Python
+# import needed packages
+import numpy as np
+import matplotlib.pyplot as plt
+
+# set data
+data = [[ 66386, 174296,  75131, 577908,  32015],
+        [ 58230, 381139,  78045,  99308, 160454],
+        [ 89135,  80552, 152558, 497981, 603535],
+        [ 78415,  81858, 150656, 193263,  69638],
+        [139361, 331509, 343164, 781380,  52269]]
+
+# set column labels
+columns = ('Freeze', 'Wind', 'Flood', 'Quake', 'Hail')
+
+# set row labels
+rows = ['%d year' % x for x in (100, 50, 20, 10, 5)]
+
+# set value increments
+values = np.arange(0, 2500, 500)
+value_increment = 1000
+
+# set color shade
+colors = plt.cm.BuPu(np.linspace(0, 0.5, len(rows)))
+n_rows = len(data)
+
+# set bar width
+index = np.arange(len(columns)) + 0.3
+bar_width = 0.4
+
+# plot bars and create text labels for the table
+cell_text = []
+for row in range(n_rows):
+    plt.bar(index, data[row], bar_width, bottom=y_offset, color=colors[row])
+    y_offset = y_offset + data[row]
+    cell_text.append(['%1.1f' % (x / 1000.0) for x in y_offset])
+
+# reverse colors and text labels to display the last value at the top.
+colors = colors[::-1]
+cell_text.reverse()
+
+# add table at the bottom of the axes
+the_table = plt.table(cellText=cell_text,
+                      rowLabels=rows,
+                      rowColours=colors,
+                      colLabels=columns,
+                      loc='bottom')
+
+# adjust plot layout to accomodate table
+plt.subplots_adjust(left=0.2, bottom=0.2)
+
+# assign lbels and titles
+plt.ylabel("Loss in ${0}'s".format(value_increment))
+plt.yticks(values * value_increment, ['%d' % val for val in values])
+plt.xticks([])
+plt.title('Loss by Disaster')
+
+# show plot
+plt.show()
+```
+
+To show just the table portion from the previous example:
+```Python
+# import needed packages
+import numpy as np
+import matplotlib.pyplot as plt
+
+# set data
+data = [[ 66386, 174296,  75131, 577908,  32015],
+        [ 58230, 381139,  78045,  99308, 160454],
+        [ 89135,  80552, 152558, 497981, 603535],
+        [ 78415,  81858, 150656, 193263,  69638],
+        [139361, 331509, 343164, 781380,  52269]]
+
+# set column labels
+column_headers = ('Freeze', 'Wind', 'Flood', 'Quake', 'Hail')
+
+# set row labels
+row_headers = ['%d year' % x for x in (100, 50, 20, 10, 5)]
+
+# format table data as non-numeric text
+cell_text = []
+for row in data:
+    cell_text.append([f'{x/1000:1.1f}' for x in row])
+    
+# set colors for row and column labels
+rcolors = plt.cm.BuPu(np.full(len(row_headers), 0.1))
+ccolors = plt.cm.BuPu(np.full(len(column_headers), 0.1))
+
+# create the figure and axes with customzied visual elements
+plt.figure(linewidth=2)
+
+# add table at the bottom of the axes
+the_table = plt.table(cellText=cell_text,
+                      rowLabels=row_headers,
+                      rowColours=rcolors,
+                      rowLoc='right',
+                      colColours=ccolors,
+                      colLabels=column_headers,
+                      loc='center')
+
+# adjust table scale
+the_table.scale(1, 1.5)
+
+# hide plot axis
+ax = plt.gca()
+ax.get_xaxis().set_visible(False)
+ax.get_yaxis().set_visible(False)
+
+# hide axis border
+plt.box(on=None)
+
+# set title
+plt.suptitle('Loss by Disaster')
+
+# set footer
+plt.figtext(0.95, 0.05, '30 December 2020', horizontalalignment='right', size=6, weight='light')
+
+# center title on figure, not hidden axis
+plt.draw()
+
+# show plot
+plt.show()
+```
+
+### Additional resources
+
+For more on tables in `matplotlib`:
+- [`matplotlib`, Table Demo](https://matplotlib.org/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py)
+- [`matplotlib.pyplot.table`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.table.html)
+- Michael Demastrie, ["Simple Little Tables with Matplotlib"](https://towardsdatascience.com/simple-little-tables-with-matplotlib-9780ef5d0bc4) *Towards Data Science* (18 July 2020).
+
+## Other types of plots
+
+`matplotlib`  supports a wide range of plot types and customizations not covered here.
+
+Other types of plots include:
+- Filled polygon
+- Stackplots and streamgraphs
+- Image plots
+- Density plots
+- Contour plots
+- Mesh plots
+- Streamplots
+- Geographic projections
+- Violin plots
+- Polar charts
+- Custom object plots
+
+That's not even getting into 3D plotting in `matplotlib`, or plotting geographic data.
+
+A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/gallery/), which includes sample code for different plot types.
+
+["Sample plots in matplotlib"](https://matplotlib.org/tutorials/introductory/sample_plots.html) is another starting place.
+
+For 3D plotting:
+- [Jake VanderPlas, "Three-Dimensional Plotting in Matplotlib" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html)
+- [`matplotlib`, 3D surface](https://matplotlib.org/gallery/mplot3d/surface3d.html)
+- [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/tutorials/toolkits/mplot3d.html#toolkit-mplot3d-tutorial)
+- [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/gallery/index.html#mplot3d-examples-index)
+
+For geospatial data;
+- [Jake VanderPlas, "Geographic Data with Basemap" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.13-geographic-data-with-basemap.html)
+- [Basemap Matplotlib Toolkit](https://matplotlib.org/basemap/)
+
+A few of our examples used `matplotlib`'s annotation functionality.
+
+Annotation using `.text()` can highlight specific data points or draw attention to specific elements of a plot.
+
+For more on text and annotation:
+- [Jake VanderPlas, "Text and Annotation" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.09-text-and-annotation.html)
+- [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/gallery/index.html#text-labels-and-annotations)
+- [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
+- [`matplotlib.pyplot.annotate`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.annotate.html)
 
 # Saving or exporting plots
 
