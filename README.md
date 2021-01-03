@@ -1919,31 +1919,31 @@ plt.savefig('svg_sample.svg', transparent=True)
 
 # Best Practices for Data Visualization
 
-By this point, your brain is probably overwhelmed by the nuances of `matplotlib` syntax.
+243. By this point, your brain is probably overwhelmed by the nuances of `matplotlib` syntax.
 
-Let's take a step back and 
+244. Let's take a step back and think through ***why*** we want or need to visualize data, or what we hope to accomplish through visualizing data.
 
-
+245. Head on over to the [Data Visualization Considerations or Best Practices](https://github.com/kwaldenphd/data-viz-intro) page to learn more.
 
 # `OO` vs. `pyplot`
 
-243. If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
+246. If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
 
-244. That is because Matplotlib has two interfaces. 
+247. That is because Matplotlib has two interfaces. 
 
-245. The first is an `object-oriented (OO) interface`. 
+248. The first is an `object-oriented (OO) interface`. 
 
-246. When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
+249. When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
 
-247. The second is based on `MATLAB` and uses a state-based interface. 
+250. The second is based on `MATLAB` and uses a state-based interface. 
 
-248. This second interface is encapsulated in the `pyplot` module. 
+251. This second interface is encapsulated in the `pyplot` module. 
 
-249. `pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
+252. `pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
 
-250. At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
+253. At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
 
-251. For example, the following code generates a line plot using `pyplot` syntax:
+254. For example, the following code generates a line plot using `pyplot` syntax:
 ```Python
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
@@ -1951,32 +1951,32 @@ plt.ylabel('some numbers')
 plt.show()
 ```
 
-252. No figure, no axis- what magic!
+255. No figure, no axis- what magic!
 
-253. Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
+256. Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
 
-254. The `pyplot` interface hs much less flexible than the `OO` interface.
+257. The `pyplot` interface hs much less flexible than the `OO` interface.
 
-255. Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
+258. Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
 
-256. For more on the differences between these two interfaces and how to translate sample code across interfaces:
+259. For more on the differences between these two interfaces and how to translate sample code across interfaces:
 - [`matplotlib`, "Pyplot tutorial"](https://matplotlib.org/3.3.3/tutorials/introductory/pyplot.html)
 - [`matplotlib`, "The Lifecycle of a Plot"](https://matplotlib.org/3.3.3/tutorials/introductory/lifecycle.html)
 - Tejas Sanap, ["Pyplot vs Object Oriented Interface"](https://matplotlib.org/matplotblog/posts/pyplot-vs-object-oriented-interface/) *matplotblog* (27 May 2020)
 
-
 # What's Next
 
-In the next lab, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
+260. In the next lab, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
 
-We'll also look at the `seaborn` library for creating graphics.
+261. We'll also look at the `seaborn` library for creating graphics.
 
-We will also explore how we can use the `plotly` library for creating interactive data visualizations. 
+262. We will also explore how we can use the `plotly` library for creating interactive data visualizations. 
 
-Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
+263. Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
 
 # Practice Problems
 
-No practice problems. Spend this time working on the final project.
+No practice problems for this lab. Spend this time working on the final project.
 
 # Lab Notebook Questions
+
