@@ -16,6 +16,8 @@ The author consulted the following materials when building this tutorial:
 - Chapter 15 "Generating Data" from Eric Matthes, [*Python Crash Course: A Hands-On, Project-Based Introduction to Programming*](https://ehmatthes.github.io/pcc/) (No Starch Press, 2019).
 - Chapter 4 "Visualization with Matplotlib" from Jake VanderPlas, [*Python Data Science Handbook: Essential Tools for Working with Data*](https://jakevdp.github.io/PythonDataScienceHandbook/) (O'Reilly, 2016)
 
+All figures in this lab come from the `matplotlib` documentation and tutorials.
+
 # Table of Contents
 
 ## Condensed Table of Contents
