@@ -18,6 +18,39 @@ The author consulted the following materials when building this tutorial:
 
 # Table of Contents
 
+## Condensed Table of Contents
+
+- [Getting started with `matplotlib`](#getting-started-with-matplotlib)
+- [Anatomy of a `matplotlib` figure](#anatomy-of-a-matplotlib-figure)
+  * [`Figure`](#figure)
+  * [`Axes`](#axes)
+  * [`Axis`](#axis)
+  * [Everything Else (`Artists`)](#everything-else-artists)
+- [Customizing in `matplotlib`](#customizing-in-matplotlib)
+  * [Title and Axis Labels](#title-and-axis-labels)
+  * [Font Size and Line Thickness](#font-size-and-line-thickness)
+  * [Ticks and Ticklabels](#ticks-and-ticklabels)
+  * [Colors, Markers, and Line Styles](#colors-markers-and-line-styles)
+  * [Making Style Choices](#making-style-choices)
+  * [Legends](#legends)
+  * [Additional Resources](#additional-resources)
+- [Other Types of Plots](#other-types-of-plots)
+  * [Subplots](#subplots)
+  * [Scatterplots](#scatterplots)
+  * [Histograms](#histograms)
+  * [Bar Charts](#bar-charts)
+  * [Pie Charts](#pie-charts)
+  * [Boxplots](#boxplots)
+  * [Tables](#tables)
+  * [Other Types of Plots](#other-types-of-plots)
+- [Saving or Exporting Plots](#saving-or-exporting-plots)
+- [`OO` vs. `pyplot`](#OO-vs-pyplot)
+- [What's Next](#whats-next)
+- [Practice Problems](#practice-problems)
+- [Lab Notebook Questions](#lab-notebook-questions)
+
+## Detailed Table of Contents
+
 - [Getting started with `matplotlib`](#getting-started-with-matplotlib)
 - [Anatomy of a `matplotlib` figure](#anatomy-of-a-matplotlib-figure)
   * [`Figure`](#figure)
