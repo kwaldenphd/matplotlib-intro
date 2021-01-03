@@ -77,23 +77,15 @@ The author consulted the following materials when building this tutorial:
   * [Additional Resources](#additional-resources)
 - [Other Types of Plots](#other-types-of-plots)
   * [Subplots](#subplots)
-    * [Additional Resources](#additional-resources)
   * [Scatterplots](#scatterplots)
-    * [`.plt.scatter()`](#pltscatter)
-    * [Additional Resources](#additional-resources)
   * [Histograms](#histograms)
-    * [Additional Resources](#additional-resources)
   * [Bar Charts](#bar-charts)
     * [Horizontal Bar Chart](#horizontal-bar-chart)
     * [Stacked Bar Chart](#stacked-bar-chart)
     * [Grouped Bar Chart](#grouped-bar-chart)
-    * [Additional Resources](#additional-resources)
   * [Pie Charts](#pie-charts)
-    * [Additional Resources](#additional-resources)
   * [Boxplots](#boxplots)
-    * [Additional Resources](#additional-resources)
   * [Tables](#tables)
-    * [Additional Resources](#additional-resources)
   * [Other Types of Plots](#other-types-of-plots)
     * [3D Plotting](#for-3d-plotting)
     * [Geosptial Data](#for-geospatial-data)
@@ -107,28 +99,28 @@ The author consulted the following materials when building this tutorial:
 
 # Getting started with `matplotlib`
 
-For our purposes, a plot is defined as "a graphic representation (such as a chart)" (Merriam Webster).
+1. For our purposes, a plot is defined as "a graphic representation (such as a chart)" (Merriam Webster).
 
-These graphic representations of data are often called charts, graphs, figures, etc. 
+2. These graphic representations of data are often called charts, graphs, figures, etc. 
 
-In the context of programming, computer science, and data science, we refer to these as plots.
+3. In the context of programming, computer science, and data science, we refer to these as plots.
 
-We can generate plots for data stored in `pandas` using the `matplotlib` package.
+4. We can generate plots for data stored in `pandas` using the `matplotlib` package.
 
-`matplotlib` was developed in 2002 as a MATLAB-like plotting interface for Python.
+5. `matplotlib` was developed in 2002 as a MATLAB-like plotting interface for Python.
 
-"Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python...Matplotlib produces publication-quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shell, web application servers, and various graphical user interface toolkits" ([Matplotlib documentation, Github](https://github.com/matplotlib/matplotlib))
+6. "Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python...Matplotlib produces publication-quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shell, web application servers, and various graphical user interface toolkits" ([Matplotlib documentation, Github](https://github.com/matplotlib/matplotlib))
 
-As described [by the original developer John Hunter](https://matplotlib.org/users/history.html), "Matplotlib is a library for making 2D plots of arrays in Python. Although it has its origins in emulating the MATLAB graphics commands, it is independent of MATLAB, and can be used in a Pythonic, object oriented way. Although Matplotlib is written primarily in pure Python, it makes heavy use of NumPy and other extension code to provide good performance even for large arrays. Matplotlib is designed with the philosophy that you should be able to create simple plots with just a few commands, or just one! If you want to see a histogram of your data, you shouldn't need to instantiate objects, call methods, set properties, and so on; it should just work."
+7. As described [by the original developer John Hunter](https://matplotlib.org/users/history.html), "Matplotlib is a library for making 2D plots of arrays in Python. Although it has its origins in emulating the MATLAB graphics commands, it is independent of MATLAB, and can be used in a Pythonic, object oriented way. Although Matplotlib is written primarily in pure Python, it makes heavy use of NumPy and other extension code to provide good performance even for large arrays. Matplotlib is designed with the philosophy that you should be able to create simple plots with just a few commands, or just one! If you want to see a histogram of your data, you shouldn't need to instantiate objects, call methods, set properties, and so on; it should just work."
 
-For more on `matplotlib`'s development and history: John Hunter, ["History"](https://matplotlib.org/users/history.html) *Matplotlib* (2008)
+8. For more on `matplotlib`'s development and history: John Hunter, ["History"](https://matplotlib.org/users/history.html) *Matplotlib* (2008)
 
-To be able to call the `matplotlib` API (application programming interface) within Python, we need to make sure the package is installed and loaded.
+9. To be able to call the `matplotlib` API (application programming interface) within Python, we need to make sure the package is installed and loaded.
 - To install at the command line: `pip install matplotlib`
 - To load in a `.py` script: `import matplotlib.pyplot as plot`
 - To work with `matplotlib` from a Jupyter notebook: `%matplotlib notebook`
 
-The default `matplotlib` plot is a line plot.
+10. The default `matplotlib` plot is a line plot.
 
 ```Python
 # import matplotlib
@@ -144,21 +136,21 @@ data = np.arrange(10)
 plt.plot(data)
 ```
 
-We pass our data to `plt.plot()` and a line plot is generated.
+11. We pass our data to `plt.plot()` and a line plot is generated.
 
-Plots in `matplotlib` reside within a `Figure` object.
+12. Plots in `matplotlib` reside within a `Figure` object.
 
-These figures contain one or more `Axes`, which are the area where points can be added or specified usign x-y coordinates for 2-D plots.
+13. These figures contain one or more `Axes`, which are the area where points can be added or specified usign x-y coordinates for 2-D plots.
 
-Once the `Figure` object has been created, we can add start adding elements to the plot.
+14. Once the `Figure` object has been created, we can add start adding elements to the plot.
 
-The easiest way to create a figure is using `pyplot.subplots()`.
+15. The easiest way to create a figure is using `pyplot.subplots()`.
 
-NOTE: Because we have loaded the package using `import matplotlib.pyplot as plot`, we can use `plt` as shorthand for `pyplot`.
+16. NOTE: Because we have loaded the package using `import matplotlib.pyplot as plot`, we can use `plt` as shorthand for `pyplot`.
 
-We can then use `axes.plot()` to create axes and add data.
+17. We can then use `axes.plot()` to create axes and add data.
 
-Another line plot using a list of number values:
+18. Another line plot using a list of number values:
 ```Python
 # import package
 import matplotlib.pyplot as plot
@@ -170,13 +162,13 @@ fig, ax = plt.subplots()
 ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
 ```
 
-We can see the first list of `1, 2, 3, 4` is shown on the `X` axis.
+19. We can see the first list of `1, 2, 3, 4` is shown on the `X` axis.
 
-The second list `1, 4, 2, 3` is shown on the `Y` axis.
+20. The second list `1, 4, 2, 3` is shown on the `Y` axis.
 
-NOTE: The `Y` axis values are plotted in the original order--for this type of plot (a line plot), `matplotlib` keeps the list data in its original order.
+21. NOTE: The `Y` axis values are plotted in the original order--for this type of plot (a line plot), `matplotlib` keeps the list data in its original order.
 
-Let's generate a line plot using a square number sequence
+22. Let's generate a line plot using a square number sequence
 
 ```Python
 # import matplotlib
@@ -198,29 +190,29 @@ ax.plot(input_values, squares)
 plt.show()
 ```
 
-In this example, we import `matplotlib` and create two lists, `squares` and `input_values` that hold the data that will be plotted.
+23. In this example, we import `matplotlib` and create two lists, `squares` and `input_values` that hold the data that will be plotted.
 
-NOTE: We need to specify `input_values`, because the default in `matplotlib` will start the axis at `0`.
+24. NOTE: We need to specify `input_values`, because the default in `matplotlib` will start the axis at `0`.
 
-We then create a new variable `fig` that represents the entire figure or collection of plots.
+25. We then create a new variable `fig` that represents the entire figure or collection of plots.
 
-The variable `ax` represents a single plot in the `fig` figure.
+26. The variable `ax` represents a single plot in the `fig` figure.
 
-We then pass `squares` to the `plot()` method to create the plot.
+27. We then pass `squares` to the `plot()` method to create the plot.
 
-And `plt.show()` opens the `matplotlib` viewer to show us the newly-generated plot.
+28. And `plt.show()` opens the `matplotlib` viewer to show us the newly-generated plot.
 
-From within the `matplotlib` viewer, we can zoom in and navigate the plot, as well as save images of the plot.
+29. From within the `matplotlib` viewer, we can zoom in and navigate the plot, as well as save images of the plot.
 
 # Anatomy of a `matplotlib` figure
 
-Before we start customizing plots or generating more complex plots, it's useful to know the components of a `matplotlib` figure.
+30. Before we start customizing plots or generating more complex plots, it's useful to know the components of a `matplotlib` figure.
 
 FIGURE 1 https://matplotlib.org/_images/anatomy.png
 
 ## `Figure`
 
-`Figure`: A figure object that can include multiple `Axes` or plots; a `Figure` contains at least one `Axes`
+31. `Figure`: A figure object that can include multiple `Axes` or plots; a `Figure` contains at least one `Axes`
 
 ```Python
 # create an empty figure with no axes
@@ -233,39 +225,39 @@ fig, ax = plt.subplots()
 fig, axs = plt.subplots(2, 2)
 ```
 
-Having multiple `Axes` in the same `Figure` is useful when creating side-by-side visualizations or a dashboard-style collection of visualizations.
+32. Having multiple `Axes` in the same `Figure` is useful when creating side-by-side visualizations or a dashboard-style collection of visualizations.
 
 ## `Axes`
 
-In `matplotlib` syntax, `Axes` are what we would think of as a single plot, where data is plotted.
+33. In `matplotlib` syntax, `Axes` are what we would think of as a single plot, where data is plotted.
 
-A `Figure` can contain many `Axes`, but a given `Axes` object can only be in one `Figure`.
+34. A `Figure` can contain many `Axes`, but a given `Axes` object can only be in one `Figure`.
 
-For 2D visualizations, an `Axes` contains two `Axis` objects.
+35. For cartesian coordinate plane visualizations, an `Axes` contains two `Axis` objects.
 
 ## `Axis`
 
-`matplotlib` works in a Cartesian coordinate system, with an `X` (horizontal) and `Y` (vertical) axis.
+36. `matplotlib` works in a Cartesian coordinate system, with an `X` (horizontal) and `Y` (vertical) axis.
 
-In a `matplotlib` plot, the `Axis` objects set graph limits and generate tick marks and labels.
+37. In a `matplotlib` plot, the `Axis` objects set graph limits and generate tick marks and labels.
 
-The location of ticks is determined by a `Locator` object.
+38. The location of ticks is determined by a `Locator` object.
 
-Tick labels are strings formatted using `Formatter`.
+39. Tick labels are strings formatted using `Formatter`.
 
 ## Everything Else (`Artists`)
 
-The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
+40. The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
 
-These are all referred to as `Artists` in `matplotlib` documentation.
+41. These are all referred to as `Artists` in `matplotlib` documentation.
 
-Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
+42. Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
 
 # Customizing in `matplotlib`
 
 ## Title and Axis Labels
 
-We can start by adding a plot title, and axis labels to our square root line plot.
+43. We can start by adding a plot title, and axis labels to our square root line plot.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plot
@@ -295,15 +287,13 @@ ax.set_ylabel("Square of Value")
 plt.show()
 ```
 
-We now see a title and axis labels.
+44. We now see a title and axis labels.
 
-This basic title and axis label syntax applies across different types of `matplotlib` plots.
-
-More on that later.
+45. As we'll see later, this basic title and axis label syntax applies across different types of `matplotlib` plots.
 
 ## Font Size and Line Thickness
 
-We can also customize the font size for title and labels, as well as the line thickness.
+46. We can also customize the font size for title and labels, as well as the line thickness.
 
 ```Python
 # import matplotlib
@@ -337,19 +327,19 @@ ax.tick_params(axis='both', labelsize=14)
 plt.show()
 ```
 
-The updated plot includes these size and thickness modifications.
+47. The updated plot includes these size and thickness modifications.
 
 ## Ticks and Ticklabels
 
-By default, `matplotlib` will use the tick locations as labels.
+48. By default, `matplotlib` will use the tick locations as labels.
 
-We can use `.set_xticks()` and `.set_xticklabels()` to set tick values and labels for the `X` axis.
+49. We can use `.set_xticks()` and `.set_xticklabels()` to set tick values and labels for the `X` axis.
 
-`.set_yticks()` and `.set_yticklabels()` do the same for the `Y` axis.
+50. `.set_yticks()` and `.set_yticklabels()` do the same for the `Y` axis.
 
-Tick values work within the data range for each axis.
+51. Tick values work within the data range for each axis.
 
-Let's say we wanted number words as tick labels for our square root plot.
+52. Let's say we wanted number words as tick labels for our square root plot.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plot
@@ -391,7 +381,7 @@ ax.set_yticklabels(['zero', 'five', 'ten', 'fifteen', 'twenty', 'twenty five', '
 plt.show()
 ```
 
-We could also adjust the font size and rotation for those tick labels by modifying the `.set_ticklabels()` lines.
+53. We could also adjust the font size and rotation for those tick labels by modifying the `.set_ticklabels()` lines.
 ```Python
 # set x axis  tick labels
 ax.set_xticklabels(['zero', 'one', 'two', 'three', 'four', 'five'], rotation=30, fontsize='small')
@@ -400,9 +390,9 @@ ax.set_xticklabels(['zero', 'one', 'two', 'three', 'four', 'five'], rotation=30,
 ax.set_yticklabels(['zero', 'five', 'ten', 'fifteen', 'twenty', 'twenty five', 'thirty'], fontsize='small')
 ```
 
-These modifications set the ticklabel font size as `small` and for the `X` axis tick labels rotate the text by 30 degrees.
+54. These modifications set the ticklabel font size as `small` and for the `X` axis tick labels rotate the text by 30 degrees.
 
-We could also adjust the tick label style without adjusting the actual tick labels using `.tick_params()`.
+55. We could also adjust the tick label style without adjusting the actual tick labels using `.tick_params()`.
 
 For example, to change the font size for major tick marks on both axis:
 ```Python
@@ -419,17 +409,19 @@ ax.set_ylabel("Square of Value")
 ax.tick_params(axis='both', which='major', labelsize=14)
 ```
 
-In this example, the default tick values and labels will be used. 
+56. In this example, the default tick values and labels will be used. 
 
-`.tick_params()` modifies the label size for major tick marks on both the `X` and `Y` axis.
+57. `.tick_params()` modifies the label size for major tick marks on both the `X` and `Y` axis.
 
 ## Colors, Markers, and Line Styles
 
-The `.plot()` function can take additional arguments that specify line style and color.
+58. The `.plot()` function can take additional arguments that specify line style and color.
 
-For plots that have points or markers, these same characters are used to specify point type and color.
+59. For plots that have points or markers, these same characters are used to specify point type and color.
 
 ### Line Style
+
+60. The following table includes characters and descriptions for line style keyword arguments.
 
 Character | String Representation | Description
 --- | --- | ---
@@ -438,10 +430,12 @@ Character | String Representation | Description
 `-.` | `dashdot` | Dash dot; dash-dot line style
 `:` | `dotted` | Colon; dotted line style
 
-For more on customizing line styles:
+61. For more on customizing line styles:
 - [Linestyles](https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/linestyles.html)
 
 ### Marker Style
+
+62. The following table includes characters and descriptions for marker style keyword arguments.
 
 Character | Description
 --- | ---
@@ -470,6 +464,8 @@ Character | Description
 
 ### Colors
 
+63. The following table includes characters and descriptions for color keyword arguments.
+
 Character | Color
 --- | ---
 `b` | blue
@@ -481,14 +477,14 @@ Character | Color
 `k` | black
 `w` | white
 
-You can also specify colors using full color names (`green`), hex strings (`#008000`), or RGB combinations (`0, 128, 0`).
+64. You can also specify colors using full color names (`green`), hex strings (`#008000`), or RGB combinations (`0, 128, 0`).
 
-`matplot` lib supports the following named color pallets:
+65. `matplot` lib supports the following named color pallets:
 - Base colors (character keyword arguments)
 - Tableau (named color from default Tableau 10 pallette; uses `tab:blue` syntax)
 - CSS (named colors from CSS; uses `black`, `dimgray`, `antiquewhite` syntax)
 
-For more on colors in `matplotlib`:
+66. For more on colors in `matplotlib`:
 - [List of named colors](https://matplotlib.org/3.1.1/gallery/color/named_colors.html)
 - [Specifying Colors](https://matplotlib.org/3.1.1/tutorials/colors/colors.html#sphx-glr-tutorials-colors-colors-py)
 - [`matplotlib.colors`](https://matplotlib.org/3.1.1/api/colors_api.html#module-matplotlib.colors)
@@ -496,83 +492,82 @@ For more on colors in `matplotlib`:
 
 ## Making Style Choices
 
-When building a plot that will have multiple lines or types of markers, line/marker style (along with color) can help distinguish each component.
+67. When building a plot that will have multiple lines or types of markers, line/marker style (along with color) can help distinguish each component.
 
-In a situation where the plot will be presented or printed in black-and-white only, or viewed by an audience that may include individuals with visual impairments, intentional use of line/marker style is essential for accessibility.
+68. In a situation where the plot will be presented or printed in black-and-white only, or viewed by an audience that may include individuals with visual impairments, intentional use of line/marker style is essential for accessibility.
 
-When building a plot that will have multiple lines or types of markers, color (along with line/marker style) can help distinguish each component.
+69. When building a plot that will have multiple lines or types of markers, color (along with line/marker style) can help distinguish each component.
 
-But relying only on color to convey meaning in a plot runs the risks of making the visual inaccessible or not meaningful to those with visual impairments.
+70. But relying only on color to convey meaning in a plot runs the risks of making the visual inaccessible or not meaningful to those with visual impairments.
 
-Axis Maps's [Colorbrewer2.0](https://colorbrewer2.org/) is a useful tool for finding accessible color palletes.
+71. Axis Maps's [Colorbrewer2.0](https://colorbrewer2.org/) is a useful tool for finding accessible color palletes.
 
 ### Colormaps
 
-As described by Kenneth Moreland, "One of the most fundamental features of scientific visualiation is the process of mapping scalar values to colors" (Moreland, "Diverging Color Maps for Scientific Visualization," in *Proceedings of the 5th International Symposium on Visual Computing*, December 2009. http://dx.doi.org/10.1007/978-3-642-10520-3_9)
+72. As described by Kenneth Moreland, "One of the most fundamental features of scientific visualiation is the process of mapping scalar values to colors" (Moreland, "Diverging Color Maps for Scientific Visualization," in *Proceedings of the 5th International Symposium on Visual Computing*, December 2009. http://dx.doi.org/10.1007/978-3-642-10520-3_9)
 
-The color scheme or pallette for a plot is most often referred to as a colormap.
+73. The color scheme or pallette for a plot is most often referred to as a colormap.
 
-Colormaps generally fall into a few categories.
+74. Colormaps generally fall into a few categories.
 
-`matplotlib` includes [a wide range of built-in colormaps](https://matplotlib.org/tutorials/colors/colormaps.html), some of which are shown in the images below.
+75. `matplotlib` includes [a wide range of built-in colormaps](https://matplotlib.org/tutorials/colors/colormaps.html), some of which are shown in the images below.
 
 #### Sequential
 
 FIGURE 3 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_002.png
 
-Sequential colormaps show change in lightness or color saturation incrementally. 
+76. Sequential colormaps show change in lightness or color saturation incrementally. 
 
-They are generally comprised of a single hue.
+78. They are generally comprised of a single hue.
 
 #### Diverging
 
 FIGURE 4 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_004.png
 
-Diverging colormaps show change in lightness and possibly saturation for two different colors that meet in the middle at an unsaturated color. 
+79. Diverging colormaps show change in lightness and possibly saturation for two different colors that meet in the middle at an unsaturated color. 
 
-This type of colormap is most effective when data being plotted has a critical middle value, or deviates around zero.
+80. This type of colormap is most effective when data being plotted has a critical middle value, or deviates around zero.
 
 #### Cyclic
 
 FIGURE 5 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_019.png
 
-Cyclic colormaps show change in lightness for two different colors that meet in the middle and begin or end at an unsaturated color.
+81. Cyclic colormaps show change in lightness for two different colors that meet in the middle and begin or end at an unsaturated color.
 
-This type of colormap is most effective for data values that wrap around at the endpoints (i.e. phase angle, wind direction, time of day).
+82. This type of colormap is most effective for data values that wrap around at the endpoints (i.e. phase angle, wind direction, time of day).
 
 #### Qualitative
 
 FIGURE 6 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_020.png
 
-Qualitative colormaps are miscellaneous colors.
+83. Qualitative colormaps are miscellaneous colors.
 
-This type of colormap is most effective for information that does not have ordering or relationships.
+84. This type of colormap is most effective for information that does not have ordering or relationships.
 
-For more on colormaps in `matplotlib`:
+85. For more on colormaps in `matplotlib`:
 - [Colormaps](https://matplotlib.org/3.1.1/tutorials/colors/colormaps.html)
 - [Choosing Colormaps in Matplotlib](https://matplotlib.org/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py)
 - [Creating Colormaps in Matplotlib](https://matplotlib.org/3.1.1/tutorials/colors/colormap-manipulation.html)
 
-
 ## Putting It All Together
 
-So how would we use these arguments when generating a plot?
+86. So how would we use these arguments when generating a plot?
 
-Line or marker styles and colors can be combined in a single string format.
+87. Line or marker styles and colors can be combined in a single string format.
 
-Combining these characters opens up a wide range of customization options.
+88. Combining these characters opens up a wide range of customization options.
 
-A few examples:
+89. A few examples:
 - `bo`: blue circle marker
 - `k--`: black dashed line
 - `rp`: red pentagon marker
 - `cD`: cyan diamond marker
 
-You can also specify line style using named stings.
+90. You can also specify line style using named stings.
 
-These arguments are invoked as part of the `.plot()` function (or the equivalent function when generating other kinds of plots).
+91. These arguments are invoked as part of the `.plot()` function (or the equivalent function when generating other kinds of plots).
 
-A few examples for customizing line color and style:
+92. A few examples for customizing line color and style:
 ```Python
 # set line color using named color
 ax.plot(x, y, color='blue')
@@ -616,17 +611,17 @@ ax.plot(x, y, color='green', marker='o')
 
 ### Style Sheets
 
-The prospect of having to make choices about font, style, color, and formatting for every component of your plot can be daunting.
+93. The prospect of having to make choices about font, style, color, and formatting for every component of your plot can be daunting.
 
-`matplotlib` includes a wide range of predefined styles.
+94. `matplotlib` includes a wide range of predefined styles.
 
 FIGURE 2 https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html
 
 https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_001.png (sequential up through 027)
 
-Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
+95. Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
 
-To use one of these styles, we can add a single line of code before starting to generate the plot.
+96. To use one of these styles, we can add a single line of code before starting to generate the plot.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plot
@@ -662,25 +657,25 @@ ax.tick_params(axis='both', labelsize=14)
 plt.show()
 ```
 
-Consult the `matplotlib` ["Style sheets reference" page](https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html) to learn more.
+97. Consult the `matplotlib` ["Style sheets reference" page](https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html) to learn more.
 
-For those interested in data journalism, most large publications have an internal style guide. And since 2017, the AP Stylebook has included a chapter on data journalism.
+98. For those interested in data journalism, most large publications have an internal style guide. And since 2017, the AP Stylebook has included a chapter on data journalism.
 - Daniel Funke, ["The updated 'Bloomberg Way' s tyle guide focuses on best practices for data and multiplatform journalism"](https://www.poynter.org/reporting-editing/2017/the-updated-bloomberg-way-style-guide-focuses-on-best-practices-for-data-and-multiplatform-journalism/) *Poynter* (18 July 2017)
 - Lauren Easton, ["Digging into data journalism"](https://blog.ap.org/industry-insights/digging-into-data-journalism) *Associated Press* (26 July 2017)
 
 ## Legends
 
-When building more complex plots with multiple lines, comparisons, etc. plot legends are essential.
+99. When building more complex plots with multiple lines, comparisons, etc. plot legends are essential.
 
-Some key terms for working with `.legend()`:
+100. Some key terms for working with `.legend()`:
 - ***legend entry***: exactly one key and one label
 - ***legend key***: colored/patterned marker to the left of each legend label
 - ***legend label***: text which describes the handle represented by the key
 - ***legend handle***: original object used to generate an appropriate entry in the legend
 
-We can create a legend in `matplotlib` using `.legend()`.
+101. We can create a legend in `matplotlib` using `.legend()`.
 
-The basic options for creating a legend:
+102. The basic options for creating a legend:
 ```Python
 # calling legend with automatic detection
 legend()
@@ -692,17 +687,17 @@ legend(labels)
 legend(handles, labels)
 ```
 
-For some types of visualizations, the default legend in `matplotlib` will be sufficient.
+103. For some types of visualizations, the default legend in `matplotlib` will be sufficient.
 
-One way to build a legend is to use the `label` argument for each piece of the plot.
+104. One way to build a legend is to use the `label` argument for each piece of the plot.
 
-Using `.legend()` means the elements to be added to the legend are determined automatically.
+105. Using `.legend()` means the elements to be added to the legend are determined automatically.
 
-No additional arguments are passed to the function.
+106. No additional arguments are passed to the function.
 
-Labels are set using the `.set_label()` method when creating the original handle.
+107. Labels are set using the `.set_label()` method when creating the original handle.
 
-Elements with an empty string as the label or a label that starts with the undescore character `_` will not be included in the legend.
+108. Elements with an empty string as the label or a label that starts with the undescore character `_` will not be included in the legend.
 
 ```Python
 # create handle for first line
@@ -725,11 +720,11 @@ line_3, = ax.plot([LINE DATA], color='#000000', linestyle='-')
 line_3.set_label('_Line Three')
 ```
 
-In this example, `ax.legend()` will use the `label` attributes for each line to add it to the legend.
+109. In this example, `ax.legend()` will use the `label` attributes for each line to add it to the legend.
 
-Line three will not be added because its label begins with the underscore character `_`.
+110. Line three will not be added because its label begins with the underscore character `_`.
 
-We can also pass the list of handles directly to `.legend()`:
+111. We can also pass the list of handles directly to `.legend()`:
 ```Python
 # create handle for first line
 line_1, = ax.plot([LINE DATA], 'b--')
@@ -747,38 +742,38 @@ line_2.set_label('Line Two')
 ax.legend(handles=[line_1, line_2])
 ```
 
-In a situation where our handles do not have labels, we can pass both the handles and labels to `.legend()`.
+112. In a situation where our handles do not have labels, we can pass both the handles and labels to `.legend()`.
 ```Python
 ax.legend([line_1, line_2], ['Line One', 'Line Two'])
 ```
 
-In some situations, we might want to create a legend with handles that don't exist in our Figure or Axes.
+113. In some situations, we might want to create a legend with handles that don't exist in our Figure or Axes.
 
-For example, in a situation where color has meaning, we want a legend that takes color values as handles, rather than values for data associated with a specific color.
+114. For example, in a situation where color has meaning, we want a legend that takes color values as handles, rather than values for data associated with a specific color.
 
-We can create a handle just for the legend.
+115. We can create a handle just for the legend.
 
-That is, there is no requirement for handles included in the legend to exist in the Figure or Axes.
+116. That is, there is no requirement for handles included in the legend to exist in the Figure or Axes.
 
-An example where the color red is a handle for our legend.
+117. An example where the color red is a handle for our legend.
 ```Python
 red_patch = mpatches.Patch(color='red', label='The red data')
 ax.legend(handles=[red_patch])
 plt.show()
 ```
 
-The same is true for line styles or marker symbols.
+118. The same is true for line styles or marker symbols.
 
-An example where blue lines with stars are a handle for our legend.
+119. An example where blue lines with stars are a handle for our legend.
 ```Python
 blue_line = mlines.Line2D([], [], color='blue', marker='*', markersize=15, label='Blue stars')
 ax.legend(handles=[blue_line])
 plt.show()
 ```
 
-We can also customize where a legend is located for a plot using the `loc` keyword argument.
+120. We can also customize where a legend is located for a plot using the `loc` keyword argument.
 
-String arguments for `loc`:
+121. String arguments for `loc`:
 
 Location String | Location Code
 --- | ---
@@ -794,7 +789,7 @@ Location String | Location Code
 `'upper center'` | 9
 `'center'` | 10
 
-To invoke these keyword arguments when calling the `.legend()` function:
+122. To invoke these keyword arguments when calling the `.legend()` function:
 ```Python
 ax.legend(loc='best')
 
@@ -807,13 +802,13 @@ ax.legend(handles=[red_patch], loc=7)
 ax.legend(handles=[blue_line], loc='upper center')
 ```
 
-In situations where we want to customize where the legend is located, we can use `bbox_to_anchor` in conjunction with `loc`.
+123. In situations where we want to customize where the legend is located, we can use `bbox_to_anchor` in conjunction with `loc`.
 
-This argument allows arbitrary placement of the legend.
+124. This argument allows arbitrary placement of the legend.
 
-`bbox` coordinates are interpreted in a coordinate system, which uses the default `Axes` or `Figure` coordinates.
+125. `bbox` coordinates are interpreted in a coordinate system, which uses the default `Axes` or `Figure` coordinates.
 
-A few examples:
+126. A few examples:
 
 ```Python
 # example that puts the legend's upper-right hand corner in the center of the axes
@@ -829,11 +824,11 @@ loc='lower left', bbox_to_anchor=(0., 1.02, 1., .102), ncol=2, mode='expand', bo
 loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
 ```
 
-You'll notice the last two examples include additional parameters.
+127. You'll notice the last two examples include additional parameters.
 
 ### Additional Resources
 
-For more on these parameters and other `.legend()` customization options:
+128. For more on these parameters and other `.legend()` customization options:
 - [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
 - [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
 
@@ -841,11 +836,11 @@ For more on these parameters and other `.legend()` customization options:
 
 ## Subplots
 
-As mentioned previously, a single `Figure` object can contain multiple `Axes` or plots.
+129. As mentioned previously, a single `Figure` object can contain multiple `Axes` or plots.
 
-To create a `Figure` with two subplots, we pass number arguments to `plt.subplots()`.
+130. To create a `Figure` with two subplots, we pass number arguments to `plt.subplots()`.
 
-An example that compares dampened and undampened oscillation over time (in seconds).
+131. An example that compares dampened and undampened oscillation over time (in seconds).
 
 ```Python
 import numpy as np
@@ -883,21 +878,20 @@ plt.show()
 ```
 ### Additional Resources
 
-For more on subplots:
+132. For more on subplots:
 - [`matplotlib`, Multiple subplots](https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html)
 - [`matplotlib`, Subplots, axes, and figures](https://matplotlib.org/gallery/index.html#subplots-axes-and-figures)
 - [Jake VanderPlas, "Multiple Subplots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.08-multiple-subplots.html)
-
 
 ## Scatterplots
 
 ### `.scatter()`
 
-The `.scatter()` function creates basic scatter plot visualizations.
+133. The `.scatter()` function creates basic scatter plot visualizations.
 
-`.scatter()` can take additional optional size, style, and color arguments.
+134. `.scatter()` can take additional optional size, style, and color arguments.
 
-To plot a single ponit using `.scatter()`:
+135. To plot a single point using `.scatter()`:
 ```Python
 fig, ax = plt.subplots()
 ax.scatter(2, 4)
@@ -905,7 +899,7 @@ ax.scatter(2, 4)
 plt.show()
 ```
 
-We can plot a series of points by passing lists of `X` and `Y` values to `.scatter()`:
+136. We can plot a series of points by passing lists of `X` and `Y` values to `.scatter()`:
 ```Python
 import matplotlib.pyplot as plt
 
@@ -925,9 +919,9 @@ ax.scatter(x_values, y_values, s=100)
 plt.show()
 ```
 
-We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+137. We could use the syntax outlined previously to set labels, titles, tick marks, etc.
 
-We can also combine elements of a scatter plot and line plot to have points connected by a line:
+138. We can also combine elements of a scatter plot and line plot to have points connected by a line:
 ```Python
 # set x values
 x = nplinspace(0, 10, 30)
@@ -947,7 +941,7 @@ plt.show()
 
 ### `.plt.scatter()`
 
-We can create more highly customized scatter plots using `plt.scatter()`.
+139. We can create more highly customized scatter plots using `plt.scatter()`.
 
 ```Python
 # set x values
@@ -966,9 +960,9 @@ ax.scatter(x, y, marker='o')
 plt.show()
 ```
 
-`plt.scatter()` allows us to customize each individual point in the scatter plot, through individual customization or mapping to data.
+140. `plt.scatter()` allows us to customize each individual point in the scatter plot, through individual customization or mapping to data.
 
-An example random scatter plot with points of different colors and sizes.
+141. An example random scatter plot with points of different colors and sizes.
 ```Python
 # set random state
 rng = np.random.RandomState(0)
@@ -998,7 +992,7 @@ ax.colorbar()
 plt.show()
 ```
 
-Another `plt.scatter()` example using data on flower petal and sepal size.
+142. Another `plt.scatter()` example using data on flower petal and sepal size.
 ```Python
 #import Scikit-Learn
 from sklearn.datasets import load_iris
@@ -1025,13 +1019,13 @@ ax.set_ylabel(iris.feature_names[1])
 plt.show()
 ```
 
-For smaller datasets where a high level of customization is important, `plt.scatter()` will be the better option.
+143. For smaller datasets where a high level of customization is important, `plt.scatter()` will be the better option.
 
-For larger datasets, `plt.plot` will perform more effectively (because the program is not styling each individual point when creating the plot).
+144. For larger datasets, `plt.plot` will perform more effectively (because the program is not styling each individual point when creating the plot).
 
 ### Additional Resources
 
-For more on scatterplots:
+145. For more on scatterplots:
 - [`matplotlib`, "Scatter plot"](https://matplotlib.org/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
 - [`matplotlib`, "Scatter Demo2"](https://matplotlib.org/gallery/lines_bars_and_markers/scatter_demo2.html)
 - [`matplotlib.pyplot.scatter`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.scatter.html)
@@ -1039,23 +1033,23 @@ For more on scatterplots:
 
 ## Histograms
 
-A histogram is a type of plot that approximates the distribution of numerical data.
+146. A histogram is a type of plot that approximates the distribution of numerical data.
 
-The first step in constructing a histogram is to `bin` or `bucket` the range of values.
+147. The first step in constructing a histogram is to `bin` or `bucket` the range of values.
 
-In other words, we need to divide the entire range of values into a series of intervals.
+148. In other words, we need to divide the entire range of values into a series of intervals.
 
-The second step in constructing a histogram is to count how many values fall into each interval.
+149. The second step in constructing a histogram is to count how many values fall into each interval.
 
-In a histogram, the bins are usually consecutive, non-overlapping intervals. 
+150. In a histogram, the bins are usually consecutive, non-overlapping intervals. 
 
-The bins must be adjacent and are often (but not necessarily) of equal size.
+151. The bins must be adjacent and are often (but not necessarily) of equal size.
 
-To plot a 1D histogram, we only need a single vector of numbers.
+152. To plot a 1D histogram, we only need a single vector of numbers.
 
-2D histograms require a second vector.
+153. 2D histograms require a second vector.
 
-A basic 1D histogram:
+154. A basic 1D histogram:
 ```Python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -1073,7 +1067,7 @@ ax.hist(data)
 plt.show()
 ```
 
-Another example of a 1D histogram, this time with a `bins` keyword argument:
+155. Another example of a 1D histogram, this time with a `bins` keyword argument:
 ```Python
 import matplotlib.pyplot as plt
 import numpy as np
@@ -1104,25 +1098,25 @@ axs[1].hist(y, bins=n_bins)
 plt.show()
 ```
 
-We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+156. We could use the syntax outlined previously to set labels, titles, tick marks, etc.
 
-The default type of histogram in `matplotlib` is a tranditional `bar`-type histogram.
+157. The default type of histogram in `matplotlib` is a tranditional `bar`-type histogram.
 
-We can use the `histtype` attribute to draw other kinds of histograms.
+158. We can use the `histtype` attribute to draw other kinds of histograms.
 - `barstacked`: bar-type histogram with stacked data
 - `step`: generates an unfilled lineplot
 - `stepfilled`: generates a filled lineplot
 
-We can also customize our histogram by specifying colors, based on `Y` axis values.
+159. We can also customize our histogram by specifying colors, based on `Y` axis values.
 
-An example of a `stepfilled` histogram with no edges and a customized color:
+160. An example of a `stepfilled` histogram with no edges and a customized color:
 ```Python
 ax.hist(x, bins=n_bins, histtype='stepfilled', color='steelblue', edgecolor='none')
 ```
 
-For more keyword arguments and attributes that can be passed to `.hist()`: [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
+161. For more keyword arguments and attributes that can be passed to `.hist()`: [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
 
-An example that color codes by height and uses the data range to set the color map.
+162. An example that color codes by height and uses the data range to set the color map.
 
 ```Python
 fig, axs = plt.subplots(1, 2, tight_layout=True)
@@ -1150,7 +1144,7 @@ axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 
 ### Additional Resources
 
-For more on histograms:
+163. For more on histograms:
 - [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/gallery/statistics/histogram_features.html)
 - [`matplotlib`, "Histograms"](https://matplotlib.org/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py)
 - [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
@@ -1158,11 +1152,11 @@ For more on histograms:
 
 ## Bar Charts
 
-One of the common uses for bar charts is to plot categorial variables.
+164. One of the common uses for bar charts is to plot categorial variables.
 
-A bar chart presents categorical data with rectangular bars with heights or lengths porportional to the values they represent.
+165. A bar chart presents categorical data with rectangular bars with heights or lengths porportional to the values they represent.
 
-We can create a basic vertical bar chart usign `.bar()`.
+166. We can create a basic vertical bar chart using `.bar()`.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1186,11 +1180,11 @@ axs.bar(names, values)
 plt.show()
 ```
 
-This kind of categorical data can be plotted different ways, depending on the type of data and purpose or intent for the visualization.
+167. This kind of categorical data can be plotted different ways, depending on the type of data and purpose or intent for the visualization.
 
-For example, we could plot the fruit data from the previous example as a bar chart, scatter plot, and line plot.
+168. For example, we could plot the fruit data from the previous example as a bar chart, scatter plot, and line plot.
 
-An example of those three types side-by-side:
+169. An example of those three types side-by-side:
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1223,11 +1217,11 @@ fig.suptitle('Categorical Plotting')
 plt.show()
 ```
 
-We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+170. We could use the syntax outlined previously to set labels, titles, tick marks, etc.
 
 ### Horizontal Bar Chart
 
-We can also create a horizontal bar chart using `.barh()`.
+171. We can also create a horizontal bar chart using `.barh()`.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1251,35 +1245,35 @@ axs.barh(values, names)
 plt.show()
 ```
 
-You'll notice when we call `.barh()`, the general `x, y` syntax is the same. 
+172. You'll notice when we call `.barh()`, the general `x, y` syntax is the same. 
 
-The first variable passed to the function is the `X` axis data, and the second variable passed to the function is the `Y` axis data.
+173. The first variable passed to the function is the `X` axis data, and the second variable passed to the function is the `Y` axis data.
 
-We could use the syntax outlined previously to set labels, titles, tick marks, etc.
+174. We could use the syntax outlined previously to set labels, titles, tick marks, etc.
 
-For a horizontal bar chart, you may need to invert the `Y` axis labels using `.invert_yaxis()` to read the `Y` axis labels top-to-bottom.
+175. For a horizontal bar chart, you may need to invert the `Y` axis labels using `.invert_yaxis()` to read the `Y` axis labels top-to-bottom.
 
 ### Stacked Bar Chart
 
-Just like we can create a stacked histogram, we can also create a stacked bar chart.
+176. Just like we can create a stacked histogram, we can also create a stacked bar chart.
 
-This is especially useful when wanting to represent categorical data and multiple levels of abstractions.
+177. This is especially useful when wanting to represent categorical data and multiple levels of abstractions.
 
-An example of data well-suited to a stacked bar chart might be population data in which a bar chart with country-level data might also need to be disaggregated by gender or race.
+178. An example of data well-suited to a stacked bar chart might be population data in which a bar chart with country-level data might also need to be disaggregated by gender or race.
 
-To create a stacked bar chart, you create two sets of bars for the plot and assign one to the `bottom` parameter.
+179. To create a stacked bar chart, you create two sets of bars for the plot and assign one to the `bottom` parameter.
 
-The `bottom` parameter sets the `Y` axis coordinates of the bottom bars.
+180. The `bottom` parameter sets the `Y` axis coordinates of the bottom bars.
 
-Error bars can also be useful to deliniate components of a stacked bar chart.
+181. Error bars can also be useful to deliniate components of a stacked bar chart.
 
-In `matplotlib` error bars are vertical or horizontal solid lines added to bar tips. 
+182. In `matplotlib` error bars are vertical or horizontal solid lines added to bar tips. 
 
-The error bar values are +/- sizes relative to the data.
+183. The error bar values are +/- sizes relative to the data.
 
-The `yerr` parameter is used to set error bars for the `Y` axis.
+184. The `yerr` parameter is used to set error bars for the `Y` axis.
 
-Putting this all together in an example that shows score data for 5 different groups, disaggregated by test time:
+185. Putting this all together in an example that shows score data for 5 different groups, disaggregated by test time:
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1327,15 +1321,15 @@ plt.show()
 
 ### Grouped Bar Chart
 
-Grouped bar charts can also be useful for showing disaggregated data, or data at multiple levels of abstraction.
+186. Grouped bar charts can also be useful for showing disaggregated data, or data at multiple levels of abstraction.
 
-When creating a grouped bar chart, we have to set label locations for each of the bars.
+187. When creating a grouped bar chart, we have to set label locations for each of the bars.
 
-And the rectangles that are drawn as the bars will need to be half as wide so everything fits on the `X` axis.
+188. And the rectangles that are drawn as the bars will need to be half as wide so everything fits on the `X` axis.
 
-We can also add a custom annotation to show the value for each bar in the chart, displaying its height.
+189. We can also add a custom annotation to show the value for each bar in the chart, displaying its height.
 
-To put that all together, modifying the previous stacked bar example to create a grouped bar chart.
+190. To put that all together, modifying the previous stacked bar example to create a grouped bar chart.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1400,7 +1394,7 @@ plt.show()
 
 ### Additional Resources
 
-For more on bar charts and plotting categorical data:
+191. For more on bar charts and plotting categorical data:
 - [`matplotlib`, Plotting categorical variables](https://matplotlib.org/gallery/lines_bars_and_markers/categorical_variables.html#sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py)
 - [`matplotlib`, Horizontal bar chart](https://matplotlib.org/gallery/lines_bars_and_markers/barh.html)
 - [`matplotlib`, Stacked bar chart](https://matplotlib.org/gallery/lines_bars_and_markers/bar_stacked.html)
@@ -1409,27 +1403,27 @@ For more on bar charts and plotting categorical data:
 
 ## Pie Charts
 
-A pie chart is a circular graphic, divided into slices to illustrate numerical portion.
+192. A pie chart is a circular graphic, divided into slices to illustrate numerical portion.
 
-The arc length of each slice (and thus its central angle and area) is proportional to the quantity it represents.
+193. The arc length of each slice (and thus its central angle and area) is proportional to the quantity it represents.
 
-Data visualization and information perception research suggests that, while useful in some cases, making visual comparisons within a pie chart or across pie charts is challenging.
+194. Data visualization and information perception research suggests that, while useful in some cases, making visual comparisons within a pie chart or across pie charts is challenging.
 
-This research recommends pie charts be replaced by other types of plots (scatter plots, density plots, bar charts, box plots, etc).
+195. This research recommends pie charts be replaced by other types of plots (scatter plots, density plots, bar charts, box plots, etc).
 
-To learn more:
+196. To learn more:
 - Leland Wilkinson, [*The Grammar of Graphics*](https://www.springer.com/gp/book/9780387245447) (Springer, 2005). [Link to electronic access through Hesburgh Libraries](https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph003079467).
 - Edward Tufte, [*The Visual Display of Quantitative Information*](dd) (Graphics Press, 1983). [Link to catalog entry for Hesburgh Library physical copy](https://onesearch.library.nd.edu/permalink/f/1phik6l/ndu_aleph000623770).
 - Stephen Few, ["Save the Pies for Dessert"](www.perceptualedge.com/articles/08-21-07.pdf) *Perceptual Edge* (21 August 2007)
 - Steve Fenton, ["Pie Charts are Bad"](https://www.stevefenton.co.uk/2009/04/pie-charts-are-bad/) *personal blog* (17 April 2009)
 - Dipanjan Sarkar, ["A Comprehensive  Guide to the Grammar of Graphics for Effective Visualization of Multi-dimensional Data"](https://towardsdatascience.com/a-comprehensive-guide-to-the-grammar-of-graphics-for-effective-visualization-of-multi-dimensional-1f92b4ed4149) *Towards Data Science* (12 September 2018)
 
-But, as Google's design lead Manuel Lima has noted, humans love pie charts.
+197. But, as Google's design lead Manuel Lima has noted, humans love pie charts.
 - Manuel Lima, ["Why humans love pie charts: An historical and evolutionary perspective"](https://blog.usejournal.com/why-humans-love-pie-charts-9cd346000bdc) *Noteworthy: The Journal Blog* (23 July 2018)
 
-So we'll cover them.
+198. So we'll cover them.
 
-Sample code for a basic pie chart:
+199. Sample code for a basic pie chart:
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1453,25 +1447,25 @@ ax1.axis('equal')
 plt.show()
 ```
 
-We can customize this pie chart to auto-label each slice's percentage.
+200. We can customize this pie chart to auto-label each slice's percentage.
 ```Python
 # create pie chart with percent formatting
 ax1.pie(sizes, labels=labels, autopct='%1.1f%%')
 ```
 
-The default start angle is `0`, which we can also modify.
+201. The default start angle is `0`, which we can also modify.
 ```Python
 # create pie chart with percent formatting and start angle
 ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
 ```
 
-We can also add a drop shadow to our pie chart.
+202. We can also add a drop shadow to our pie chart.
 ```Python
 # create pie chart with percent formatting, start angle, and drop shadow
 ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, shadow=True)
 ```
 
-We can also "explode" or offset one of the slices.
+203. We can also "explode" or offset one of the slices.
 ```Python
 # import matplotlib
 import matplotlib.pyplot as plt
@@ -1499,31 +1493,31 @@ plt.show()
 ```
 ### Additional Resources
 
-For more on pie charts:
+204. For more on pie charts:
 - [`matplotlib`, Basic pie chart](https://matplotlib.org/gallery/pie_and_polar_charts/pie_features.html)
 - [`matplotlib.pyplot.pie`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.pie.html)
 - [`matplotlib` Gallery, Pie and polar charts](https://matplotlib.org/gallery/index.html#pie-and-polar-charts)
 
 ## Boxplots
 
-Used to represent descriptive statistics, a box plot depicts groups of numerical data as quartiles.
+205. Used to represent descriptive statistics, a box plot depicts groups of numerical data as quartiles.
 
-Box plots are sometimes called box-and-whisker plots because they can include lines extending from the boxes (*whiskers*) to show variability outside upper and lower quartiles.
+206. Box plots are sometimes called box-and-whisker plots because they can include lines extending from the boxes (*whiskers*) to show variability outside upper and lower quartiles.
 
-Box plots are a standardized way of displaying summary statistics for a dataset.
+207. Box plots are a standardized way of displaying summary statistics for a dataset.
 
-Statistics represented in a box plot include:
+208. Statistics represented in a box plot include:
 - ***minimum***: lowest data point (excluding outliers); 0th percentile or Q<sub>0</sub>
 - ***maximum***: highest data point (excluding outliers); 100th percentile or Q<sub>4</sub>
 - ***median***: middle value in the dataset; 50th percentile or Q<sub>2</sub>
 - ***first quartile***: also known as the lower quartile; median of the lower half of the dataset; 25th percentile or Q<sub>1</sub>
 - ***third quartile***: also known as the umper quartile; median of the upper half of the dataset; 75th percentile or Q<sub>3</sub>
 
-In the process of calculating these summary statistics, a sixth value is calculated, the interquartile range.
+209. In the process of calculating these summary statistics, a sixth value is calculated, the interquartile range.
 
-***Interquartile range*** is the distance between upper and lower quartiles.
+210. ***Interquartile range*** is the distance between upper and lower quartiles.
 
-To draw a basic box plot using `matplotlib`:
+211. To draw a basic box plot using `matplotlib`:
 ```Python
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1551,7 +1545,7 @@ axs.set_title('Basic Plot')
 plt.show()
 ```
 
-We could modify this example to not show the outlier points and map only the quartile summary statistics:
+212. We could modify this example to not show the outlier points and map only the quartile summary statistics:
 ```Python 
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1579,7 +1573,7 @@ axs.set_title('Box Plot Without Outlier Points')
 plt.show()
 ```
 
-We could also generate a horizontal box plot.
+213. We could also generate a horizontal box plot.
 ```Python
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1607,7 +1601,7 @@ axs.set_title('Horizontal Box Plot')
 plt.show()
 ```
 
-We can also change the whisker length for our box plot:
+214. We can also change the whisker length for our box plot:
 ```Python
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1635,7 +1629,7 @@ axs.set_title('Box Plot With Modified Whisker Length')
 plt.show()
 ```
 
-We can also set a custom fill color for our boxes:
+215. We can also set a custom fill color for our boxes:
 ```Python
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1677,7 +1671,7 @@ plt.show()
 
 ### Additional Resources
 
-For more on box plots:
+216. For more on box plots:
 - [`matplotlib`, Boxplots](https://matplotlib.org/gallery/statistics/boxplot_demo.html#sphx-glr-gallery-statistics-boxplot-demo-py)
 - [`matplotlib`, Box plots with custom fill colors](https://matplotlib.org/gallery/statistics/boxplot_color.html#sphx-glr-gallery-statistics-boxplot-color-py)
 - [`matplotlib` Gallery, Statistics](https://matplotlib.org/gallery/index.html#statistics)
@@ -1685,13 +1679,13 @@ For more on box plots:
 
 ## Tables
 
-We can use the `.table()` function to create a stand-alone table or a table that would accompany another type of graphical plot.
+217. We can use the `.table()` function to create a stand-alone table or a table that would accompany another type of graphical plot.
 
-In `matplotlib`, the `.table()` function generates a table plot.
+218. In `matplotlib`, the `.table()` function generates a table plot.
 
-This means the table is displaying as a static 2D visualization, just like other `matplotlib` plots.
+219. This means the table is displaying as a static 2D visualization, just like other `matplotlib` plots.
 
-To create a stacked bar chart and table with disaster data over a 100 year period:
+220. To create a stacked bar chart and table with disaster data over a 100 year period:
 ```Python
 # import needed packages
 import numpy as np
@@ -1753,7 +1747,7 @@ plt.title('Loss by Disaster')
 plt.show()
 ```
 
-To show just the table portion from the previous example:
+220. To show just the table portion from the previous example:
 ```Python
 # import needed packages
 import numpy as np
@@ -1819,16 +1813,16 @@ plt.show()
 
 ### Additional Resources
 
-For more on tables in `matplotlib`:
+221. For more on tables in `matplotlib`:
 - [`matplotlib`, Table Demo](https://matplotlib.org/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py)
 - [`matplotlib.pyplot.table`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.table.html)
 - Michael Demastrie, ["Simple Little Tables with Matplotlib"](https://towardsdatascience.com/simple-little-tables-with-matplotlib-9780ef5d0bc4) *Towards Data Science* (18 July 2020).
 
 ## Other Types of Plots
 
-`matplotlib`  supports a wide range of plot types and customizations not covered here.
+222. `matplotlib`  supports a wide range of plot types and customizations not covered here.
 
-Other types of plots include:
+223. Other types of plots include:
 - Filled polygon
 - Stackplots and streamgraphs
 - Image plots
@@ -1841,27 +1835,33 @@ Other types of plots include:
 - Polar charts
 - Custom object plots
 
-That's not even getting into 3D plotting in `matplotlib`, or plotting geographic data.
+224. That's not even getting into 3D plotting in `matplotlib`, or plotting geographic data.
 
-A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/gallery/), which includes sample code for different plot types.
+225. A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/gallery/), which includes sample code for different plot types.
 
-["Sample plots in matplotlib"](https://matplotlib.org/tutorials/introductory/sample_plots.html) is another starting place.
+226. ["Sample plots in matplotlib"](https://matplotlib.org/tutorials/introductory/sample_plots.html) is another starting place.
 
-###  For 3D plotting:
+###  For 3D Plotting
+
+227. 3D plotting resources:
 - [Jake VanderPlas, "Three-Dimensional Plotting in Matplotlib" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html)
 - [`matplotlib`, 3D surface](https://matplotlib.org/gallery/mplot3d/surface3d.html)
 - [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/tutorials/toolkits/mplot3d.html#toolkit-mplot3d-tutorial)
 - [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/gallery/index.html#mplot3d-examples-index)
 
-### For geospatial data;
+### For Geospatial Data
+
+228. Geospatial data resources:
 - [Jake VanderPlas, "Geographic Data with Basemap" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.13-geographic-data-with-basemap.html)
 - [Basemap Matplotlib Toolkit](https://matplotlib.org/basemap/)
 
-A few of our examples used `matplotlib`'s annotation functionality.
+### For More on Text and Annotation
 
-Annotation using `.text()` can highlight specific data points or draw attention to specific elements of a plot.
+229. A few of our examples used `matplotlib`'s annotation functionality.
 
-### For more on text and annotation:
+230. Annotation using `.text()` can highlight specific data points or draw attention to specific elements of a plot.
+
+231. For more on text and annotation:
 - [Jake VanderPlas, "Text and Annotation" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.09-text-and-annotation.html)
 - [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/gallery/index.html#text-labels-and-annotations)
 - [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
@@ -1869,20 +1869,20 @@ Annotation using `.text()` can highlight specific data points or draw attention 
 
 # Saving or Exporting Plots
 
-Up to this point, all of our examples have ended with the line `plt.show()`.
+232. Up to this point, all of our examples have ended with the line `plt.show()`.
 
-But there are many situations in which you might want or need to save a plot as a static image file.
+233. But there are many situations in which you might want or need to save a plot as a static image file.
 
-We can do this using `plt.savefig()`.
+234. We can do this using `plt.savefig()`.
 
-`matplotlib` supports the following image file types:
+235. `matplotlib` supports the following image file types:
 - `.png`: portable network graphics; raster-graphics file format that supports lossless data compression
 - `.pdf`: portable document format; proprietary Adobe file format; fixed-layout flat document
 - `.ps`: postscript; page description language developed by Adobe
 - `.eps`: encapsulated postscript; postscript document formatted as a graphics file format
 - `.svg`: scalable vector graphics; vector based image based on XML
 
-The basic syntax for saving a figure as an image file:
+236. The basic syntax for saving a figure as an image file:
 ```Python
 # basic syntax
 plt.savefig('file_name.file_type')
@@ -1894,46 +1894,54 @@ plt.savefig('png_sample.png')
 plt.savefig('svg_sample.svg')
 ```
 
-We can customize aspects of the saved image using other arguments in combination with `.savefig()`.
+237. We can customize aspects of the saved image using other arguments in combination with `.savefig()`.
 
-`dpi` can set the resolution to a numeric value.
+238. `dpi` can set the resolution to a numeric value.
 ```Python
 plt.savefig('svg_sample.svg', dpi=300)
 ```
 
-Setting `transparent` to `True` makes the image background transparent for file types that support transparent background.
+239. Setting `transparent` to `True` makes the image background transparent for file types that support transparent background.
 ```Python
 plt.savefig('svg_sample.svg', transparent=True)
 ```
 
-`bbox_inches` will alter the size of the bounding box or whitespace around the output image.
+240. `bbox_inches` will alter the size of the bounding box or whitespace around the output image.
 
-If no bounding box is needed, `bbox_inches='tight'` is ideal.
+241. If no bounding box is needed, `bbox_inches='tight'` is ideal.
 
 ## Additional Resources
 
-For more on customization options when saving a figure as an image:
+242. For more on customization options when saving a figure as an image:
 - [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
+
+# Best Practices for Data Visualization
+
+By this point, your brain is probably overwhelmed by the nuances of `matplotlib` syntax.
+
+Let's take a step back and 
+
+
 
 # `OO` vs. `pyplot`
 
-If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
+243. If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
 
-That is because Matplotlib has two interfaces. 
+244. That is because Matplotlib has two interfaces. 
 
-The first is an `object-oriented (OO) interface`. 
+245. The first is an `object-oriented (OO) interface`. 
 
-When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
+246. When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
 
-The second is based on `MATLAB` and uses a state-based interface. 
+247. The second is based on `MATLAB` and uses a state-based interface. 
 
-This second interface is encapsulated in the `pyplot` module. 
+248. This second interface is encapsulated in the `pyplot` module. 
 
-`pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
+249. `pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
 
-At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
+250. At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
 
-For example, the following code generates a line plot using `pyplot` syntax:
+251. For example, the following code generates a line plot using `pyplot` syntax:
 ```Python
 import matplotlib.pyplot as plt
 plt.plot([1, 2, 3, 4])
@@ -1941,15 +1949,15 @@ plt.ylabel('some numbers')
 plt.show()
 ```
 
-No figure, no axis- what magic!
+252. No figure, no axis- what magic!
 
-Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
+253. Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
 
-The `pyplot` interface hs much less flexible than the `OO` interface.
+254. The `pyplot` interface hs much less flexible than the `OO` interface.
 
-Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
+255. Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
 
-For more on the differences between these two interfaces and how to translate sample code across interfaces:
+256. For more on the differences between these two interfaces and how to translate sample code across interfaces:
 - [`matplotlib`, "Pyplot tutorial"](https://matplotlib.org/3.3.3/tutorials/introductory/pyplot.html)
 - [`matplotlib`, "The Lifecycle of a Plot"](https://matplotlib.org/3.3.3/tutorials/introductory/lifecycle.html)
 - Tejas Sanap, ["Pyplot vs Object Oriented Interface"](https://matplotlib.org/matplotblog/posts/pyplot-vs-object-oriented-interface/) *matplotblog* (27 May 2020)
@@ -1957,7 +1965,7 @@ For more on the differences between these two interfaces and how to translate sa
 
 # What's Next
 
-In the next tutorial, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
+In the next lab, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
 
 We'll also look at the `seaborn` library for creating graphics.
 
@@ -1966,5 +1974,7 @@ We will also explore how we can use the `plotly` library for creating interactiv
 Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
 
 # Practice Problems
+
+No practice problems. Spend this time working on the final project.
 
 # Lab Notebook Questions
