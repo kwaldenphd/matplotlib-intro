@@ -1,4 +1,4 @@
-# Lab #11: Introduction to matplotlib
+# Introduction to matplotlib
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
@@ -7,23 +7,70 @@ This tutorial is licensed under a <a href="http://creativecommons.org/licenses/b
 
 ## Acknowledgements
 
+The author consulted the following materials when building this tutorial:
+- `matplotlib`, ["Usage Guide"](https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py)
+- `matplotlib`, ["Tutorials"](https://matplotlib.org/tutorials/index.html)
+- `pandas` documentation, ["Getting Started: Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
+- Chapter 9 "Plotting and Visualization" from Wes McKinney, [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
+- Ventsislav Yordanov, ["Data Science with Python: Intro to Data Visualization with Matplotlib"](https://towardsdatascience.com/data-science-with-python-intro-to-data-visualization-and-matplotlib-5f799b7c6d82) *Towards Data Science* (21 July 2018)
+- Chapter 15 "Generating Data" from Eric Matthes, [*Python Crash Course: A Hands-On, Project-Based Introduction to Programming*](https://ehmatthes.github.io/pcc/) (No Starch Press, 2019).
+- Chapter 4 "Visualization with Matplotlib" from Jake VanderPlas, [*Python Data Science Handbook: Essential Tools for Working with Data*](https://jakevdp.github.io/PythonDataScienceHandbook/) (O'Reilly, 2016)
+
 # Table of Contents
 
-Wes McKinneyh Chapter 9 "Plotting and Visualization"
-
-matplotlib, ["Usage Guide"](https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py)
-
-matplotlib, ["Tutorials"](https://matplotlib.org/tutorials/index.html)
-
-Eric Matthes, Python Crash Course, Chapter 15 "Generating Data"
-
-`pandas` documentation, ["Getting Started: Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
-
-Ventsislav Yordanov, ["Data Science with Python: Intro to Data Visualization with Matplotlib"](https://towardsdatascience.com/data-science-with-python-intro-to-data-visualization-and-matplotlib-5f799b7c6d82) *Towards Data Science* (21 July 2018)
-
-Jake VanderPlas, [*Python Data Science Handbook: Essential Tools for Working with Data*](https://jakevdp.github.io/PythonDataScienceHandbook/) (O'Reilly, 2016)
-Chapter 4 Visualization with Matplotlib
-
+- [Getting started with `matplotlib`](#getting-started-with-matplotlib)
+- [Anatomy of a `matplotlib` figure](#anatomy-of-a-matplotlib-figure)
+  * [`Figure`](#figure)
+  * [`Axes`](#axes)
+  * [`Axis`](#axis)
+  * [Everything Else (`Artists`)](#everything-else-artists)
+- [Customizing in `matplotlib`](#customizing-in-matplotlib)
+  * [Title and Axis Labels](#title-and-axis-labels)
+  * [Font Size and Line Thickness](#font-size-and-line-thickness)
+  * [Ticks and Ticklabels](#ticks-and-ticklabels)
+  * [Colors, Markers, and Line Styles](#colors-markers-and-line-styles)
+    * [Line Style](#line-style)
+    * [Marker Style](#marker-style)
+    * [Colors](#colors)
+  * [Making Style Choices](#making-style-choices)
+    * [Colormaps](#colormaps)
+      * [Sequential](#sequential)
+      * [Diverging](#diverging)
+      * [Cyclic](#cyclic)
+      * [Qualitative](#qualitative)
+    * [Putting It All Together](#putting-it-all-together)
+      * [Style Sheets](#style-sheets)
+  * [Legends](#legends)
+  * [Additional Resources](#additional-resources)
+- [Other Types of Plots](#other-types-of-plots)
+  * [Subplots](#subplots)
+    * [Additional Resources](#additional-resources)
+  * [Scatterplots](#scatterplots)
+    * [`.plt.scatter()`](#pltscatter)
+    * [Additional Resources](#additional-resources)
+  * [Histograms](#histograms)
+    * [Additional Resources](#additional-resources)
+  * [Bar Charts](#bar-charts)
+    * [Horizontal Bar Chart](#horizontal-bar-chart)
+    * [Stacked Bar Chart](#stacked-bar-chart)
+    * [Grouped Bar Chart](#grouped-bar-chart)
+    * [Additional Resources](#additional-resources)
+  * [Pie Charts](#pie-charts)
+    * [Additional Resources](#additional-resources)
+  * [Boxplots](#boxplots)
+    * [Additional Resources](#additional-resources)
+  * [Tables](#tables)
+    * [Additional Resources](#additional-resources)
+  * [Other Types of Plots](#other-types-of-plots)
+    * [3D Plotting](#for-3d-plotting)
+    * [Geosptial Data](#for-geospatial-data)
+    * [Text and Annotation](#for-more-on-text-and-annotation)
+- [Saving or Exporting Plots](#saving-or-exporting-plots)
+  * [Additional Resources](#additional-resources)
+- [`OO` vs. `pyplot`](#OO-vs-pyplot)
+- [What's Next](#whats-next)
+- [Practice Problems](#practice-problems)
+- [Lab Notebook Questions](#lab-notebook-questions)
 
 # Getting started with `matplotlib`
 
@@ -173,9 +220,11 @@ The location of ticks is determined by a `Locator` object.
 
 Tick labels are strings formatted using `Formatter`.
 
-## Everything Else
+## Everything Else (`Artists`)
 
 The other components of the `Figure` include things like axis labels, marker or line style, tick labels, figure title, etc.
+
+These are all referred to as `Artists` in `matplotlib` documentation.
 
 Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
 
@@ -347,7 +396,7 @@ The `.plot()` function can take additional arguments that specify line style and
 
 For plots that have points or markers, these same characters are used to specify point type and color.
 
-# Line Style
+### Line Style
 
 Character | String Representation | Description
 --- | --- | ---
@@ -359,7 +408,7 @@ Character | String Representation | Description
 For more on customizing line styles:
 - [Linestyles](https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/linestyles.html)
 
-# Marker Style
+### Marker Style
 
 Character | Description
 --- | ---
@@ -386,7 +435,7 @@ Character | Description
 `|` | Vertical line or pipe symbol; vline marker
 `_` | Underscore symbol; hline marker
 
-# Colors
+### Colors
 
 Character | Color
 --- | ---
@@ -458,7 +507,7 @@ Cyclic colormaps show change in lightness for two different colors that meet in 
 
 This type of colormap is most effective for data values that wrap around at the endpoints (i.e. phase angle, wind direction, time of day).
 
-### Qualitative
+#### Qualitative
 
 FIGURE 6 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_020.png
 
@@ -472,7 +521,7 @@ For more on colormaps in `matplotlib`:
 - [Creating Colormaps in Matplotlib](https://matplotlib.org/3.1.1/tutorials/colors/colormap-manipulation.html)
 
 
-## Putting it all together
+## Putting It All Together
 
 So how would we use these arguments when generating a plot?
 
@@ -749,13 +798,13 @@ loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
 
 You'll notice the last two examples include additional parameters.
 
-### Additional resources
+### Additional Resources
 
 For more on these parameters and other `.legend()` customization options:
 - [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
 - [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
 
-# Other types of plots
+# Other Types of Plots
 
 ## Subplots
 
@@ -799,7 +848,7 @@ ax2.set_ylabel('Undamped')
 #show plot
 plt.show()
 ```
-### Additional resources
+### Additional Resources
 
 For more on subplots:
 - [`matplotlib`, Multiple subplots](https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html)
@@ -807,7 +856,7 @@ For more on subplots:
 - [Jake VanderPlas, "Multiple Subplots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.08-multiple-subplots.html)
 
 
-## Scatter plots
+## Scatterplots
 
 ### `.scatter()`
 
@@ -947,7 +996,7 @@ For smaller datasets where a high level of customization is important, `plt.scat
 
 For larger datasets, `plt.plot` will perform more effectively (because the program is not styling each individual point when creating the plot).
 
-### Additional resources
+### Additional Resources
 
 For more on scatterplots:
 - [`matplotlib`, "Scatter plot"](https://matplotlib.org/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
@@ -1066,7 +1115,7 @@ axs[1].hist(x, bins=n_bins, density=True)
 axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 ```
 
-### Additional resources
+### Additional Resources
 
 For more on histograms:
 - [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/gallery/statistics/histogram_features.html)
@@ -1074,7 +1123,7 @@ For more on histograms:
 - [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
 - [Jake VanderPlas, "Histograms, Binnings, and Density" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html)
 
-## Bar charts
+## Bar Charts
 
 One of the common uses for bar charts is to plot categorial variables.
 
@@ -1143,7 +1192,7 @@ plt.show()
 
 We could use the syntax outlined previously to set labels, titles, tick marks, etc.
 
-### Horizontal bar chart
+### Horizontal Bar Chart
 
 We can also create a horizontal bar chart using `.barh()`.
 ```Python
@@ -1177,7 +1226,7 @@ We could use the syntax outlined previously to set labels, titles, tick marks, e
 
 For a horizontal bar chart, you may need to invert the `Y` axis labels using `.invert_yaxis()` to read the `Y` axis labels top-to-bottom.
 
-### Stacked bar chart
+### Stacked Bar Chart
 
 Just like we can create a stacked histogram, we can also create a stacked bar chart.
 
@@ -1243,7 +1292,7 @@ ax.legend()
 plt.show()
 ```
 
-### Grouped bar chart
+### Grouped Bar Chart
 
 Grouped bar charts can also be useful for showing disaggregated data, or data at multiple levels of abstraction.
 
@@ -1316,7 +1365,7 @@ fig.tight_layout()
 plt.show()
 ```
 
-### Additional resources
+### Additional Resources
 
 For more on bar charts and plotting categorical data:
 - [`matplotlib`, Plotting categorical variables](https://matplotlib.org/gallery/lines_bars_and_markers/categorical_variables.html#sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py)
@@ -1325,7 +1374,7 @@ For more on bar charts and plotting categorical data:
 - [`matplotlib`, Percentiles as horizontal bar chart](https://matplotlib.org/gallery/statistics/barchart_demo.html)
 
 
-## Pie charts
+## Pie Charts
 
 A pie chart is a circular graphic, divided into slices to illustrate numerical portion.
 
@@ -1415,14 +1464,14 @@ ax1.axis('equal')
 # show plot
 plt.show()
 ```
-### Additional resources
+### Additional Resources
 
 For more on pie charts:
 - [`matplotlib`, Basic pie chart](https://matplotlib.org/gallery/pie_and_polar_charts/pie_features.html)
 - [`matplotlib.pyplot.pie`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.pie.html)
 - [`matplotlib` Gallery, Pie and polar charts](https://matplotlib.org/gallery/index.html#pie-and-polar-charts)
 
-## Box plots
+## Boxplots
 
 Used to represent descriptive statistics, a box plot depicts groups of numerical data as quartiles.
 
@@ -1593,7 +1642,7 @@ for ax in [ax]:
 plt.show()
 ```
 
-### Additional resources
+### Additional Resources
 
 For more on box plots:
 - [`matplotlib`, Boxplots](https://matplotlib.org/gallery/statistics/boxplot_demo.html#sphx-glr-gallery-statistics-boxplot-demo-py)
@@ -1735,14 +1784,14 @@ plt.draw()
 plt.show()
 ```
 
-### Additional resources
+### Additional Resources
 
 For more on tables in `matplotlib`:
 - [`matplotlib`, Table Demo](https://matplotlib.org/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py)
 - [`matplotlib.pyplot.table`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.table.html)
 - Michael Demastrie, ["Simple Little Tables with Matplotlib"](https://towardsdatascience.com/simple-little-tables-with-matplotlib-9780ef5d0bc4) *Towards Data Science* (18 July 2020).
 
-## Other types of plots
+## Other Types of Plots
 
 `matplotlib`  supports a wide range of plot types and customizations not covered here.
 
@@ -1765,13 +1814,13 @@ A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/galle
 
 ["Sample plots in matplotlib"](https://matplotlib.org/tutorials/introductory/sample_plots.html) is another starting place.
 
-For 3D plotting:
+###  For 3D plotting:
 - [Jake VanderPlas, "Three-Dimensional Plotting in Matplotlib" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html)
 - [`matplotlib`, 3D surface](https://matplotlib.org/gallery/mplot3d/surface3d.html)
 - [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/tutorials/toolkits/mplot3d.html#toolkit-mplot3d-tutorial)
 - [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/gallery/index.html#mplot3d-examples-index)
 
-For geospatial data;
+### For geospatial data;
 - [Jake VanderPlas, "Geographic Data with Basemap" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.13-geographic-data-with-basemap.html)
 - [Basemap Matplotlib Toolkit](https://matplotlib.org/basemap/)
 
@@ -1779,13 +1828,13 @@ A few of our examples used `matplotlib`'s annotation functionality.
 
 Annotation using `.text()` can highlight specific data points or draw attention to specific elements of a plot.
 
-For more on text and annotation:
+### For more on text and annotation:
 - [Jake VanderPlas, "Text and Annotation" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.09-text-and-annotation.html)
 - [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/gallery/index.html#text-labels-and-annotations)
 - [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
 - [`matplotlib.pyplot.annotate`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.annotate.html)
 
-# Saving or exporting plots
+# Saving or Exporting Plots
 
 Up to this point, all of our examples have ended with the line `plt.show()`.
 
@@ -1828,7 +1877,7 @@ plt.savefig('svg_sample.svg', transparent=True)
 
 If no bounding box is needed, `bbox_inches='tight'` is ideal.
 
-## Additional resources
+## Additional Resources
 
 For more on customization options when saving a figure as an image:
 - [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
