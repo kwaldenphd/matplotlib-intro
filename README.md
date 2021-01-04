@@ -107,7 +107,6 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
     * [Geosptial Data](#for-geospatial-data)
     * [Text and Annotation](#for-more-on-text-and-annotation)
 - [Saving or Exporting Plots](#saving-or-exporting-plots)
-  * [Additional Resources](#additional-resources)
 - [`OO` vs. `pyplot`](#OO-vs-pyplot)
 - [Best Practices for Data Visualization](#best-practices-for-data-visualization)
 - [What's Next](#whats-next)
