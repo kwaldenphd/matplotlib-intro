@@ -1,9 +1,20 @@
-# Introduction to matplotlib
+# Introduction to `matplotlib`
 
 <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license"><img style="border-width: 0;" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" alt="Creative Commons License" /></a>
 This tutorial is licensed under a <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-## Lab  Goals
+## Lab Goals
+
+This lab covers the fundamentals of creating plots in Python using `matplotlib`. It covers the basic anatomy of a `matplotlib` figure and the customization and styling options available. It provides an overview of common plot types, as well as image export options. It provides a comparison and overview of `matplotlib`'s two interfaces: object-oriented and `pyplot`. 
+
+By the end of this lab, students will be able to:
+- Understand the core components of a `matplotlib` figure
+- Be able to write code that generates a `matplotlib` figure
+- Understand the customization and styling options available in `matplotlib`
+- Be able to customize a `matplotlib` figure using available styling options
+- Understand the range of plot types available in `matplotlib`
+- Be comfortable navigating `matplotlib` documentation
+- Be able to save a `matplotlib` figure as a static image file
 
 ## Acknowledgements
 
@@ -48,6 +59,7 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
 - [Saving or Exporting Plots](#saving-or-exporting-plots)
 - [`OO` vs. `pyplot`](#OO-vs-pyplot)
 - [What's Next](#whats-next)
+- [Best Practices for Data Visualization](#best-practices-for-data-visualization)
 - [Practice Problems](#practice-problems)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
@@ -95,6 +107,7 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
 - [Saving or Exporting Plots](#saving-or-exporting-plots)
   * [Additional Resources](#additional-resources)
 - [`OO` vs. `pyplot`](#OO-vs-pyplot)
+- [Best Practices for Data Visualization](#best-practices-for-data-visualization)
 - [What's Next](#whats-next)
 - [Practice Problems](#practice-problems)
 - [Lab Notebook Questions](#lab-notebook-questions)
@@ -254,6 +267,8 @@ fig, axs = plt.subplots(2, 2)
 41. These are all referred to as `Artists` in `matplotlib` documentation.
 
 42. Knowing how to configure or customize these plot components is not just about aesthetics--in many cases, customizing a plot is necessary for readability.
+
+<blockquote>Q1: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
 
 # Customizing in `matplotlib`
 
@@ -551,6 +566,8 @@ FIGURE 6 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_020.png
 - [Choosing Colormaps in Matplotlib](https://matplotlib.org/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py)
 - [Creating Colormaps in Matplotlib](https://matplotlib.org/3.1.1/tutorials/colors/colormap-manipulation.html)
 
+<blockquote>Q2: Describe the different types of colormaps in your own words. What are the parameters or factors to consider when choosing a colormap?</blockquote>
+
 ## Putting It All Together
 
 86. So how would we use these arguments when generating a plot?
@@ -833,6 +850,18 @@ loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
 128. For more on these parameters and other `.legend()` customization options:
 - [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
 - [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
+
+<blockquote>Q3: Create your own matplotlib figure and include the following style elements. Include code + comments.:
+ <ul>
+  <li>Title</li>
+  <li>Axis labels</li>
+  <li>Tick marks</li>
+  <li>Tick labels</li>
+  <li>Line or marker style</li>
+  <li>Line or marker color</li>
+  <li>Legend</li>
+ </ul>
+ </blockquote>
 
 # Other Types of Plots
 
@@ -1869,6 +1898,31 @@ plt.show()
 - [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
 - [`matplotlib.pyplot.annotate`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.annotate.html)
 
+<blockquote>Q4: Write code that generates at least 3 of the following plot types.
+ <ul>
+  <li>Figure with subplots</li>
+  <li>Scatterplot</li>
+  <li>Histogram</li>
+  <li>Bar chart (regular, horizontal, stacked, or grouped)</li>
+  <li>Pie chart</li>
+  <li>Boxplot</li>
+  <li>Table</li>
+  <li>Other</li>
+ </ul>
+ 
+Each of the three plots needs to include the following style elements (as appropriate).
+<ul>
+ <li>Title</li>
+ <li>Axis labels</li>
+ <li>Tick marks</li>
+ <li>Tick labels</li>
+ <li>Line or marker style</li>
+ <li>Line or marker color</li>
+ <li>Legend</li>
+ </ul>
+ 
+Include code + comments.</blockquote>
+
 # Saving or Exporting Plots
 
 232. Up to this point, all of our examples have ended with the line `plt.show()`.
@@ -1916,6 +1970,8 @@ plt.savefig('svg_sample.svg', transparent=True)
 
 242. For more on customization options when saving a figure as an image:
 - [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
+
+<blockquote>Q5: Add lines of code for each of the plots generated for Q4 to save the plot as an image file.</blockquote>
 
 # Best Practices for Data Visualization
 
@@ -1980,3 +2036,38 @@ No practice problems for this lab. Spend this time working on the final project.
 
 # Lab Notebook Questions
 
+<blockquote>Q1: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
+
+<blockquote>Q2: Describe the different types of colormaps in your own words. What are the parameters or factors to consider when choosing a colormap?</blockquote>
+
+Q3: Create your own matplotlib figure and include the following style elements. Include code + comments.
+- Title
+- Axis labels
+- Tick marks
+- Tick labels
+- Line or marker style
+- Line or marker color
+- Legend
+
+Q4: Write code that generates at least 3 of the following plot types.
+- Figure with subplots
+- Scatterplot
+- Histogram
+- Bar chart (regular, horizontal, stacked, or grouped)
+- Pie chart
+- Boxplot
+- Table
+- Other
+
+Each of the three plots needs to include the following style elements (as appropriate).
+- Title
+- Axis labels
+- Tick marks
+- Tick labels
+- Line or marker style
+- Line or marker color
+- Legend
+
+Include code + comments.
+
+Q5: Add lines of code for each of the plots generated for Q4 to save the plot as an image file.
