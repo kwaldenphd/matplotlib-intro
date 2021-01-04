@@ -16,6 +16,8 @@ By the end of this lab, students will be able to:
 - Be comfortable navigating `matplotlib` documentation
 - Be able to save a `matplotlib` figure as a static image file
 
+[Click here](https://raw.githubusercontent.com/kwaldenphd/matplotlib-intro/main/matplotlib-intro.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
+
 ## Acknowledgements
 
 The author consulted the following materials when building this tutorial:
@@ -139,13 +141,13 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
 
 ```Python
 # import matplotlib
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 # import numpy
 import numpy as np
 
 # create dataset of numbers 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-data = np.arrange(10)
+data = np.arange(10)
 
 # create line plot of data 
 plt.plot(data)
@@ -168,7 +170,7 @@ plt.plot(data)
 18. Another line plot using a list of number values:
 ```Python
 # import package
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 # create figure with axes
 fig, ax = plt.subplots()
@@ -187,7 +189,7 @@ ax.plot([1, 2, 3, 4], [1, 4, 2, 3])
 
 ```Python
 # import matplotlib
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
@@ -223,7 +225,7 @@ plt.show()
 
 30. Before we start customizing plots or generating more complex plots, it's useful to know the components of a `matplotlib` figure.
 
-FIGURE 1 https://matplotlib.org/_images/anatomy.png
+<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_1.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_1.png?raw=true" /></a></p>
 
 ## `Figure`
 
@@ -277,7 +279,7 @@ fig, axs = plt.subplots(2, 2)
 43. We can start by adding a plot title, and axis labels to our square root line plot.
 ```Python
 # import matplotlib
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
@@ -314,7 +316,7 @@ plt.show()
 
 ```Python
 # import matplotlib
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
@@ -409,9 +411,7 @@ ax.set_yticklabels(['zero', 'five', 'ten', 'fifteen', 'twenty', 'twenty five', '
 
 54. These modifications set the ticklabel font size as `small` and for the `X` axis tick labels rotate the text by 30 degrees.
 
-55. We could also adjust the tick label style without adjusting the actual tick labels using `.tick_params()`.
-
-For example, to change the font size for major tick marks on both axis:
+55. We could also adjust the tick label style without adjusting the actual tick labels using `.tick_params()`. For example, to change the font size for major tick marks on both axis:
 ```Python
 # add title
 ax.set_title("Square Numbers")
@@ -531,7 +531,7 @@ Character | Color
 
 #### Sequential
 
-FIGURE 3 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_002.png
+<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_3.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_3.png?raw=true" /></a></p>
 
 76. Sequential colormaps show change in lightness or color saturation incrementally. 
 
@@ -539,7 +539,7 @@ FIGURE 3 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_002.png
 
 #### Diverging
 
-FIGURE 4 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_004.png
+<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_4.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_4.png?raw=true" /></a></p>
 
 79. Diverging colormaps show change in lightness and possibly saturation for two different colors that meet in the middle at an unsaturated color. 
 
@@ -547,7 +547,7 @@ FIGURE 4 https://matplotlib.org/3.1.0/_images/sphx_glr_colormaps_004.png
 
 #### Cyclic
 
-FIGURE 5 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_019.png
+<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_5.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_5.png?raw=true" /></a></p>
 
 81. Cyclic colormaps show change in lightness for two different colors that meet in the middle and begin or end at an unsaturated color.
 
@@ -555,7 +555,7 @@ FIGURE 5 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_019.png
 
 #### Qualitative
 
-FIGURE 6 https://matplotlib.org/3.1.1/_images/sphx_glr_colormaps_020.png
+<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_6.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_6.png?raw=true" /></a></p>
 
 83. Qualitative colormaps are miscellaneous colors.
 
@@ -634,16 +634,14 @@ ax.plot(x, y, color='green', marker='o')
 
 94. `matplotlib` includes a wide range of predefined styles.
 
-FIGURE 2 https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html
-
-https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_001.png (sequential up through 027)
+<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_2.png?raw=true" /></a></p>
 
 95. Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
 
 96. To use one of these styles, we can add a single line of code before starting to generate the plot.
 ```Python
 # import matplotlib
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
 
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
@@ -658,7 +656,7 @@ plt.style.use('ggplot')
 fig, ax = plt.subplots()
 
 # generate plot
-ax.plot(input_values, squares, linewidth-3)
+ax.plot(input_values, squares, linewidth=3)
 
 # add title
 ax.set_title("Square Numbers", fontsize=24)
@@ -752,7 +750,7 @@ line_1, = ax.plot([LINE DATA], 'b--')
 line_1.set_label('Line One')
 
 # create handle for second line
-line_2, = ax.plot([LINE DATA], color='green', linestyle='-.`)
+line_2, = ax.plot([LINE DATA], color='green', linestyle='-.')
 
 # set label for line_2
 line_2.set_label('Line Two')
@@ -777,7 +775,9 @@ ax.legend([line_1, line_2], ['Line One', 'Line Two'])
 117. An example where the color red is a handle for our legend.
 ```Python
 red_patch = mpatches.Patch(color='red', label='The red data')
+
 ax.legend(handles=[red_patch])
+
 plt.show()
 ```
 
@@ -786,7 +786,9 @@ plt.show()
 119. An example where blue lines with stars are a handle for our legend.
 ```Python
 blue_line = mlines.Line2D([], [], color='blue', marker='*', markersize=15, label='Blue stars')
+
 ax.legend(handles=[blue_line])
+
 plt.show()
 ```
 
@@ -932,6 +934,7 @@ plt.show()
 
 136. We can plot a series of points by passing lists of `X` and `Y` values to `.scatter()`:
 ```Python
+# import matplotlib 
 import matplotlib.pyplot as plt
 
 # set x values
@@ -1576,7 +1579,7 @@ axs.set_title('Basic Plot')
 plt.show()
 ```
 
-212. We could modify this example to not show the outlier points and map only the quartile summary statistics:
+212. We can modify this example to not show the outlier points and map only the quartile summary statistics:
 ```Python 
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1604,7 +1607,7 @@ axs.set_title('Box Plot Without Outlier Points')
 plt.show()
 ```
 
-213. We could also generate a horizontal box plot.
+213. We can also generate a horizontal box plot.
 ```Python
 # load needed packages
 import matplotlib.pyplot as plt
@@ -1746,6 +1749,9 @@ n_rows = len(data)
 # set bar width
 index = np.arange(len(columns)) + 0.3
 bar_width = 0.4
+
+# initialize the vertical-offset for the stacked bar chart.
+y_offset = np.zeros(len(columns))
 
 # plot bars and create text labels for the table
 cell_text = []
@@ -2002,8 +2008,11 @@ plt.savefig('svg_sample.svg', transparent=True)
 254. For example, the following code generates a line plot using `pyplot` syntax:
 ```Python
 import matplotlib.pyplot as plt
+
 plt.plot([1, 2, 3, 4])
+
 plt.ylabel('some numbers')
+
 plt.show()
 ```
 
@@ -2036,9 +2045,9 @@ No practice problems for this lab. Spend this time working on the final project.
 
 # Lab Notebook Questions
 
-<blockquote>Q1: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?</blockquote>
+Q1: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?
 
-<blockquote>Q2: Describe the different types of colormaps in your own words. What are the parameters or factors to consider when choosing a colormap?</blockquote>
+Q2: Describe the different types of colormaps in your own words. What are the parameters or factors to consider when choosing a colormap?
 
 Q3: Create your own matplotlib figure and include the following style elements. Include code + comments.
 - Title
