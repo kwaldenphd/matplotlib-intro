@@ -627,6 +627,141 @@ ax.plot(x, y, 'bo')
 ax.plot(x, y, color='green', marker='o')
 ```
 
+```Python
+# python code that puts it all together
+
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares)
+
+# add title
+ax.set_title("Square Numbers")
+
+# add x axis label
+ax.set_xlabel("Value")
+
+# add y axis label
+ax.set_ylabel("Square of Value") 
+
+# set x axis tick locations
+ax.set_xticks([0, 1, 2, 3, 4, 5])
+
+# set line style and color using characters
+ax.plot(input_values, squares, 'b--')
+
+# show plot
+plt.show()
+```
+
+```Python
+# another example that combines these elements
+
+# import matplotlib
+import matplotlib.pyplot as plot
+
+# create dataset for y axis
+squares = [1, 4, 9, 16, 25]
+
+# create dataset for x axis
+input_values = [1, 2, 3, 4, 5]
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# generate plot
+ax.plot(input_values, squares)
+
+# add title
+ax.set_title("Square Numbers")
+
+# add x axis label
+ax.set_xlabel("Value")
+
+# add y axis label
+ax.set_ylabel("Square of Value") 
+
+# set x axis tick locations
+ax.set_xticks([0, 1, 2, 3, 4, 5])
+
+# set line style and color using characters
+ax.plot(input_values, squares, color="blue")
+
+# show plot
+plt.show()
+```
+
+```Python
+# example code that draws a bar chart and uses a color map to assign unique bar colors
+
+# import matplotlib and numpy
+import matplotlib.pyplot as plt
+import numpy as np
+
+# set x and y values
+x = np.array([1, 2, 3])
+y = np.array([4, 5, 6])
+
+# assign colormap
+my_cmap = plt.get_cmap("viridis")
+
+# scale colormap
+rescale = lambda y: (y - np.min(y)) / (np.max(y) - np.min(y))
+
+# generate plot
+plt.bar(x, y, color=my_cmap(rescale(y)))
+```
+
+```Python
+# example code that uses a for loop and color map to assign unique bin colors
+
+# import matplotlib
+import matplotlib.pyplot as plot
+from matplotlib import colors
+from matplotlib.ticker import PercentFormatter
+
+# create figure and axes
+fig, axs = plt.subplots(1, 2, tight_layout=True)
+
+# set values and number of bins 
+N_points = 100000
+n_bins = 20
+
+# set normal distribution
+x = np.random.randn(N_points)
+y = .4 * x + np.random.randn(100000) + 5
+
+# N is the count in each bin, bins is the lower-limit of the bin
+N, bins, patches = axs[0].hist(x, bins=n_bins)
+
+# We'll color code by height, but you could use any scalar
+fracs = N / N.max()
+
+# we need to normalize the data to 0..1 for the full range of the colormap
+norm = colors.Normalize(fracs.min(), fracs.max())
+
+# Now, we'll loop through our objects and set the color of each accordingly
+for thisfrac, thispatch in zip(fracs, patches):
+    color = plt.cm.viridis(norm(thisfrac))
+    thispatch.set_facecolor(color)
+
+# We can also normalize our inputs by the total number of counts
+axs[1].hist(x, bins=n_bins, density=True)
+
+# Now we format the y-axis to display percentage
+axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
+```
+
 ### Style Sheets
 
 93. The prospect of having to make choices about font, style, color, and formatting for every component of your plot can be daunting.
@@ -757,10 +892,35 @@ line_2.set_label('Line Two')
 # create legend
 ax.legend(handles=[line_1, line_2])
 ```
+```Python
+# Python example
+
+# create line 1
+line_up, = plt.plot([1,2,3], label='Line 2')
+
+# create line 2
+line_down, = plt.plot([3,2,1], label='Line 1')
+
+# create plot with legend
+plt.legend(handles=[line_up, line_down])
+```
 
 112. In a situation where our handles do not have labels, we can pass both the handles and labels to `.legend()`.
 ```Python
 ax.legend([line_1, line_2], ['Line One', 'Line Two'])
+```
+
+```Python
+# Python example
+
+# create line 1
+line_up, = plt.plot([1,2,3], label='Line 2')
+
+# create line 2
+line_down, = plt.plot([3,2,1], label='Line 1')
+
+# create plot with legend
+plt.legend([line_up, line_down], ['Line Up', 'Line Down'])
 ```
 
 113. In some situations, we might want to create a legend with handles that don't exist in our Figure or Axes.
@@ -777,6 +937,23 @@ red_patch = mpatches.Patch(color='red', label='The red data')
 
 ax.legend(handles=[red_patch])
 
+plt.show()
+```
+
+```Python
+# python example
+
+# import matplotlib
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+
+# assign red path
+red_patch = mpatches.Patch(color='red', label='The red data')
+
+# create legend
+plt.legend(handles=[red_patch])
+
+# show plot
 plt.show()
 ```
 
@@ -822,6 +999,23 @@ ax.legend(handles=[red_patch], loc=7)
 ax.legend(handles=[blue_line], loc='upper center')
 ```
 
+```Python
+# python example
+
+# import package
+import matplotlib.lines as mlines
+
+# assign blue line
+blue_line = mlines.Line2D([], [], color='blue', marker='*',
+                          markersize=15, label='Blue stars')
+
+# create legend in upper left corner
+plt.legend(handles=[blue_line], loc="upper left")
+
+# show plot
+plt.show()
+```
+
 123. In situations where we want to customize where the legend is located, we can use `bbox_to_anchor` in conjunction with `loc`.
 
 124. This argument allows arbitrary placement of the legend.
@@ -832,16 +1026,33 @@ ax.legend(handles=[blue_line], loc='upper center')
 
 ```Python
 # example that puts the legend's upper-right hand corner in the center of the axes
-loc='upper right', bbox_to_anchor=(0.5, 0.5)
+plt.legend(loc='upper right', bbox_to_anchor=(0.5, 0.5))
 
 # example that puts the legend in the best location in the bottom right quadrant of the axes
-loc='best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)
+plt.legend(loc='best', bbox_to_anchor=(0.5, 0., 0.5, 0.5))
 
 # example that places legend above plot and expands legend to full given bounding box
-loc='lower left', bbox_to_anchor=(0., 1.02, 1., .102), ncol=2, mode='expand', borderaxespad=0.)
+plt.legend(loc='lower left', bbox_to_anchor=(0., 1.02, 1., .102), ncol=2, mode='expand', borderaxespad=0.))
 
 # example that places a legend to the right of a plot
-loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
+plt.legend(loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.))
+```
+
+```Python
+# python example
+
+# import package
+import matplotlib.lines as mlines
+
+# assign blue line
+blue_line = mlines.Line2D([], [], color='blue', marker='*',
+                          markersize=15, label='Blue stars')
+
+# create legend in upper left corner
+plt.legend(handles=[blue_line], loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
+
+# show plot
+plt.show()
 ```
 
 127. You'll notice the last two examples include additional parameters.
@@ -957,7 +1168,7 @@ plt.show()
 138. We can also combine elements of a scatter plot and line plot to have points connected by a line:
 ```Python
 # set x values
-x = nplinspace(0, 10, 30)
+x = np.linspace(0, 10, 30)
 
 # set y values
 y = np.sin(x)
@@ -1016,10 +1227,10 @@ sizes = 1000 * rng.rand(100)
 fig, ax = plt.subplots()
 
 # create scatter plot
-ax.scatter(x, y, c=colors, s=sizes, alpha=0.3, cmap='viridis')
+plot = ax.scatter(x, y, c=colors, s=sizes, alpha=0.3, cmap='viridis')
 
 # show color scale
-ax.colorbar()
+plt.colorbar(plot)
 
 # show plot
 plt.show()
@@ -1040,13 +1251,16 @@ features = iris.data.T
 fig, ax = plt.subplots()
 
 # create scatter plot
-ax.scatter(features[0], features[1], alpha=0.2, s=100*features[3], c=iris.target, cmap='viridis')
+plot_2 = ax.scatter(features[0], features[1], alpha=0.2, s=100*features[3], c=iris.target, cmap='viridis')
 
 # set x axis label
 ax.set_xlabel(iris.feature_names[0])
 
 # set y axis label
 ax.set_ylabel(iris.feature_names[1])
+
+# show color scale
+plt.colorbar(plot_2)
 
 # show plot
 plt.show()
@@ -1664,36 +1878,45 @@ plt.show()
 
 215. We can also set a custom fill color for our boxes:
 ```Python
-# load needed packages
+# load packages
 import matplotlib.pyplot as plt
 import numpy as np
 
-# create sample data
+# set random state
 np.random.seed(19680801)
+
+# load test data
 all_data = [np.random.normal(0, std, size=100) for std in range(1, 4)]
 
 # set labels
 labels = ['x1', 'x2', 'x3']
 
 # create figure and axes
-fig, ax = plt.subplots()
+fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(9, 4))
 
 # rectangular box plot
-bplot1 = ax.boxplot(all_data,
+bplot1 = ax1.boxplot(all_data,
                      vert=True,  # vertical box alignment
                      patch_artist=True,  # fill with color
                      labels=labels)  # will be used to label x-ticks
-# set plot title
-ax.set_title('Rectangular box plot')
+ax1.set_title('Rectangular box plot')
 
-# set fill colors
+# notch shape box plot
+bplot2 = ax2.boxplot(all_data,
+                     notch=True,  # notch shape
+                     vert=True,  # vertical box alignment
+                     patch_artist=True,  # fill with color
+                     labels=labels)  # will be used to label x-ticks
+ax2.set_title('Notched box plot')
+
+# color assignments
 colors = ['pink', 'lightblue', 'lightgreen']
-for bplot in (bplot1):
+for bplot in (bplot1, bplot2):
     for patch, color in zip(bplot['boxes'], colors):
         patch.set_facecolor(color)
 
-# add horizontal grid lines
-for ax in [ax]:
+# add grid lines
+for ax in [ax1, ax2]:
     ax.yaxis.grid(True)
     ax.set_xlabel('Three separate samples')
     ax.set_ylabel('Observed values')
