@@ -18,6 +18,8 @@ By the end of this lab, students will be able to:
 
 [Click here](https://raw.githubusercontent.com/kwaldenphd/matplotlib-intro/main/matplotlib-intro.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
 
+[Link to lab overview video](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b437e5e0-96e7-485d-bf70-aceb014f440a) (Panopto, ND users).
+
 ## Acknowledgements
 
 The author consulted the following materials when building this tutorial:
