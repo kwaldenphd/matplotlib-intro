@@ -16,10 +16,6 @@ By the end of this lab, students will be able to:
 - Be comfortable navigating `matplotlib` documentation
 - Be able to save a `matplotlib` figure as a static image file
 
-[Click here](https://raw.githubusercontent.com/kwaldenphd/matplotlib-intro/main/matplotlib-intro.ipynb) and select the "Save as" option to download this lab as a Jupyter Notebook.
-
-[Link to lab overview video](https://notredame.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=b437e5e0-96e7-485d-bf70-aceb014f440a) (Panopto, ND users).
-
 ## Acknowledgements
 
 The author consulted the following materials when building this tutorial:
@@ -35,14 +31,9 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
 
 # Table of Contents
 
-## Condensed Table of Contents
-
+- [Lab notebook template](#lab-notebook-template)
 - [Getting started with `matplotlib`](#getting-started-with-matplotlib)
 - [Anatomy of a `matplotlib` figure](#anatomy-of-a-matplotlib-figure)
-  * [`Figure`](#figure)
-  * [`Axes`](#axes)
-  * [`Axis`](#axis)
-  * [Everything Else (`Artists`)](#everything-else-artists)
 - [Customizing in `matplotlib`](#customizing-in-matplotlib)
   * [Title and Axis Labels](#title-and-axis-labels)
   * [Font Size and Line Thickness](#font-size-and-line-thickness)
@@ -64,56 +55,13 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
 - [`OO` vs. `pyplot`](#OO-vs-pyplot)
 - [What's Next](#whats-next)
 - [Best Practices for Data Visualization](#best-practices-for-data-visualization)
-- [Practice Problems](#practice-problems)
 - [Lab Notebook Questions](#lab-notebook-questions)
 
-## Detailed Table of Contents
+[Click here to access the lab procedure as a Jupyter Notebook](https://drive.google.com/file/d/1UYQXwdI3VVlO3eyN1dgTqRoAIrF8chnc/view?usp=sharing)
 
-- [Getting started with `matplotlib`](#getting-started-with-matplotlib)
-- [Anatomy of a `matplotlib` figure](#anatomy-of-a-matplotlib-figure)
-  * [`Figure`](#figure)
-  * [`Axes`](#axes)
-  * [`Axis`](#axis)
-  * [Everything Else (`Artists`)](#everything-else-artists)
-- [Customizing in `matplotlib`](#customizing-in-matplotlib)
-  * [Title and Axis Labels](#title-and-axis-labels)
-  * [Font Size and Line Thickness](#font-size-and-line-thickness)
-  * [Ticks and Ticklabels](#ticks-and-ticklabels)
-  * [Colors, Markers, and Line Styles](#colors-markers-and-line-styles)
-    * [Line Style](#line-style)
-    * [Marker Style](#marker-style)
-    * [Colors](#colors)
-  * [Making Style Choices](#making-style-choices)
-    * [Colormaps](#colormaps)
-      * [Sequential](#sequential)
-      * [Diverging](#diverging)
-      * [Cyclic](#cyclic)
-      * [Qualitative](#qualitative)
-    * [Putting It All Together](#putting-it-all-together)
-      * [Style Sheets](#style-sheets)
-  * [Legends](#legends)
-  * [Additional Resources](#additional-resources)
-- [Other Types of Plots](#other-types-of-plots)
-  * [Subplots](#subplots)
-  * [Scatterplots](#scatterplots)
-  * [Histograms](#histograms)
-  * [Bar Charts](#bar-charts)
-    * [Horizontal Bar Chart](#horizontal-bar-chart)
-    * [Stacked Bar Chart](#stacked-bar-chart)
-    * [Grouped Bar Chart](#grouped-bar-chart)
-  * [Pie Charts](#pie-charts)
-  * [Boxplots](#boxplots)
-  * [Tables](#tables)
-  * [Other Types of Plots](#other-types-of-plots)
-    * [3D Plotting](#for-3d-plotting)
-    * [Geosptial Data](#for-geospatial-data)
-    * [Text and Annotation](#for-more-on-text-and-annotation)
-- [Saving or Exporting Plots](#saving-or-exporting-plots)
-- [`OO` vs. `pyplot`](#OO-vs-pyplot)
-- [Best Practices for Data Visualization](#best-practices-for-data-visualization)
-- [What's Next](#whats-next)
-- [Practice Problems](#practice-problems)
-- [Lab Notebook Questions](#lab-notebook-questions)
+# Lab Notebook Template
+
+[Link to access lab notebook template (Jupyter Notebook)](https://drive.google.com/file/d/1mKVWgMdmdQ6H7ZF4lpAOVM16tTQRX_gO/view?usp=sharing)
 
 # Getting started with `matplotlib`
 
@@ -2263,11 +2211,9 @@ plt.show()
 
 263. Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
 
-# Practice Problems
-
-No practice problems for this lab. Spend this time working on the final project.
-
 # Lab Notebook Questions
+
+[Link to access lab notebook template (Jupyter Notebook)](https://drive.google.com/file/d/1mKVWgMdmdQ6H7ZF4lpAOVM16tTQRX_gO/view?usp=sharing)
 
 Q1: Describe in your own words the core components of a matplotlib figure. What is the general sequence of steps involved in generating a matplotlib figure?
 
