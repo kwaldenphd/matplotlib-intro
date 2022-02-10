@@ -1248,6 +1248,7 @@ plt.show()
 
 154. A basic 1D histogram:
 ```Python
+# import statements
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1266,6 +1267,7 @@ plt.show()
 
 155. Another example of a 1D histogram, this time with a `bins` keyword argument:
 ```Python
+# import statements
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import colors
@@ -1316,6 +1318,7 @@ ax.hist(x, bins=n_bins, histtype='stepfilled', color='steelblue', edgecolor='non
 162. An example that color codes by height and uses the data range to set the color map.
 
 ```Python
+# create figure and axes
 fig, axs = plt.subplots(1, 2, tight_layout=True)
 
 # N is the count in each bin, bins is the lower-limit of the bin
@@ -1716,7 +1719,7 @@ plt.show()
 
 211. To draw a basic box plot using `matplotlib`:
 ```Python
-# load needed packages
+# import statements
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Polygon
@@ -1744,7 +1747,7 @@ plt.show()
 
 212. We can modify this example to not show the outlier points and map only the quartile summary statistics:
 ```Python 
-# load needed packages
+# import statements
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Polygon
@@ -1772,7 +1775,7 @@ plt.show()
 
 213. We can also generate a horizontal box plot.
 ```Python
-# load needed packages
+# import statements
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Polygon
@@ -1800,7 +1803,7 @@ plt.show()
 
 214. We can also change the whisker length for our box plot:
 ```Python
-# load needed packages
+# import statements
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Polygon
@@ -1828,7 +1831,7 @@ plt.show()
 
 215. We can also set a custom fill color for our boxes:
 ```Python
-# load packages
+# import statements
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -1893,7 +1896,7 @@ plt.show()
 
 220. To create a stacked bar chart and table with disaster data over a 100 year period:
 ```Python
-# import needed packages
+# import statements
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1958,7 +1961,7 @@ plt.show()
 
 220. To show just the table portion from the previous example:
 ```Python
-# import needed packages
+# import statements
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -2058,19 +2061,49 @@ plt.show()
 - [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/tutorials/toolkits/mplot3d.html#toolkit-mplot3d-tutorial)
 - [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/gallery/index.html#mplot3d-examples-index)
 
-### For Geospatial Data
+### Geospatial Data
 
-228. Geospatial data resources:
-- [Jake VanderPlas, "Geographic Data with Basemap" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.13-geographic-data-with-basemap.html)
-- [Basemap Matplotlib Toolkit](https://matplotlib.org/basemap/)
+228. Up to this point, we have been working with data plotted on a 2D cartesian coordinate system, with `x` and `y` axes.
+
+229. For our purposes, it's most useful to think of maps in the same way--as data plotted on a coordinate system.
+
+230. For geospatial data, that coordinate system is typically some type of latitude or longitude based projection.
+
+231. The data to be plotted includes explicit location information (rather than a numerical or categorical field that can be mapped to an axis).
+
+232. Upcoming labs will focus on plotting data stored in a Pandas `DataFrame` and building interactive visualizations.
+
+233. We'll go into more detail on mapping in those labs.
+
+234. A few resources we'll return to in those labs:
+
+**Free online geocoding services:**
+- [LocalFocus data journalism batch geocoder](https://geocode.localfocus.nl/)
+- [Texas A&M Geocoding Services](https://geoservices.tamu.edu/Services/Geocode/)
+  * *Requires creating a free account*
+  
+**Installing and Configuring `geopandas`**:
+- Anaconda
+  * Tanish Gupta, "[Fastest Way to Intsall Geopandas in Jupyter Notebooks](https://medium.com/analytics-vidhya/fastest-way-to-install-geopandas-in-jupyter-notebook-on-windows-8f734e11fa2b)" *Analytics Vidhya* (6 December 2020)
+  * Anaconda, "[conda-forge packages, geopandas](https://anaconda.org/conda-forge/geopandas)" *Anaconda documentation*
+  * GeoPandas, "[Installation](https://geopandas.org/getting_started/install.html)" *GeoPandas documentation*
+- Google CoLab
+  * Abdishakur Hassan, Jupyter notebook on using `geopandas` in Google CoLab, from "[Geographic data science tutorials with Python](https://github.com/shakasom/GDS)" *GitHub repository*
+    * [Google CoLab](https://colab.research.google.com/github/shakasom/GDS/blob/master/Part1%20-%20Introduction.ipynb)
+    * [GitHub](https://github.com/shakasom/GDS/blob/master/Part1%20-%20Introduction.ipynb)
+    
+**Getting Started With GeoPandas**:
+- Jonathan Soma, "[Mapping with geopandas](https://jonathansoma.com/lede/foundations-2017/classes/geopandas/mapping-with-geopandas/)" from 2017 "[Foundations of Computing](https://jonathansoma.com/lede/foundations-2017/)" course, Columbia Graduate School of Journalism
+- CoderzColumn, "[Plotting Static Maps with geopandas](https://coderzcolumn.com/tutorials/data-science/plotting-static-maps-with-geopandas-working-with-geospatial-data)" *CoderzColumn* (11 March 2020)
+- GeoPandas, "[Plotting with Geoplot and GeoPandas](https://geopandas.org/gallery/plotting_with_geoplot.html)" *GeoPandas documentation*
 
 ### For More on Text and Annotation
 
-229. A few of our examples used `matplotlib`'s annotation functionality.
+235. A few of our examples used `matplotlib`'s annotation functionality.
 
-230. Annotation using `.text()` can highlight specific data points or draw attention to specific elements of a plot.
+236. Annotation using `.text()` can highlight specific data points or draw attention to specific elements of a plot.
 
-231. For more on text and annotation:
+237. For more on text and annotation:
 - [Jake VanderPlas, "Text and Annotation" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.09-text-and-annotation.html)
 - [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/gallery/index.html#text-labels-and-annotations)
 - [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
@@ -2103,20 +2136,20 @@ Include code + comments.</blockquote>
 
 # Saving or Exporting Plots
 
-232. Up to this point, all of our examples have ended with the line `plt.show()`.
+238. Up to this point, all of our examples have ended with the line `plt.show()`.
 
-233. But there are many situations in which you might want or need to save a plot as a static image file.
+239. But there are many situations in which you might want or need to save a plot as a static image file.
 
-234. We can do this using `plt.savefig()`.
+240. We can do this using `plt.savefig()`.
 
-235. `matplotlib` supports the following image file types:
+241. `matplotlib` supports the following image file types:
 - `.png`: portable network graphics; raster-graphics file format that supports lossless data compression
 - `.pdf`: portable document format; proprietary Adobe file format; fixed-layout flat document
 - `.ps`: postscript; page description language developed by Adobe
 - `.eps`: encapsulated postscript; postscript document formatted as a graphics file format
 - `.svg`: scalable vector graphics; vector based image based on XML
 
-236. The basic syntax for saving a figure as an image file:
+242. The basic syntax for saving a figure as an image file:
 ```Python
 # basic syntax
 plt.savefig('file_name.file_type')
@@ -2128,56 +2161,59 @@ plt.savefig('png_sample.png')
 plt.savefig('svg_sample.svg')
 ```
 
-237. We can customize aspects of the saved image using other arguments in combination with `.savefig()`.
+243. We can customize aspects of the saved image using other arguments in combination with `.savefig()`.
 
-238. `dpi` can set the resolution to a numeric value.
+244. `dpi` can set the resolution to a numeric value.
 ```Python
 plt.savefig('svg_sample.svg', dpi=300)
 ```
 
-239. Setting `transparent` to `True` makes the image background transparent for file types that support transparent background.
+245. Setting `transparent` to `True` makes the image background transparent for file types that support transparent background.
 ```Python
 plt.savefig('svg_sample.svg', transparent=True)
 ```
 
-240. `bbox_inches` will alter the size of the bounding box or whitespace around the output image.
+246. `bbox_inches` will alter the size of the bounding box or whitespace around the output image.
 
-241. If no bounding box is needed, `bbox_inches='tight'` is ideal.
+247. If no bounding box is needed, `bbox_inches='tight'` is ideal.
 
 ## Additional Resources
 
-242. For more on customization options when saving a figure as an image:
+248. For more on customization options when saving a figure as an image:
 - [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
 
 <blockquote>Q5: Add lines of code for each of the plots generated for Q4 to save the plot as an image file.</blockquote>
 
 # Best Practices for Data Visualization
 
-243. By this point, your brain is probably overwhelmed by the nuances of `matplotlib` syntax.
+249. By this point, your brain is probably overwhelmed by the nuances of `matplotlib` syntax.
 
-244. Let's take a step back and think through ***why*** we want or need to visualize data, or what we hope to accomplish through visualizing data.
+250. Let's take a step back and think through ***why*** we want or need to visualize data, or what we hope to accomplish through visualizing data.
 
-245. Head on over to the [Data Visualization Considerations or Best Practices](https://github.com/kwaldenphd/data-viz-intro) page to learn more.
+251. Head on over to the [Data Visualization Considerations or Best Practices](https://github.com/kwaldenphd/matplotlib-intro/blob/main/data-viz-intro.md) page to learn more about things like...
+  * Choosing a chart type
+  * Working with visual cues
+  * Essential visualization elements
 
 # `OO` vs. `pyplot`
 
-246. If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
+252. If you start exploring `matplotlib` documentation or other internet resources/tutorials, you will likely run into `matplotlib` syntax that is different than what's presented here.
 
-247. That is because Matplotlib has two interfaces. 
+253. That is because Matplotlib has two interfaces. 
 
-248. The first is an `object-oriented (OO) interface`. 
+254. The first is an `object-oriented (OO) interface`. 
 
-249. When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
+255. When working in the `OO` interface, we utilize an instance of `axes.Axes` to render visualizations on an instance of `figure.Figure`.
 
-250. The second is based on `MATLAB` and uses a state-based interface. 
+256. The second is based on `MATLAB` and uses a state-based interface. 
 
-251. This second interface is encapsulated in the `pyplot` module. 
+257. This second interface is encapsulated in the `pyplot` module. 
 
-252. `pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
+258. `pyplot` is a collection of functions that make matplotlib work like `MATLAB`. 
 
-253. At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
+259. At first glance, `pyplot` can seem like a much easier alternative to the object-oriented interface.
 
-254. For example, the following code generates a line plot using `pyplot` syntax:
+260. For example, the following code generates a line plot using `pyplot` syntax:
 ```Python
 import matplotlib.pyplot as plt
 
@@ -2188,28 +2224,28 @@ plt.ylabel('some numbers')
 plt.show()
 ```
 
-255. No figure, no axis- what magic!
+260. No figure, no axis- what magic!
 
-256. Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
+261. Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization.
 
-257. The `pyplot` interface hs much less flexible than the `OO` interface.
+262. The `pyplot` interface hs much less flexible than the `OO` interface.
 
-258. Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
+263. Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
 
-259. For more on the differences between these two interfaces and how to translate sample code across interfaces:
+264. For more on the differences between these two interfaces and how to translate sample code across interfaces:
 - [`matplotlib`, "Pyplot tutorial"](https://matplotlib.org/3.3.3/tutorials/introductory/pyplot.html)
 - [`matplotlib`, "The Lifecycle of a Plot"](https://matplotlib.org/3.3.3/tutorials/introductory/lifecycle.html)
 - Tejas Sanap, ["Pyplot vs Object Oriented Interface"](https://matplotlib.org/matplotblog/posts/pyplot-vs-object-oriented-interface/) *matplotblog* (27 May 2020)
 
 # What's Next
 
-260. In the next lab, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
+265. In the next lab, we'll cover how to put `matplotlib` in conversation with `pandas` to plot data stored in a `DataFrame`.
 
-261. We'll also look at the `seaborn` library for creating graphics.
+266. We'll also look at the `seaborn` library for creating graphics.
 
-262. We will also explore how we can use the `plotly` library for creating interactive data visualizations. 
+267. We will also explore how we can use the `plotly` library for creating interactive data visualizations. 
 
-263. Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
+268. Stay tuned, and fear not--this thorough intro to `matplotlib` will help immensely when adding more complexity or additional possibilities to your data visualization toolkit.
 
 # Lab Notebook Questions
 
