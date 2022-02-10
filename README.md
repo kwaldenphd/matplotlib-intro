@@ -51,7 +51,9 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
   * [Boxplots](#boxplots)
   * [Tables](#tables)
   * [Other Types of Plots](#other-types-of-plots)
+- [Lab Notebook Question 4](#lab-notebook-question-4)
 - [Saving or Exporting Plots](#saving-or-exporting-plots)
+  * [Lab Notebook Question 5](#lab-notebook-question-5)
 - [`OO` vs. `pyplot`](#OO-vs-pyplot)
 - [What's Next](#whats-next)
 - [Best Practices for Data Visualization](#best-practices-for-data-visualization)
@@ -2109,30 +2111,28 @@ plt.show()
 - [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
 - [`matplotlib.pyplot.annotate`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.annotate.html)
 
-<blockquote>Q4: Write code that generates at least 3 of the following plot types.
- <ul>
-  <li>Figure with subplots</li>
-  <li>Scatterplot</li>
-  <li>Histogram</li>
-  <li>Bar chart (regular, horizontal, stacked, or grouped)</li>
-  <li>Pie chart</li>
-  <li>Boxplot</li>
-  <li>Table</li>
-  <li>Other</li>
- </ul>
- 
+# Lab Notebook Question 4
+
+Q4: Write code that generates at least 3 of the following plot types.
+- Figure with subplots
+- Scatterplot
+- Histogram
+- Bar chart (regular, horizontal, stacked, or grouped)
+- Pie chart
+- Boxplot
+- Table
+- Other
+
 Each of the three plots needs to include the following style elements (as appropriate).
-<ul>
- <li>Title</li>
- <li>Axis labels</li>
- <li>Tick marks</li>
- <li>Tick labels</li>
- <li>Line or marker style</li>
- <li>Line or marker color</li>
- <li>Legend</li>
- </ul>
- 
-Include code + comments.</blockquote>
+- Title
+- Axis labels
+- Tick marks
+- Tick labels
+- Line or marker style
+- Line or marker color
+- Legend
+
+Include code + comments.
 
 # Saving or Exporting Plots
 
@@ -2182,7 +2182,9 @@ plt.savefig('svg_sample.svg', transparent=True)
 248. For more on customization options when saving a figure as an image:
 - [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
 
-<blockquote>Q5: Add lines of code for each of the plots generated for Q4 to save the plot as an image file.</blockquote>
+## Lab Notebook Question 5
+
+Q5: Add lines of code for each of the plots generated for Q4 to save the plot as an image file.
 
 # Best Practices for Data Visualization
 
