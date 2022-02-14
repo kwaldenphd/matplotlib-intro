@@ -575,12 +575,9 @@ ax.plot(x, y, 'bo')
 ax.plot(x, y, color='green', marker='o')
 ```
 
+Some Python examples that combine these elements.
+
 ```Python
-# python code that puts it all together
-
-# import matplotlib
-import matplotlib.pyplot as plot
-
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
 
@@ -613,11 +610,6 @@ plt.show()
 ```
 
 ```Python
-# another example that combines these elements
-
-# import matplotlib
-import matplotlib.pyplot as plot
-
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
 
@@ -649,13 +641,9 @@ ax.plot(input_values, squares, color="blue")
 plt.show()
 ```
 
+An example that draws a bar chart and uses a color map to assign unique bar colors.
+
 ```Python
-# example code that draws a bar chart and uses a color map to assign unique bar colors
-
-# import matplotlib and numpy
-import matplotlib.pyplot as plt
-import numpy as np
-
 # set x and y values
 x = np.array([1, 2, 3])
 y = np.array([4, 5, 6])
@@ -668,13 +656,14 @@ rescale = lambda y: (y - np.min(y)) / (np.max(y) - np.min(y))
 
 # generate plot
 plt.bar(x, y, color=my_cmap(rescale(y)))
+
+# show plot
+plt.show()
 ```
 
+An example that uses a for loop and color map to assign unique bin colors.
 ```Python
-# example code that uses a for loop and color map to assign unique bin colors
-
-# import matplotlib
-import matplotlib.pyplot as plot
+# import matplotlib components
 from matplotlib import colors
 from matplotlib.ticker import PercentFormatter
 
@@ -708,6 +697,9 @@ axs[1].hist(x, bins=n_bins, density=True)
 
 # Now we format the y-axis to display percentage
 axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
+
+# show plot
+plt.show()
 ```
 
 ### Style Sheets
@@ -721,10 +713,8 @@ axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 95. Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
 
 96. To use one of these styles, we can add a single line of code before starting to generate the plot.
-```Python
-# import matplotlib
-import matplotlib.pyplot as plt
 
+```Python
 # create dataset for y axis
 squares = [1, 4, 9, 16, 25]
 
@@ -799,6 +789,9 @@ legend(handles, labels)
 108. Elements with an empty string as the label or a label that starts with the undescore character `_` will not be included in the legend.
 
 ```Python
+# create figure for new plot
+fig, ax = plt.subplots()
+
 # create handle for first line
 line_1, = ax.plot([LINE DATA], 'b--')
 
@@ -812,11 +805,11 @@ line_2, = ax.plot([LINE DATA], color='green', linestyle='-.`)
 line_2.set_label('Line Two')
 
 # create handle for third line that will NOT be included in the legend
-line_3, = ax.plot([LINE DATA], color='blue', linestyle=':')
-
-# alternate option to give line_3 a label but still not have it included in the legend
 line_3, = ax.plot([LINE DATA], color='#000000', linestyle='-')
 line_3.set_label('_Line Three')
+
+# show plot
+plt.show()
 ```
 
 109. In this example, `ax.legend()` will use the `label` attributes for each line to add it to the legend.
@@ -824,7 +817,11 @@ line_3.set_label('_Line Three')
 110. Line three will not be added because its label begins with the underscore character `_`.
 
 111. We can also pass the list of handles directly to `.legend()`:
+
 ```Python
+# create figure for new plot
+fig, ax = plt.subplots()
+
 # create handle for first line
 line_1, = ax.plot([LINE DATA], 'b--')
 
@@ -839,9 +836,16 @@ line_2.set_label('Line Two')
 
 # create legend
 ax.legend(handles=[line_1, line_2])
+
+# show plot
+plt.show()
 ```
+
+Another example that uses labeled handles to create a legend.
+
 ```Python
-# Python example
+# create figure for new plot
+fig, ax = plt.subplots()
 
 # create line 1
 line_up, = plt.plot([1,2,3], label='Line 2')
@@ -851,15 +855,16 @@ line_down, = plt.plot([3,2,1], label='Line 1')
 
 # create plot with legend
 plt.legend(handles=[line_up, line_down])
+
+# show plot
+plt.show()
 ```
 
 112. In a situation where our handles do not have labels, we can pass both the handles and labels to `.legend()`.
-```Python
-ax.legend([line_1, line_2], ['Line One', 'Line Two'])
-```
 
 ```Python
-# Python example
+# create figure for new plot
+fig, ax = plt.subplots()
 
 # create line 1
 line_up, = plt.plot([1,2,3], label='Line 2')
@@ -869,6 +874,9 @@ line_down, = plt.plot([3,2,1], label='Line 1')
 
 # create plot with legend
 plt.legend([line_up, line_down], ['Line Up', 'Line Down'])
+
+# show plot
+plt.show()
 ```
 
 113. In some situations, we might want to create a legend with handles that don't exist in our Figure or Axes.
@@ -880,26 +888,19 @@ plt.legend([line_up, line_down], ['Line Up', 'Line Down'])
 116. That is, there is no requirement for handles included in the legend to exist in the Figure or Axes.
 
 117. An example where the color red is a handle for our legend.
-```Python
-red_patch = mpatches.Patch(color='red', label='The red data')
-
-ax.legend(handles=[red_patch])
-
-plt.show()
-```
 
 ```Python
-# python example
-
 # import matplotlib
 import matplotlib.patches as mpatches
-import matplotlib.pyplot as plt
 
-# assign red path
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# set patch handle and label
 red_patch = mpatches.Patch(color='red', label='The red data')
 
 # create legend
-plt.legend(handles=[red_patch])
+ax.legend(handles=[red_patch])
 
 # show plot
 plt.show()
@@ -908,13 +909,27 @@ plt.show()
 118. The same is true for line styles or marker symbols.
 
 119. An example where blue lines with stars are a handle for our legend.
+
 ```Python
+# import mlines
+import matplotlib.lines as mlines
+
+# create figure for new plot
+fig, ax = plt.subplots()
+
+# set blue line handle
 blue_line = mlines.Line2D([], [], color='blue', marker='*', markersize=15, label='Blue stars')
 
+# create legend
 ax.legend(handles=[blue_line])
 
+# show plot
 plt.show()
 ```
+
+### Customizing Legends
+
+#### `loc`
 
 120. We can also customize where a legend is located for a plot using the `loc` keyword argument.
 
@@ -935,23 +950,29 @@ Location String | Location Code
 `'center'` | 10
 
 122. To invoke these keyword arguments when calling the `.legend()` function:
+
 ```Python
+# best location
 ax.legend(loc='best')
 
+# upper right loc
 ax.legend(handles=[line_1, line_2], loc='upper right')
 
+# loc 2, upper-left
 ax.legend([line_1, line_2], ['Line One', 'Line Two'], loc=2)
 
+# loc 7, center right
 ax.legend(handles=[red_patch], loc=7)
 
+# upper center loc
 ax.legend(handles=[blue_line], loc='upper center')
 ```
 
-```Python
-# python example
+Going back to our example of a legend with blue lines and stars:
 
-# import package
-import matplotlib.lines as mlines
+```Python
+# create figure for new plot
+fig, ax = plt.subplots()
 
 # assign blue line
 blue_line = mlines.Line2D([], [], color='blue', marker='*',
@@ -963,6 +984,8 @@ plt.legend(handles=[blue_line], loc="upper left")
 # show plot
 plt.show()
 ```
+
+#### `bbox_to_anchor`
 
 123. In situations where we want to customize where the legend is located, we can use `bbox_to_anchor` in conjunction with `loc`.
 
@@ -986,24 +1009,22 @@ plt.legend(loc='lower left', bbox_to_anchor=(0., 1.02, 1., .102), ncol=2, mode='
 plt.legend(loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.))
 ```
 
-```Python
-# python example
+127. A Python example that combines these elements:
 
-# import package
-import matplotlib.lines as mlines
+```Python
+# create figure for new plot
+fig, ax = plt.subplots()
 
 # assign blue line
 blue_line = mlines.Line2D([], [], color='blue', marker='*',
                           markersize=15, label='Blue stars')
 
 # create legend in upper left corner
-plt.legend(handles=[blue_line], loc='upper left', bbox_to_anchor=(1.05, 1), borderaxespad=0.)
+plt.legend(handles=[blue_line], loc='upper left', bbox_to_anchor=(0.5, 0., 0.5, 0.5))
 
 # show plot
 plt.show()
 ```
-
-127. You'll notice the last two examples include additional parameters.
 
 ### Additional Resources
 
@@ -1011,17 +1032,16 @@ plt.show()
 - [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
 - [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
 
-<blockquote>Q3: Create your own matplotlib figure and include the following style elements. Include code + comments.:
- <ul>
-  <li>Title</li>
-  <li>Axis labels</li>
-  <li>Tick marks</li>
-  <li>Tick labels</li>
-  <li>Line or marker style</li>
-  <li>Line or marker color</li>
-  <li>Legend</li>
- </ul>
- </blockquote>
+## Lab Notebook Question 3
+
+Q3: Create your own matplotlib figure and include the following style elements. Include code + comments.
+- Title
+- Axis labels
+- Tick marks
+- Tick labels
+- Line or marker style
+- Line or marker color
+- Legend
 
 # Other Types of Plots
 
@@ -1034,9 +1054,6 @@ plt.show()
 131. An example that compares dampened and undampened oscillation over time (in seconds).
 
 ```Python
-import numpy as np
-import matplotlib.pyplot as plt
-
 # create x axis for first subplot
 x1 = np.linspace(0.0, 5.0)
 
@@ -1083,18 +1100,20 @@ plt.show()
 134. `.scatter()` can take additional optional size, style, and color arguments.
 
 135. To plot a single point using `.scatter()`:
+
 ```Python
+# create figure and axes
 fig, ax = plt.subplots()
+
+# plot data
 ax.scatter(2, 4)
 
+# show plot
 plt.show()
 ```
 
 136. We can plot a series of points by passing lists of `X` and `Y` values to `.scatter()`:
 ```Python
-# import matplotlib 
-import matplotlib.pyplot as plt
-
 # set x values
 x_values = [1, 2, 3, 4, 5]
 
@@ -1155,6 +1174,7 @@ plt.show()
 140. `plt.scatter()` allows us to customize each individual point in the scatter plot, through individual customization or mapping to data.
 
 141. An example random scatter plot with points of different colors and sizes.
+
 ```Python
 # set random state
 rng = np.random.RandomState(0)
@@ -1184,9 +1204,10 @@ plt.colorbar(plot)
 plt.show()
 ```
 
-142. Another `plt.scatter()` example using data on flower petal and sepal size.
+142. Another `plt.scatter()` example using data on flower petal and sepal size from `scikit-learn`.
+
 ```Python
-#import Scikit-Learn
+#import scikit-Learn
 from sklearn.datasets import load_iris
 
 # load data 
@@ -1246,10 +1267,6 @@ plt.show()
 
 154. A basic 1D histogram:
 ```Python
-# import statements
-import numpy as np
-import matplotlib.pyplot as plt
-
 # set data
 data = np.random.randn(1000)
 
@@ -1264,10 +1281,9 @@ plt.show()
 ```
 
 155. Another example of a 1D histogram, this time with a `bins` keyword argument:
+
 ```Python
 # import statements
-import matplotlib.pyplot as plt
-import numpy as np
 from matplotlib import colors
 from matplotlib.ticker import PercentFormatter
 
@@ -1356,9 +1372,6 @@ axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 
 166. We can create a basic vertical bar chart using `.bar()`.
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
 # set dictionary with data categories and amounts
 data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
 
@@ -1384,9 +1397,6 @@ plt.show()
 
 169. An example of those three types side-by-side:
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
 # set dictionary with data categories and amounts
 data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
 
@@ -1421,9 +1431,6 @@ plt.show()
 
 171. We can also create a horizontal bar chart using `.barh()`.
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
 # set dictionary with data categories and amounts
 data = {'apple': 10, 'orange': 15, 'lemon': 5, 'lime': 20}
 
@@ -1473,9 +1480,6 @@ plt.show()
 
 185. Putting this all together in an example that shows score data for 5 different groups, disaggregated by test time:
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
 # set x axis labels
 labels = ['G1', 'G2', 'G3', 'G4', 'G5']
 
@@ -1529,12 +1533,6 @@ plt.show()
 
 190. To put that all together, modifying the previous stacked bar example to create a grouped bar chart.
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
-# import numpy
-import numpy as np
-
 # set x axis labels
 labels = ['G1', 'G2', 'G3', 'G4', 'G5']
 
@@ -1623,9 +1621,6 @@ plt.show()
 
 199. Sample code for a basic pie chart:
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
 # set slice labels
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
@@ -1665,9 +1660,6 @@ ax1.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, shadow=True)
 
 203. We can also "explode" or offset one of the slices.
 ```Python
-# import matplotlib
-import matplotlib.pyplot as plt
-
 # set slice labels
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
@@ -1718,8 +1710,6 @@ plt.show()
 211. To draw a basic box plot using `matplotlib`:
 ```Python
 # import statements
-import matplotlib.pyplot as plt
-import numpy as np
 from matplotlib.patches import Polygon
 
 # fix random state for reproducibility
@@ -1745,11 +1735,6 @@ plt.show()
 
 212. We can modify this example to not show the outlier points and map only the quartile summary statistics:
 ```Python 
-# import statements
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.patches import Polygon
-
 # fix random state for reproducibility
 np.random.seed(19680801)
 
@@ -1773,11 +1758,6 @@ plt.show()
 
 213. We can also generate a horizontal box plot.
 ```Python
-# import statements
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.patches import Polygon
-
 # fix random state for reproducibility
 np.random.seed(19680801)
 
@@ -1801,11 +1781,6 @@ plt.show()
 
 214. We can also change the whisker length for our box plot:
 ```Python
-# import statements
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.patches import Polygon
-
 # fix random state for reproducibility
 np.random.seed(19680801)
 
@@ -1829,10 +1804,6 @@ plt.show()
 
 215. We can also set a custom fill color for our boxes:
 ```Python
-# import statements
-import matplotlib.pyplot as plt
-import numpy as np
-
 # set random state
 np.random.seed(19680801)
 
@@ -1894,10 +1865,6 @@ plt.show()
 
 220. To create a stacked bar chart and table with disaster data over a 100 year period:
 ```Python
-# import statements
-import numpy as np
-import matplotlib.pyplot as plt
-
 # set data
 data = [[ 66386, 174296,  75131, 577908,  32015],
         [ 58230, 381139,  78045,  99308, 160454],
@@ -1959,10 +1926,6 @@ plt.show()
 
 220. To show just the table portion from the previous example:
 ```Python
-# import statements
-import numpy as np
-import matplotlib.pyplot as plt
-
 # set data
 data = [[ 66386, 174296,  75131, 577908,  32015],
         [ 58230, 381139,  78045,  99308, 160454],
