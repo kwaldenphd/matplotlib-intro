@@ -281,7 +281,7 @@ input_values = [1, 2, 3, 4, 5]
 fig, ax = plt.subplots()
 
 # generate plot
-ax.plot(input_values, squares, linewidth-3)
+ax.plot(input_values, squares, linewidth=3)
 
 # add title
 ax.set_title("Square Numbers", fontsize=24)
@@ -291,9 +291,6 @@ ax.set_xlabel("Value", fontsize=14)
 
 # add y axis label
 ax.set_ylabel("Square of Value", fontsize=14) 
-
-# set tick label size
-ax.tick_params(axis='both', labelsize=14)
 
 # show plot
 plt.show()
