@@ -2016,7 +2016,7 @@ plt.show()
 
 224. That's not even getting into 3D plotting in `matplotlib`, or plotting geographic data.
 
-225. A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/gallery/), which includes sample code for different plot types.
+225. A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/stable/gallery/), which includes sample code for different plot types.
 
 226. ["Sample plots in matplotlib"](https://matplotlib.org/tutorials/introductory/sample_plots.html) is another starting place.
 
