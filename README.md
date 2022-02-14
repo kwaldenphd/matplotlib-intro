@@ -799,7 +799,7 @@ line_1, = ax.plot([LINE DATA], 'b--')
 line_1.set_label('Line One')
 
 # create handle for second line
-line_2, = ax.plot([LINE DATA], color='green', linestyle='-.`)
+line_2, = ax.plot([LINE DATA], color='green', linestyle='-.')
 
 # set label for line_2
 line_2.set_label('Line Two')
