@@ -23,7 +23,7 @@ A quote from NYU engineering faculty Enrico Bertini, whose reserach looks at vis
 
 <blockquote>Citation: Enrico Bertini, <a href="https://medium.com/@FILWD/from-data-visualization-to-interactive-data-analysis-e24ae3751bf3">From Data Visualization to Interactive Data Analysis</a> <i>Medium</i> (28 November 2017).</blockquote>
 
-4. We can think of data visualization as a means or tool that enables us to do things like...
+We can think of data visualization as a means or tool that enables us to do things like...
 - Analyze an unmanageably large body of primary source materials
 - Bring together a range of data sets that require computation tools to connect, integrate, or synthesize disparate elements
 
@@ -53,7 +53,7 @@ Some core questions to ask when building a visualization:
 Once you have a sense of what you want the visualization to accomplish, you can make strategic choices about visualization options.
  - The [A. Abela graphic](http://extremepresentation.typepad.com/files/choosing-a-good-chart-09.pdf) featured above is a good place to start.
 - Peter Aldhous's *Intro Data Viz* course (Fall 2016) includes useful questions to consider.
-- ["Data visualization: basic principles"](http://paldhous.github.io/ucb/2016/dataviz/week2.html)
+  * ["Data visualization: basic principles"](http://paldhous.github.io/ucb/2016/dataviz/week2.html)
 
 <p align="center"><a href="https://github.com/kwaldenphd/data-viz-intro/blob/main/figures/Figure_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-viz-intro/blob/main/figures/Figure_2.png?raw=true" /></a></p>
 
