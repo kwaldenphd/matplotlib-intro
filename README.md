@@ -1087,8 +1087,8 @@ plt.show()
 ### Additional Resources
 
 132. For more on subplots:
-- [`matplotlib`, Multiple subplots](https://matplotlib.org/gallery/subplots_axes_and_figures/subplot.html)
-- [`matplotlib`, Subplots, axes, and figures](https://matplotlib.org/gallery/index.html#subplots-axes-and-figures)
+- [`matplotlib`, Multiple subplots](https://matplotlib.org/stable/gallery/subplots_axes_and_figures/subplot.html)
+- [`matplotlib`, Subplots, axes, and figures](https://matplotlib.org/stable/gallery/index.html#subplots-axes-and-figures)
 - [Jake VanderPlas, "Multiple Subplots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.08-multiple-subplots.html)
 
 ## Scatterplots
@@ -1242,8 +1242,8 @@ plt.show()
 ### Additional Resources
 
 145. For more on scatterplots:
-- [`matplotlib`, "Scatter plot"](https://matplotlib.org/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
-- [`matplotlib`, "Scatter Demo2"](https://matplotlib.org/gallery/lines_bars_and_markers/scatter_demo2.html)
+- [`matplotlib`, "Scatter plot"](https://matplotlib.org/stable/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
+- [`matplotlib`, "Scatter Demo2"](https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_demo2.html)
 - [`matplotlib.pyplot.scatter`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.scatter.html)
 - [Jake VanderPlas, "Simple Scatter Plots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.02-simple-scatter-plots.html)
 
@@ -1359,8 +1359,8 @@ axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 ### Additional Resources
 
 163. For more on histograms:
-- [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/gallery/statistics/histogram_features.html)
-- [`matplotlib`, "Histograms"](https://matplotlib.org/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py)
+- [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/stable/gallery/statistics/histogram_features.html)
+- [`matplotlib`, "Histograms"](https://matplotlib.org/stable/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py)
 - [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
 - [Jake VanderPlas, "Histograms, Binnings, and Density" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html)
 
@@ -1591,10 +1591,10 @@ plt.show()
 ### Additional Resources
 
 191. For more on bar charts and plotting categorical data:
-- [`matplotlib`, Plotting categorical variables](https://matplotlib.org/gallery/lines_bars_and_markers/categorical_variables.html#sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py)
-- [`matplotlib`, Horizontal bar chart](https://matplotlib.org/gallery/lines_bars_and_markers/barh.html)
-- [`matplotlib`, Stacked bar chart](https://matplotlib.org/gallery/lines_bars_and_markers/bar_stacked.html)
-- [`matplotlib`, Percentiles as horizontal bar chart](https://matplotlib.org/gallery/statistics/barchart_demo.html)
+- [`matplotlib`, Plotting categorical variables](https://matplotlib.org/stable/gallery/lines_bars_and_markers/categorical_variables.html#sphx-glr-gallery-lines-bars-and-markers-categorical-variables-py)
+- [`matplotlib`, Horizontal bar chart](https://matplotlib.org/stable/gallery/lines_bars_and_markers/barh.html)
+- [`matplotlib`, Stacked bar chart](https://matplotlib.org/stable/gallery/lines_bars_and_markers/bar_stacked.html)
+- [`matplotlib`, Percentiles as horizontal bar chart](https://matplotlib.org/stable/gallery/statistics/barchart_demo.html)
 
 
 ## Pie Charts
@@ -1684,9 +1684,9 @@ plt.show()
 ### Additional Resources
 
 204. For more on pie charts:
-- [`matplotlib`, Basic pie chart](https://matplotlib.org/gallery/pie_and_polar_charts/pie_features.html)
+- [`matplotlib`, Basic pie chart](https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html)
 - [`matplotlib.pyplot.pie`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.pie.html)
-- [`matplotlib` Gallery, Pie and polar charts](https://matplotlib.org/gallery/index.html#pie-and-polar-charts)
+- [`matplotlib` Gallery, Pie and polar charts](https://matplotlib.org/stable/gallery/index.html#pie-and-polar-charts)
 
 ## Boxplots
 
@@ -1851,8 +1851,8 @@ plt.show()
 
 216. For more on box plots:
 - [`matplotlib`, Boxplots](https://matplotlib.org/gallery/statistics/boxplot_demo.html#sphx-glr-gallery-statistics-boxplot-demo-py)
-- [`matplotlib`, Box plots with custom fill colors](https://matplotlib.org/gallery/statistics/boxplot_color.html#sphx-glr-gallery-statistics-boxplot-color-py)
-- [`matplotlib` Gallery, Statistics](https://matplotlib.org/gallery/index.html#statistics)
+- [`matplotlib`, Box plots with custom fill colors](https://matplotlib.org/stable/gallery/statistics/boxplot_color.html#sphx-glr-gallery-statistics-boxplot-color-py)
+- [`matplotlib` Gallery, Statistics](https://matplotlib.org/stable/gallery/index.html#statistics)
 - [`matplotlib.pyplot.boxplot`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.boxplot.html)
 
 ## Tables
@@ -1993,7 +1993,7 @@ plt.show()
 ### Additional Resources
 
 221. For more on tables in `matplotlib`:
-- [`matplotlib`, Table Demo](https://matplotlib.org/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py)
+- [`matplotlib`, Table Demo](https://matplotlib.org/stable/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py)
 - [`matplotlib.pyplot.table`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.table.html)
 - Michael Demastrie, ["Simple Little Tables with Matplotlib"](https://towardsdatascience.com/simple-little-tables-with-matplotlib-9780ef5d0bc4) *Towards Data Science* (18 July 2020).
 
@@ -2024,9 +2024,9 @@ plt.show()
 
 227. 3D plotting resources:
 - [Jake VanderPlas, "Three-Dimensional Plotting in Matplotlib" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html)
-- [`matplotlib`, 3D surface](https://matplotlib.org/gallery/mplot3d/surface3d.html)
+- [`matplotlib`, 3D surface](https://matplotlib.org/stable/gallery/mplot3d/surface3d.html)
 - [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/tutorials/toolkits/mplot3d.html#toolkit-mplot3d-tutorial)
-- [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/gallery/index.html#mplot3d-examples-index)
+- [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/stable/gallery/index.html#mplot3d-examples-index)
 
 ### Geospatial Data
 
@@ -2072,7 +2072,7 @@ plt.show()
 
 237. For more on text and annotation:
 - [Jake VanderPlas, "Text and Annotation" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.09-text-and-annotation.html)
-- [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/gallery/index.html#text-labels-and-annotations)
+- [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/stable/gallery/index.html#text-labels-and-annotations)
 - [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
 - [`matplotlib.pyplot.annotate`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.annotate.html)
 
