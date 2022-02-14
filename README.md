@@ -88,6 +88,8 @@ All figures in this lab come from the `matplotlib` documentation and tutorials.
 - To load in a `.py` script: `import matplotlib.pyplot as plot`
 - To work with `matplotlib` from a Jupyter notebook: `%matplotlib notebook`
 
+NOTE: If your kernel dies when you try to run the code below, run `conda install freetype=2.10.4` in a terminal and restart the Jupyter Notebook kernel. You will need to launch the terminal as an administrator to be able to run the command successfully.
+
 10. The default `matplotlib` plot is a line plot.
 
 ```Python
