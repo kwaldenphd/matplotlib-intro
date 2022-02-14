@@ -812,7 +812,7 @@ line_2, = ax.plot([LINE DATA], color='green', linestyle='-.`)
 line_2.set_label('Line Two')
 
 # create handle for third line that will NOT be included in the legend
-line_3, = ax.plot([LINE DATA], color=(255, 0, 0), linestyle=':')
+line_3, = ax.plot([LINE DATA], color='blue', linestyle=':')
 
 # alternate option to give line_3 a label but still not have it included in the legend
 line_3, = ax.plot([LINE DATA], color='#000000', linestyle='-')
