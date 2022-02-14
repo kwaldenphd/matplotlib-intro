@@ -444,7 +444,7 @@ Character | Color
 `k` | black
 `w` | white
 
-64. You can also specify colors using full color names (`green`), hex strings (`#008000`), or RGB combinations (`0, 128, 0`).
+64. You can also specify colors using full color names (`green`) or hex strings (`#008000`).
 
 65. `matplot` lib supports the following named color pallets:
 - Base colors (character keyword arguments)
@@ -546,9 +546,6 @@ ax.plot(x, y, color='b')
 
 # set line color using hex
 ax.plot(x, y, color="#0000FF")
-
-# set line color using RGB
-ax.plot(x, y, color=(0, 0, 255))
 
 # set color using tab notation
 ax.plot(x, y, color='tab:blue')
