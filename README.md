@@ -708,6 +708,32 @@ plt.show()
 
 94. `matplotlib` includes a wide range of predefined styles.
 
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_001.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_002.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_003.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_004.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_005.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_006.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_007.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_008.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_009.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_010.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_011.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_012.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_013.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_014.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_015.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_016.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_017.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_018.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_019.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_020.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_021.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_022.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_023.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_024.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_025.png"></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_026.png"></p>
 <p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_027.png"></p>
 
 95. Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
