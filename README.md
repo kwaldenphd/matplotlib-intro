@@ -708,7 +708,7 @@ plt.show()
 
 94. `matplotlib` includes a wide range of predefined styles.
 
-<p align="center"><a href="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_2.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/matplotlib-intro/blob/main/figures/Figure_2.png?raw=true" /></a></p>
+<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_027.png"></p>
 
 95. Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more.
 
