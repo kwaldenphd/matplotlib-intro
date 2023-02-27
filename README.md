@@ -25,8 +25,8 @@ By the end of this lab, students will be able to:
 ## Acknowledgements
 
 The author consulted the following materials when building this tutorial:
-- `matplotlib`, ["Usage Guide"](https://matplotlib.org/tutorials/introductory/usage.html#sphx-glr-tutorials-introductory-usage-py)
-- `matplotlib`, ["Tutorials"](https://matplotlib.org/tutorials/index.html)
+- `matplotlib`, ["Usage Guide"](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
+- `matplotlib`, ["Tutorials"](https://matplotlib.org/stable/tutorials/index.html)
 - `pandas` documentation, ["Getting Started: Plotting"](https://pandas.pydata.org/docs/getting_started/intro_tutorials/04_plotting.html)
 - Chapter 9 "Plotting and Visualization" from Wes McKinney, [*Python for Data Analysis: Data Wrangling With pandas, Numpy, and IPython*](https://www.oreilly.com/library/view/python-for-data/9781491957653/) (O'Reilly, 2017)
 - Ventsislav Yordanov, ["Data Science with Python: Intro to Data Visualization with Matplotlib"](https://towardsdatascience.com/data-science-with-python-intro-to-data-visualization-and-matplotlib-5f799b7c6d82) *Towards Data Science* (21 July 2018)
@@ -403,8 +403,7 @@ Character | String Representation | Description
 `:` | `dotted` | Colon; dotted line style
 
 For more on customizing line styles:
-- [Linestyles](https://matplotlib.org/3.1.1/gallery/lines_bars_and_markers/linestyles.html)
-
+- [Linestyles](https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html)
 ### Marker Style
 
 The following table includes characters and descriptions for marker style keyword arguments.
@@ -455,10 +454,10 @@ You can also specify colors using full color names (`green`) or hex strings (`#0
 - CSS (named colors from CSS; uses `black`, `dimgray`, `antiquewhite` syntax)
 
 For more on colors in `matplotlib`:
-- [List of named colors](https://matplotlib.org/3.1.1/gallery/color/named_colors.html)
-- [Specifying Colors](https://matplotlib.org/3.1.1/tutorials/colors/colors.html#sphx-glr-tutorials-colors-colors-py)
-- [`matplotlib.colors`](https://matplotlib.org/3.1.1/api/colors_api.html#module-matplotlib.colors)
-- [Color Demo](https://matplotlib.org/3.1.1/gallery/color/color_demo.html)
+- [List of named colors](https://matplotlib.org/stable/gallery/color/named_colors.html)
+- [Specifying Colors](https://matplotlib.org/stable/tutorials/colors/colors.html)
+- [`matplotlib.colors`](https://matplotlib.org/stable/api/colors_api.html)
+- [Color Demo](https://matplotlib.org/stable/gallery/color/color_demo.html)
 
 ## Making Style Choices
 
@@ -470,7 +469,7 @@ When building a plot that will have multiple lines or types of markers, color (a
 
 As described by Kenneth Moreland, "One of the most fundamental features of scientific visualiation is the process of mapping scalar values to colors" (Moreland, "Diverging Color Maps for Scientific Visualization," in *Proceedings of the 5th International Symposium on Visual Computing*, December 2009. http://dx.doi.org/10.1007/978-3-642-10520-3_9)
 
-The color scheme or pallette for a plot is most often referred to as a colormap. Colormaps generally fall into a few categories, and `matplotlib` includes [a wide range of built-in colormaps](https://matplotlib.org/tutorials/colors/colormaps.html), some of which are shown in the images below.
+The color scheme or pallette for a plot is most often referred to as a colormap. Colormaps generally fall into a few categories, and `matplotlib` includes [a wide range of built-in colormaps](https://matplotlib.org/stable/tutorials/colors/colormaps.html), some of which are shown in the images below.
 
 #### Sequential
 
@@ -497,9 +496,9 @@ Cyclic colormaps show change in lightness for two different colors that meet in 
 Qualitative colormaps are miscellaneous colors. This type of colormap is most effective for information that does not have ordering or relationships.
 
 For more on colormaps in `matplotlib`:
-- [Colormaps](https://matplotlib.org/3.1.1/tutorials/colors/colormaps.html)
-- [Choosing Colormaps in Matplotlib](https://matplotlib.org/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py)
-- [Creating Colormaps in Matplotlib](https://matplotlib.org/3.1.1/tutorials/colors/colormap-manipulation.html)
+- [Colormaps](https://matplotlib.org/stable/tutorials/colors/colormaps.html)
+- [Choosing Colormaps in Matplotlib](https://matplotlib.org/stable/tutorials/colors/colormaps.html)
+- [Creating Colormaps in Matplotlib](https://matplotlib.org/stable/tutorials/colors/colormap-manipulation.html)
 
 <blockquote>Q2: Describe the different types of colormaps in your own words. What are the parameters or factors to consider when choosing a colormap?</blockquote>
 
@@ -700,35 +699,13 @@ plt.show()
   </tr>
   </table>
 
-The prospect of having to make choices about font, style, color, and formatting for every component of your plot can be daunting. `matplotlib` includes a wide range of predefined styles.
+The prospect of having to make choices about font, style, color, and formatting for every component of your plot can be daunting. `matplotlib` includes a wide range of predefined styles. A few examples:
 
 <p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_001.png"></p>
 <p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_002.png"></p>
 <p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_003.png"></p>
 <p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_004.png"></p>
 <p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_005.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_006.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_007.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_008.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_009.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_010.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_011.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_012.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_013.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_014.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_015.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_016.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_017.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_018.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_019.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_020.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_021.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_022.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_023.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_024.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_025.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_026.png"></p>
-<p align="center"><img src="https://matplotlib.org/3.2.1/_images/sphx_glr_style_sheets_reference_027.png"></p>
 
 Similar to how `CSS` (cascading style sheets) interact with `HTML` (hyper-text markup language), these style sheets cover style and formatting elements like background colors, gridlines, line widths, fonts, font sizes, and more. To use one of these styles, we can add a single line of code before starting to generate the plot.
 
@@ -764,7 +741,7 @@ ax.tick_params(axis='both', labelsize=14)
 plt.show()
 ```
 
-Consult the `matplotlib` ["Style sheets reference" page](https://matplotlib.org/3.2.1/gallery/style_sheets/style_sheets_reference.html) to learn more.
+Consult the `matplotlib` ["Style sheets reference" page](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html) to learn more.
 
 For those interested in data journalism, most large publications have an internal style guide. And since 2017, the AP Stylebook has included a chapter on data journalism.
 - Daniel Funke, ["The updated 'Bloomberg Way' s tyle guide focuses on best practices for data and multiplatform journalism"](https://www.poynter.org/reporting-editing/2017/the-updated-bloomberg-way-style-guide-focuses-on-best-practices-for-data-and-multiplatform-journalism/) *Poynter* (18 July 2017)
@@ -1027,8 +1004,8 @@ plt.show()
 ### Additional Resources
 
 For more on these parameters and other `.legend()` customization options:
-- [`matplotlib.pyplot.legend`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
-- [`matplotlib` "Legend guide"](https://matplotlib.org/3.3.3/tutorials/intermediate/legend_guide.html)
+- [`matplotlib.pyplot.legend`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html)
+- [`matplotlib` "Legend guide"](https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html)
 
 ## Lab Notebook Question 3
 
@@ -1237,7 +1214,7 @@ For smaller datasets where a high level of customization is important, `plt.scat
 For more on scatterplots:
 - [`matplotlib`, "Scatter plot"](https://matplotlib.org/stable/gallery/shapes_and_collections/scatter.html#sphx-glr-gallery-shapes-and-collections-scatter-py)
 - [`matplotlib`, "Scatter Demo2"](https://matplotlib.org/stable/gallery/lines_bars_and_markers/scatter_demo2.html)
-- [`matplotlib.pyplot.scatter`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.scatter.html)
+- [`matplotlib.pyplot.scatter`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
 - [Jake VanderPlas, "Simple Scatter Plots" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.02-simple-scatter-plots.html)
 
 ## Histograms
@@ -1303,7 +1280,7 @@ We can also customize our histogram by specifying colors, based on `Y` axis valu
 ax.hist(x, bins=n_bins, histtype='stepfilled', color='steelblue', edgecolor='none')
 ```
 
-For more keyword arguments and attributes that can be passed to `.hist()`: [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
+For more keyword arguments and attributes that can be passed to `.hist()`: [`matplotlib.pyplot.hist`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html)
 
 An example that color codes by height and uses the data range to set the color map.
 
@@ -1337,7 +1314,7 @@ axs[1].yaxis.set_major_formatter(PercentFormatter(xmax=1))
 For more on histograms:
 - [`matplotlib` "Some features of the histogram (hist) function"](https://matplotlib.org/stable/gallery/statistics/histogram_features.html)
 - [`matplotlib`, "Histograms"](https://matplotlib.org/stable/gallery/statistics/hist.html#sphx-glr-gallery-statistics-hist-py)
-- [`matplotlib.pyplot.hist`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.hist.html)
+- [`matplotlib.pyplot.hist`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html)
 - [Jake VanderPlas, "Histograms, Binnings, and Density" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.05-histograms-and-binnings.html)
 
 ## Bar Charts
@@ -1639,7 +1616,7 @@ plt.show()
 
 For more on pie charts:
 - [`matplotlib`, Basic pie chart](https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_features.html)
-- [`matplotlib.pyplot.pie`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.pie.html)
+- [`matplotlib.pyplot.pie`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html)
 - [`matplotlib` Gallery, Pie and polar charts](https://matplotlib.org/stable/gallery/index.html#pie-and-polar-charts)
 
 ## Boxplots
@@ -1806,7 +1783,7 @@ For more on box plots:
 - [`matplotlib`, Boxplots](https://matplotlib.org/gallery/statistics/boxplot_demo.html#sphx-glr-gallery-statistics-boxplot-demo-py)
 - [`matplotlib`, Box plots with custom fill colors](https://matplotlib.org/stable/gallery/statistics/boxplot_color.html#sphx-glr-gallery-statistics-boxplot-color-py)
 - [`matplotlib` Gallery, Statistics](https://matplotlib.org/stable/gallery/index.html#statistics)
-- [`matplotlib.pyplot.boxplot`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.boxplot.html)
+- [`matplotlib.pyplot.boxplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.boxplot.html)
 
 ## Tables
 
@@ -1945,7 +1922,7 @@ plt.show()
 
 For more on tables in `matplotlib`:
 - [`matplotlib`, Table Demo](https://matplotlib.org/stable/gallery/misc/table_demo.html#sphx-glr-gallery-misc-table-demo-py)
-- [`matplotlib.pyplot.table`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.table.html)
+- [`matplotlib.pyplot.table`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.table.html)
 - Michael Demastrie, ["Simple Little Tables with Matplotlib"](https://towardsdatascience.com/simple-little-tables-with-matplotlib-9780ef5d0bc4) *Towards Data Science* (18 July 2020).
 
 ## Other Types of Plots
@@ -1972,7 +1949,7 @@ A good place to start is the [`matplotlib` Gallery](https://matplotlib.org/stabl
 3D plotting resources:
 - [Jake VanderPlas, "Three-Dimensional Plotting in Matplotlib" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.12-three-dimensional-plotting.html)
 - [`matplotlib`, 3D surface](https://matplotlib.org/stable/gallery/mplot3d/surface3d.html)
-- [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/tutorials/toolkits/mplot3d.html#toolkit-mplot3d-tutorial)
+- [`matplotlib`, "The mplot3d Toolkit"](https://matplotlib.org/stable/tutorials/toolkits/mplot3d.html)
 - [`matplotlib` gallery, "3D plotting"](https://matplotlib.org/stable/gallery/index.html#mplot3d-examples-index)
 
 ### Geospatial Data
@@ -2008,8 +1985,8 @@ A few of our examples used `matplotlib`'s annotation functionality. Annotation u
 For more on text and annotation:
 - [Jake VanderPlas, "Text and Annotation" from *Python Data Science Handbook*](https://jakevdp.github.io/PythonDataScienceHandbook/04.09-text-and-annotation.html)
 - [`matplotlib` gallery, "Text, labels and annotations"](https://matplotlib.org/stable/gallery/index.html#text-labels-and-annotations)
-- [`matplotlib` Annotations](https://matplotlib.org/3.3.3/tutorials/text/annotations.html)
-- [`matplotlib.pyplot.annotate`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.annotate.html)
+- [`matplotlib` Annotations](https://matplotlib.org/stable/tutorials/text/annotations.html)
+- [`matplotlib.pyplot.annotate`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.annotate.html)
 
 # Lab Notebook Question 4
 
@@ -2089,7 +2066,7 @@ plt.savefig('svg_sample.svg', transparent=True)
 ## Additional Resources
 
 For more on customization options when saving a figure as an image:
-- [`matplotlib.pyplot.savefig`](https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.savefig.html)
+- [`matplotlib.pyplot.savefig`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html)
 
 ## Lab Notebook Question 5
 
@@ -2139,8 +2116,8 @@ plt.show()
 No figure, no axis- what magic! Except...`pyplot` doesn't scale with multiple plots or plots  that require significant customization. The `pyplot` interface hs much less flexible than the `OO` interface. Plus, `matplotlib`'s own documentation recommends that you use the `OO` interface.
 
 For more on the differences between these two interfaces and how to translate sample code across interfaces:
-- [`matplotlib`, "Pyplot tutorial"](https://matplotlib.org/3.3.3/tutorials/introductory/pyplot.html)
-- [`matplotlib`, "The Lifecycle of a Plot"](https://matplotlib.org/3.3.3/tutorials/introductory/lifecycle.html)
+- [`matplotlib`, "Pyplot tutorial"](https://matplotlib.org/stable/tutorials/introductory/pyplot.html)
+- [`matplotlib`, "The Lifecycle of a Plot"](https://matplotlib.org/stable/tutorials/introductory/lifecycle.html)
 - Tejas Sanap, ["Pyplot vs Object Oriented Interface"](https://matplotlib.org/matplotblog/posts/pyplot-vs-object-oriented-interface/) *matplotblog* (27 May 2020)
 
 # What's Next
