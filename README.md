@@ -1199,7 +1199,7 @@ plt.colorbar(plot)
 plt.show()
 ```
 
-142. Another `plt.scatter()` example using data on flower petal and sepal size from `scikit-learn`.
+Another `plt.scatter()` example using data on flower petal and sepal size from `scikit-learn`.
 
 ```Python
 #import scikit-Learn
