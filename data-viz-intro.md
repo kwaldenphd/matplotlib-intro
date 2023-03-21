@@ -61,7 +61,7 @@ Image source: [Ferdio's DataVizProject](https://datavizproject.com/)
 
 Ferdio's DataVisProject also includes examples of a wide range of visualization types. You can explore the library by visualization type, data structure, function, and shape.
 
-<p align="center"><a href="https://github.com/kwaldenphd/data-viz-intro/blob/main/figures/PGG.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-viz-intro/blob/main/figures/PGG.png?raw=true" /></a></p>
+<p align="center"><a href="https://raw.githubusercontent.com/kwaldenphd/matplotlib-intro/main/figures/PGG.png?raw=true"><img class="aligncenter" src="https://raw.githubusercontent.com/kwaldenphd/matplotlib-intro/main/figures/PGG.png?raw=true" /></a></p>
 
 Image source: [Python Graph Gallery](https://www.python-graph-gallery.com/)
 
