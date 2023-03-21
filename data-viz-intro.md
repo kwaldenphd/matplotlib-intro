@@ -61,6 +61,13 @@ Image source: [Ferdio's DataVizProject](https://datavizproject.com/)
 
 Ferdio's DataVisProject also includes examples of a wide range of visualization types. You can explore the library by visualization type, data structure, function, and shape.
 
+<p align="center"><a href="https://github.com/kwaldenphd/data-viz-intro/blob/main/figures/PGG.png?raw=true"><img class="aligncenter" src="https://github.com/kwaldenphd/data-viz-intro/blob/main/figures/PGG.png?raw=true" /></a></p>
+
+Image source: [Python Graph Gallery](https://www.python-graph-gallery.com/)
+
+The [Python Graph Gallery](https://www.python-graph-gallery.com/) is also a useful resource.
+- "Charts are organized in about 40 sections and always come with their associated reproducible code. They are mostly made with Matplotlib and Seaborn but other library like Plotly are sometimes used"
+
 # Working With Visual Cues
 
 The wide range of customization or styling options when building a visualization can be overwhelming. We can think of these style elements as visual cues that can help a visualization achieve a desired communication or rhetorical goal.
